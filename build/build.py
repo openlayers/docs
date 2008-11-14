@@ -43,7 +43,9 @@ def doc_list(root_path = ".."):
 def index(root_path=".."):
     docs = doc_list(root_path)
     from mako.template import Template
-    t = Template(filename=os.path.join(root_path, "build", "templates/index.html"))
+    from mako.lookup import TemplateLookup
+    lookup=TemplateLookup(directories=[os.path.join(root_path, "build", "templates")])
+    t = lookup.get_template("index.html")
     return t.render(docs=docs)
 
 def run_file(in_path, out_path):
@@ -75,4 +77,8 @@ def _test():
     doctest.testmod()
 
 if __name__ == "__main__":
-    build_output(".")
+    root = "."
+    target = "output"
+    if sys.argv[1]:
+        target = sys.argv[1]
+    build_output(root, target)
