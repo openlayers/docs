@@ -2,6 +2,8 @@
 import os
 import sys
 
+import xml.dom.minidom as m
+
 from docutils.core import publish_file
 from docutils.io import FileInput, FileOutput
 from docutils.core import publish_parts
@@ -40,13 +42,26 @@ def doc_list(root_path = ".."):
             docs.append({'title': title, 'description': body, 'name': item, 'path':doc})
     return docs       
 
+def links_list(root_path=".."):
+    link_list = [] 
+    links = os.path.join(root_path, "links")
+    for item in filter(lambda x: x.endswith(".rst"), os.listdir(links)):
+        link = os.path.join(links, item)
+        data = publish_parts(open(link).read(), writer_name="html")
+        body = data['html_body']
+        desc = m.parseString(body).getElementsByTagName("p")[0].toxml()
+        url = open("%s.url" % link[:-4]).read().strip()
+        link_list.append({'description': desc, 'title': data['title'], 'url': url})
+    return link_list     
+
 def index(root_path=".."):
     docs = doc_list(root_path)
+    links = links_list(root_path)
     from mako.template import Template
     from mako.lookup import TemplateLookup
     lookup=TemplateLookup(directories=[os.path.join(root_path, "build", "templates")])
     t = lookup.get_template("index.html")
-    return t.render(docs=docs)
+    return t.render(docs=docs, links=links)
 
 def run_file(in_path, out_path):
     """

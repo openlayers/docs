@@ -9,6 +9,14 @@
       </li>
     % endfor
    </ul>
+   <h3>Links to Other Docs</h3>
+   <ul>
+    % for link in links:
+      <li><a href="${link['url']}">${link['title']}</a><br />
+      ${link['description']}
+      </li>
+    % endfor
+   </ul>
    <h3>Code Documentation</h3>
    <ul>
     <li><a href="http://dev.openlayers.org/apidocs/">API Docs</a><br />Documentation for the OpenLayers API.</li>
