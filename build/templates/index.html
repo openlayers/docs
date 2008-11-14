@@ -1,0 +1,18 @@
+<html>
+ <head>
+   <title>OpenLayers Documentation Index</title>
+ </head>
+ <body>
+   <h1>OpenLayers Documentation Index</h1>
+   <p>
+     Some OpenLayers Docs.
+   </p>
+   <ul>
+    % for doc in docs:
+      <li><a href="${doc['name']}/">${doc['title']}</a><br />
+      ${doc['description']}
+      </li>
+    % endfor
+   </ul>
+ </body>
+</html> 
