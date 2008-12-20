@@ -53,7 +53,9 @@ issuing the following commands::
 This would create a file in the build directory called "OpenLayers.js", which
 contains all the library code for your single file build of OpenLayers.
 
-On Windows,
+In Windows, from the Start Menu, select Run. Copy the path to build.py from the address bar of the Explorer Window into the text box and then add the name of the configuration file (or blank for the default):
+
+ C:\Downloads\OpenLayers-2.6\build\build.py lite
 
 Custom Build Profiles
 +++++++++++++++++++++
