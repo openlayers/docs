@@ -1,5 +1,5 @@
 OpenLayers Feature Overlays
-==========================
+===========================
 
 OpenLayers is a pure JavaScript library for displaying map data in most
 modern web browsers, with no server-side dependencies. OpenLayers implements a
