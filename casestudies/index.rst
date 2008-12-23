@@ -4,6 +4,7 @@
 
 .. include:: everyblock_about.inc
 
+.. _`NuMaps Case Study`: http://demos.numaps.com.au/numaps_case_study.html
 
 OpenLayers Case Studies
 =======================
@@ -13,6 +14,15 @@ Featured Case Studies
 
    :ref:`everyblock_study`
      |everyblock-intro|
+   
+   `NuMaps Case Study`_
+     NuMaps is an Australian based startup company that publishes Australian
+     Bureau Statistics (ABS) Census data as DemographicDrapes(TM) which are
+     simply semi-transparent thematic map overlays.  NuMaps initially
+     considered using the Google Maps API but preferred to use OpenLayers as it
+     supported access to any number of different base map suppliers and it
+     provided a robust interface to OGC published services. 
+
 
 All Case Studies
 ----------------
