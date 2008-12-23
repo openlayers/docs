@@ -1,15 +1,6 @@
 OpenLayers Feature Overlays
 ===========================
 
-OpenLayers is a pure JavaScript library for displaying map data in most
-modern web browsers, with no server-side dependencies. OpenLayers implements a
-`JavaScript API`_ for building rich web-based geographic applications, similar
-to the Google Maps and MSN Virtual Earth APIs, with one important difference --
-OpenLayers is Free Software, developed for and by the Open Source software
-community.
-
-.. _Javascript API: http://trac.openlayers.org/wiki/Documentation
-
 OpenLayers allows you to lay many different types of data on top of its various
 data sources. Currently, there are two main ways of displaying vector feature
 overlays in OpenLayers, each with benefits and drawbacks. This document seeks
@@ -31,6 +22,54 @@ There is more support for various styling options, and more configurability
 over layer behavior and interactions with remote servers.
 
 However, the Markers layer is maintained for backwards compatibility, because
-there are some things you can not do with vectors as they are current
+there are some things you can not do with vectors as they are currently
 implemented, and they provide a different type of interface for event
 registration. 
+
+Vector Overlays
+---------------
+
+Vector Layers form the core of Vector overlays. Vector overlays are powered
+by adding sets of OpenLayers.Feature.Vectors to the map. These can be a number
+of types of geometry:
+ 
+  * Point / MultiPoint
+  * Line / MultiLine
+  * Polygon / MultiPolygon
+
+They are styled using the OpenLayers.Style / OpenLayers.StyleMap properties.
+
+.. _`StyleMap Example`: http://openlayers.org/dev/examples/stylemap.html
+.. _`Context Example`: http://openlayers.org/dev/examples/styles-context.html
+.. _`Rotation Example`: http://openlayers.org/dev/examples/styles-rotation.html
+.. _`Unique Value Style Example`: http://openlayers.org/dev/examples/styles-unique.html
+
+Examples: 
+ 
+ * `StyleMap Example`_: 
+     Use "Rules" to determine style attributes based on feature properties.
+     This is useful for rendering based on data attributes like population. 
+
+ * `Context Example`_: 
+     Use a custom Javascript function to determine feature
+     style properties. This example shows how to use which quadrant of the
+     world a feature is in to determine its color. Similar rules can be
+     used to do computations on a feature property to generate a style value
+     (like size).
+
+ * `Rotation Example`_: 
+     Vector features support advanced styling, like feature rotation. This can
+     be used, for example, to display vehicle direction, wind direction, or
+     other direction-based attributes.
+
+ * `Unique Value Style Example`_: 
+     A common use case is to pick a specific style value based on a key/value
+     mapping of a feature. This example demonstrates how to do that.
+
+Marker Overlays
+---------------
+
+Markers support only point geometries. They are styled only using the
+OpenLayers.Icon class. They do not support anything other than point
+geometries.
+
