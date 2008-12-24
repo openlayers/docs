@@ -31,3 +31,4 @@ All Case Studies
    :maxdepth: 1
 
    everyblock
+   numaps
