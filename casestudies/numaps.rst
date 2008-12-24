@@ -1,5 +1,10 @@
 .. _`NuMaps`: http://www.numaps.com.au/
 
+.. _numaps_study:
+
+NuMaps
+======
+
 `NuMaps`_ is an Australian based startup company that publishes Australian
 Bureau Statistics (ABS) Census data as DemographicDrapes(TM) which are simply
 semi-transparent thematic map overlays. These are provided as WMS services for
@@ -7,6 +12,9 @@ those who have OGC enabled GIS products/spatial applications.  NuMaps initially
 considered using the Google Maps API but preferred to use OpenLayers as it
 supported access to any number of different base map suppliers and it provided
 a robust interface to OGC published services. 
+
+.. image:: _static/numaps_interface.jpg
+   :align: right
 
 One of the key components of the decision to use OpenLayers was the support for
 OGC enabled web services. OGC (Open Geospatial Consortium) compatibility was
@@ -33,6 +41,9 @@ allows subscribed Internet users to modify external DempographicDrape Filters
 applications, in addition to using the  many standard pre-configured
 DemographicDrapes already available.
 
+.. image:: _static/numaps_styler.jpg
+   :align: left 
+
 Beyond the DemographicDrapes provided to subscribers, certain
 DemographicDrapes are provided free of charge via an Openlayers online viewer
 application. The intended users of this service range between those interested
@@ -58,6 +69,6 @@ OpenLayers as time goes on.
 
 For more information contact:
 
-  `Brad Spencer`_
-  NuMaps
-  Australia
+|  `Brad Spencer`_
+|  NuMaps
+|  Australia

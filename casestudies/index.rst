@@ -15,7 +15,7 @@ Featured Case Studies
    :ref:`everyblock_study`
      |everyblock-intro|
    
-   `NuMaps Case Study`_
+   :ref:`numaps_study`
      NuMaps is an Australian based startup company that publishes Australian
      Bureau Statistics (ABS) Census data as DemographicDrapes(TM) which are
      simply semi-transparent thematic map overlays.  NuMaps initially
