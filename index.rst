@@ -18,7 +18,20 @@ OpenLayers Documentation
   
 .. _`API Docs`: http://dev.openlayers.org/apidocs/       
 .. _`Developer Docs`: http://dev.openlayers.org/docs/       
- 
+
+OpenLayers Examples
+-------------------
+
+.. _`OpenLayers Examples`: http://openlayers.org/dev/examples/       
+
+One of the guiding principles of OpenLayers development has been to maintain
+a set of small examples of most functionality, allowing the library to 
+demonstrate most of what it can do by example. This means that our examples
+are typically our most up to date source of documentation, and provide more
+than 100 different code snippets for use in your applications. 
+
+These examples are available from the `OpenLayers Examples`_ page.
+
 Code Documentation
 ------------------
 
