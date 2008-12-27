@@ -17,10 +17,7 @@ three sources:
   is unusual, but may occur when parsing remote data which embeds
   style information at the feature level, like some KML content.
 * A symbolizer hash attached to a layer as layer.style. 
-* A StyleMap object attached to the layer as layer.styleMap. 
-
-.. Theoretically, you should also be able to add a Style object as the .style
-   property, but see #1886 for why this doesn't currently work.   
+* A Style or StyleMap object attached to the layer as layer.styleMap. 
 
 A symbolizer hash is a simple JavaScript object, with key/value pairs 
 describing the values to be used. :: 
