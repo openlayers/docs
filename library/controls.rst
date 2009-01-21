@@ -11,10 +11,10 @@ Default Controls
 
 The following controls are default controls on the map:
  
- * ArgParser
- * Attribution
- * Navigation
- * PanZoom
+* ArgParser
+* Attribution
+* Navigation
+* PanZoom
 
 Panels
 ------
@@ -36,9 +36,9 @@ Controls to be used with Panels
 Panels can have controls of many 'types' inside of them. Each tool in a panel
 should have a 'type' attribute which is one of:
     
-  * OpenLayers.Control.TYPE_TOOL (the default)
-  * OpenLayers.Control.TYPE_BUTTON
-  * OpenLayers.Control.TYPE_TOGGLE
+* OpenLayers.Control.TYPE_TOOL (the default)
+* OpenLayers.Control.TYPE_BUTTON
+* OpenLayers.Control.TYPE_TOGGLE
 
 Map Controls
 ------------

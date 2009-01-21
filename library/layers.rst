@@ -82,8 +82,8 @@ WFS
 Generic Subclasses
 ------------------
 
- * EventPane
- * FixedZoomLevels
- * Grid
- * HTTPRequest
- * SphericalMercator
+* EventPane
+* FixedZoomLevels
+* Grid
+* HTTPRequest
+* SphericalMercator
