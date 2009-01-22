@@ -132,10 +132,45 @@ GML
 The GML layer is a vector layer subclass designed to read data from a file
 once and display it. It is ideal for working with many formats, not just GML,
 and can be configured to read other formats via the 'format' option on the 
-layer. 
+layer.
+
+The simplest use case of the GML layer is simply to load a GML file. The 
+`GML Layer Example`_ shows this: simply add:
+
+.. code-block:: javascript
+   
+   var layer = new OpenLayers.Layer.GML("GML", "gml/polygon.xml")
+   map.addLayer(layer);
+
+If you want to add a different type of format, you can change the format
+option of the layer at initialization. The `KML example`_ demonstrates this: 
+
+.. code-block:: javascript
+   
+   var layer = new OpenLayers.Layer.GML("KML", "kml/lines.kml", {
+      format: OpenLayers.Format.KML
+   })
+   map.addLayer(layer);
+
+You can also add formatOption to the layer: these options are used when
+creating the format class internally to the layer.
+
+.. code-block:: javascript
+   
+   var layer = new OpenLayers.Layer.GML("KML", "kml/lines.kml", {
+      format: OpenLayers.Format.KML,
+      formatOptions: {
+        'extractStyles': true
+      }
+   });
+   map.addLayer(layer);
+
+The format options are determined by the format class.
 
 For API information, see the `GML Layer API Docs`_.
 
+.. _`KML example`: http://openlayers.org/dev/examples/kml-layer.html
+.. _`GML Layer example`: http://openlayers.org/dev/examples/gml-layer.html
 .. _`GML Layer API Docs`: http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/GML-js.html
 
 GeoRSS
@@ -188,6 +223,12 @@ Vector
 The Vector Layer is the basis of the advanced geometry support in OpenLayers.
 Classes like GML and WFS subclass from the Vector layer. When creating features
 in JavaScript code, using the Vector layer directly is likely a good way to go.
+
+As of OpenLayers 2.7, development has begun on extending the Vector Layer to
+have additional capabilities for loading data, to replace the large number
+of layer subclasses. This work on Strategy and Protocol classes is designed
+to make it easier to interact with data from remote datasources. For more
+information on Protocols and Strategies, see the OpenLayers API documentation.
 
 For API information, see the `Vector Layer API Docs`_.
 
