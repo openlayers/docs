@@ -17,6 +17,7 @@ body {
 div.body {
     background-color: white;
     padding: 0 40px 50px 50px;
+    margin-right: 250px;
 }
 
 div.sphinxsidebarwrapper {
@@ -24,10 +25,11 @@ div.sphinxsidebarwrapper {
 }
 
 div.sphinxsidebar {
-    float: left;
+    float: right;
     width: 230px;
-    margin-left: -100%;
     font-size: 90%;
+    border: 3px solid #9d9fa1;
+
 }
 
 div.clearer {
@@ -84,11 +86,11 @@ div.sphinxsidebar h3 {
 }
 
 div.sphinxsidebar h3 a {
-    color: white;
+    color: black;
 }
 
 div.sphinxsidebar h4 {
-    color: white;
+    color: black;
     font-size: 1.3em;
     font-weight: normal;
     margin: 5px 0 0 0;
@@ -96,7 +98,7 @@ div.sphinxsidebar h4 {
 }
 
 div.sphinxsidebar p {
-    color: white;
+    color: black;
 }
 
 div.sphinxsidebar p.topless {
@@ -107,7 +109,7 @@ div.sphinxsidebar ul {
     margin: 10px;
     padding: 0;
     list-style: none;
-    color: white;
+    color: black;
 }
 
 div.sphinxsidebar ul ul,
@@ -122,7 +124,7 @@ div.sphinxsidebar ul ul {
 }
 
 div.sphinxsidebar a {
-    color: #98dbcc;
+    color: blue;
 }
 
 div.sphinxsidebar form {
