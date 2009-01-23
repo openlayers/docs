@@ -231,3 +231,89 @@ object to true.
 
 .. We could use an SLD section here, but I'm not in a mood to write it at the
    moment.
+
+Style Properties
+----------------
+
+The properties that you can use for styling are:
+
+* fillColor 
+    Default is ``#ee9900``. This is the color used for filling in Polygons. It
+    is also used in the center of marks for points: the interior color of
+    circles or other shapes. It is not used if an externalGraphic is applied
+    to a point.
+
+* fillOpacity: 
+    Default is ``0.4``. 
+    This is the opacity used for filling in Polygons. It
+    is also used in the center of marks for points: the interior color of
+    circles or other shapes. It is not used if an externalGraphic is applied
+    to a point.
+
+* strokeColor
+    Default is ``#ee9900``.
+    This is color of the line on features. On polygons and point marks, it is
+    used as an outline to the feature. On lines, this is the representation
+    of the feature.
+
+* strokeOpacity
+    Default is ``1``
+    This is opacity of the line on features. On polygons and point marks, it is
+    used as an outline to the feature. On lines, this is the representation
+    of the feature.
+
+* strokeWidth
+    Default is ``1``
+    This is width of the line on features. On polygons and point marks, it is
+    used as an outline to the feature. On lines, this is the representation
+    of the feature.
+
+* strokeLinecap
+    Default is ``round``. Options are ``butt``, ``round``, ``square``.
+    This property is similar to the `SVG stroke-linecap` property. It
+    determines what the end of lines should look like. See the SVG link 
+    for image examples.
+
+.. _`SVG stroke-linecap`: http://www.w3.org/TR/SVG11/painting.html#StrokeLinecapProperty
+ 
+* strokeDashstyle
+    Default is ``solid``. Options are:
+    
+    * ``dot``
+    * ``dash``
+    * ``dashdot``
+    * ``longdash``
+    * ``longdashdot``
+    * ``solid``
+     
+* pointRadius
+    Default is ``6``.
+    
+* pointerEvents: 
+    Default is ``visiblePainted``. Only used by the SVG Renderer. See `SVG pointer-events`_ definition for more.
+
+.. _`SVG pointer-events`: http://www.w3.org/TR/SVG11/interact.html#PointerEventsProperty
+
+* cursor
+    Cursor used when mouse is over the feature. Default is an empty string,
+    which inherits from parent elements.
+
+* externalGraphic
+    An external image to be used to represent a point.  
+
+* graphicWidth, graphicHeight
+    These properties define the height and width of an externalGraphic. This
+    is an alternative to the pointRadius symbolizer property to be used
+    when your graphic has different sizes in the X and Y direction.
+
+* graphicOpacity
+    Opacity of an external graphic.
+
+* graphicXOffset, graphicYOffset
+    Where the 'center' of an externalGraphic should be.
+
+* graphicName
+    Name of a type of symbol to be used for a point mark. 
+
+* display
+    Can be set to 'none' to hide features from rendering.
