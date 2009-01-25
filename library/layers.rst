@@ -4,15 +4,59 @@ Layers
 
 Layers are the 'datasources' in OpenLayers.
 
+BaseLayers and Overlays
+-----------------------
+
+OpenLayers has two types of layers when operating in your application: base
+layers and overlays. This difference controls several aspects of how you
+interact with an OpenLayers Map.
+
+Base Layers
++++++++++++
+
+Base Layers are mutually exclusive layers, meaning only one can be enabled
+at any given time. The currently active base layer determines the available
+projection (coordinate system) and zoom levels available on the map. 
+
+Whether a layer is a base layer or not is determined by the isBaseLayer 
+property on the layer. Most raster layers have the isBaseLayer property set
+to true by default. It can be changed in the layer options.
+
+Base Layers always display below overlay layers.
+
+Overlay Layers
+++++++++++++++
+
+Overlay layers are the alternative to Base Layers. Multiple overlays can
+be enabled at a time. Overlays do not control the zoom levels of the map,
+but can be enabled or disabled at certain scales by min/max scale/resolution
+parameters so that they are only enabled at a certain level.
+
+Some types of overlays support reprojection to the base layer projection at
+layer load time. 
+
+Most vector layers default to being overlays, as does the base Layer class.
+
+Overlay Layers always display above base layers.
+
 Raster Layers
 -------------
 
-Raster Layers are imagery layers.
+Raster Layers are imagery layers. These layers are typically in a fixed
+projection which can not be changed on the client side.
 
 Google
 ++++++
 
 Layer for using Google Maps data within OpenLayers. For API information, see the `Google Layer API Docs`_. For an example of usage, see the `Spherical Mercator example`_.
+
+If you are overlaying other data on a Google Maps base layer, you will want 
+to be interacting with the Google Maps layer in projected coordinates. (This
+is important if you are working with imagery data especially.) You can read
+more about the 'Spherical Mercator' projection that Google Maps -- and other
+commercial layers -- use in the Spherical Mercator documentation.
+
+The Google Layer class is designed to be used only as a base layer. 
 
 .. _`Google Layer API Docs`: http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/Google-js.html
 
@@ -84,7 +128,8 @@ For API information, see the `VirtualEarth Layer API Docs`_.
 WMS
 +++
 
-Layer type for accessing WMS data.  
+Layer type for accessing data served according to the Web Mapping Service
+standard.
 
 For API information, see the `WMS Layer API Docs`_.
 
