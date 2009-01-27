@@ -1,5 +1,5 @@
-OpenLayers Styles Framework
-===========================
+Feature Styling
+===============
 
 This OpenLayers Styles framework is the way to control the styling of features
 attached to vector layers in OpenLayers, such as points, lines, and polygons.
@@ -50,18 +50,31 @@ OpenLayers Style objects are descriptions of the way that features should be
 rendered. When a feature is added to a layer, the layer combines the style
 property with the feature to create a 'symbolizer' -- described above as a set
 of style properties that will be used when rendering the layer. (Internally,
-this is done via the `createSymbolizer` function.) In this way, the style can
-contain rendering information which is dependant on the feature: for example,
-in a Style object, the string ${thumbnail} is replaced by the feature's
-'thumbnail' attribute. 
+this is done via the `createSymbolizer` function.) 
 
-Simple OpenLayers Style objects are instantiated by passing a symbolizer hash
-to the constructor of the style. This Style can then be passed to a StyleMap constructor::
+Attribute Replacement Syntax
+++++++++++++++++++++++++++++
 
+The most common way of accessing attributes of the feature when creating a 
+style is through the attribute replacement syntax. By using style values 
+like ``${varname}`` in your style, OpenLayers can replace these strings with 
+attributes of your feature. For example, if you had a GeoJSON file where each
+feature had a ``thumbnail`` property describing an image to use, you might
+use something like::
+  
   var s = new OpenLayers.Style({ 
     'pointRadius': 10,
     'externalGraphic': '${thumbnail}'
   });
+
+In this way, the style can contain rendering information which is dependant on
+the feature.
+
+StyleMaps
++++++++++
+
+Simple OpenLayers Style objects are instantiated by passing a symbolizer hash
+to the constructor of the style. This Style can then be passed to a StyleMap constructor::
 
   new OpenLayers.StyleMap(s);
 
