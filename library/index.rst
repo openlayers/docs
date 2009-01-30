@@ -2,7 +2,7 @@ OpenLayers Library Documentation
 ================================
 
 .. toctree::
-   
+   introduction 
    layers
    controls
    feature_styling
