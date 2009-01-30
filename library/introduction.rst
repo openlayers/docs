@@ -2,15 +2,6 @@
 Getting Started with OpenLayers
 ===============================
 
-OpenLayers is a pure JavaScript library for displaying map data in most
-modern web browsers, with no server-side dependencies. OpenLayers implements a
-`JavaScript API`_ for building rich web-based geographic applications, similar
-to the Google Maps and MSN Virtual Earth APIs, with one important difference --
-OpenLayers is Free Software, developed for and by the Open Source software
-community.
-
-.. _Javascript API: http://trac.openlayers.org/wiki/Documentation
-
 Creating Your First Map
 -----------------------
 The OpenLayers API has two concepts which are important to understand in
