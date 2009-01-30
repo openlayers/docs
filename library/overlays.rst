@@ -1,3 +1,5 @@
+.. _overlays:
+
 Overlays
 ========
 
@@ -10,10 +12,10 @@ Overlay Basics
 --------------
 
 There are two different types of feature rendering in OpenLayers.  One type is
-the OpenLayers "Vector Layer" support, which uses vector drawing capabilities
-in the browser (SVG, VML, or Canvas) to display data. The other type is the
-OpenLayers "Marker Layer" support. This type of layer displays HTML image
-objects inside the DOM.
+the OpenLayers :ref:`vector-overlays` support, which uses vector drawing
+capabilities in the browser (SVG, VML, or Canvas) to display data. The other
+type is the OpenLayers :ref:`marker-overlays` support. This type of layer displays HTML
+image objects inside the DOM.
 
 In general, the Vector layer provides more capabilities, with the ability to
 draw lines, polygons, and more. The Vector-based Layers are better maintained,
@@ -146,6 +148,8 @@ Layer Types
 * :ref:`layer.georss`
 * :ref:`layer.text`
 * :ref:`layer.boxes` (Uses Special "Box" Marker)
+
+.. _transition-markers-to-vectors:
 
 Transitioning from Text Layer or GeoRSS Layer to Vectors
 --------------------------------------------------------

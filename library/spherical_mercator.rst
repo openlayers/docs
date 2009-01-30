@@ -1,3 +1,5 @@
+.. _spherical-mercator:
+
 ==================
 Spherical Mercator
 ==================

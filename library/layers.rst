@@ -4,8 +4,8 @@ Layers
 
 Layers are the 'datasources' in OpenLayers.
 
-BaseLayers and Overlays
------------------------
+Base Layers and Non-Base Layers
+-------------------------------
 
 OpenLayers has two types of layers when operating in your application: base
 layers and overlays. This difference controls several aspects of how you
@@ -24,20 +24,18 @@ to true by default. It can be changed in the layer options.
 
 Base Layers always display below overlay layers.
 
-Overlay Layers
-++++++++++++++
+Non Base Layers
++++++++++++++++
 
-Overlay layers are the alternative to Base Layers. Multiple overlays can
-be enabled at a time. Overlays do not control the zoom levels of the map,
-but can be enabled or disabled at certain scales by min/max scale/resolution
-parameters so that they are only enabled at a certain level.
+Non base layers -- sometimes called overlays -- are the alternative to Base
+Layers. Multiple non-base layer can be enabled at a time. These layers do not
+control the zoom levels of the map, but can be enabled or disabled at certain
+scales by min/max scale/resolution parameters so that they are only enabled at
+a certain level.
 
 Some types of overlays support reprojection to the base layer projection at
-layer load time. 
-
-Most vector layers default to being overlays, as does the base Layer class.
-
-Overlay Layers always display above base layers.
+layer load time.  Most overlay layers default to non-base overlays, as does the
+base Layer class.  Non-base Layers always display above base layers.
 
 Raster Layers
 -------------
@@ -56,7 +54,7 @@ If you are overlaying other data on a Google Maps base layer, you will want
 to be interacting with the Google Maps layer in projected coordinates. (This
 is important if you are working with imagery data especially.) You can read
 more about the 'Spherical Mercator' projection that Google Maps -- and other
-commercial layers -- use in the Spherical Mercator documentation.
+commercial layers -- use in the :ref:`spherical-mercator` documentation.
 
 The Google Layer class is designed to be used only as a base layer. 
 
@@ -176,12 +174,13 @@ For API information, see the `Yahoo Layer API Docs`_.
 .. _`Yahoo Layer API Docs`: http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/Yahoo-js.html
 
 
-Vector Layers
--------------
+Overlay Layers
+--------------
 
-Vector layers are any layers that have their source data in a format other than
-imagery. This includes subclasses of both OpenLayers.Layer.Markers and 
-OpenLayers.Layer.Vector layers.
+Overlay layers are any layers that have their source data in a format other
+than imagery. This includes subclasses of both :ref:`layer.markers` Layers and
+:ref:`layer.vector` Layers. For more information on the differences between
+these two base classes, see the :ref:`overlays` documentation.
 
 .. _layer.boxes:
 
@@ -254,7 +253,9 @@ The GeoRSS layer uses the GeoRSS format, and displays the results as clickable
 markers. It is a subclass of the Markers layer, and does not support lines
 or polygons. It has many hardcoded behaviors, and in general, you may be better
 off using a GML layer with a SelectFeature Control instead of the GeoRSS
-layer if you want configurability of your application behavior.
+layer if you want configurability of your application behavior. (For more
+information on how to make that transition, see
+:ref:`transition-markers-to-vectors`.)
 
 For API information, see the `GeoRSS Layer API Docs`_.
 
@@ -290,7 +291,9 @@ The Text layer uses the Text format, and displays the results as clickable
 markers. It is a subclass of the Markers layer, and does not support lines
 or polygons. It has many hardcoded behaviors, and in general, you may be better
 off using a GML layer with a SelectFeature Control instead of the Text
-layer if you want configurability of your application behavior.
+layer if you want configurability of your application behavior. (For more
+information on how to make that transition, see
+:ref:`transition-markers-to-vectors`.)
 
 For API information, see the `Text Layer API Docs`_.
 
