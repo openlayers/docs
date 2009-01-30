@@ -1,5 +1,5 @@
-Feature Overlays
-================
+Overlays
+========
 
 OpenLayers allows you to lay many different types of data on top of its various
 data sources. Currently, there are two main ways of displaying vector feature
@@ -25,6 +25,8 @@ However, the Markers layer is maintained for backwards compatibility, because
 there are some things you can not do with vectors as they are currently
 implemented, and they provide a different type of interface for event
 registration. 
+
+.. _vector-overlays:
 
 Vector Overlays
 ---------------
@@ -93,15 +95,22 @@ Once you have done this, you can add a select feature control to your map:
     map.addControl(control);
     control.activate();
 
-The activate call will move the vector layer to the forefront of the map, so that all
-events will occur on this layer.
+The activate call will move the vector layer to the forefront of the map, so
+that all events will occur on this layer.
 
+As of OpenLayers 2.7, there is no support for selecting features from more than
+a single vector layer at a time. The layer which is currently being used for
+selection is the last one on which the ``.activate()`` method of the attached
+select feature control was called.
 
-As of OpenLayers 2.7, there is no support for selecting features from more than a
-single vector layer at a time. The layer which is currently being used for selection
-is the last one on which the ``.activate()`` method of the attached select feature
-control was called.
+Layer Types 
+###########
+* :ref:`layer.vector` (Base Class)
+* :ref:`layer.gml` -- can load many different types of data. 
+* :ref:`layer.pointtrack`
+* :ref:`layer.wfs`
 
+.. _marker-overlays:
 
 Marker Overlays
 ---------------
@@ -117,8 +126,8 @@ of marker layers.
 Interaction
 ###########
 
-Interaction on marker layers is achieved by registering events on the individual 
-marker event property:
+Interaction on marker layers is achieved by registering events on the
+individual marker event property:
 
 .. code-block:: javascript
 
@@ -128,16 +137,24 @@ marker event property:
         alert(this.id);
     });
 
-Any number of events can be registered, and different events can be registered for
-each feature.
+Any number of events can be registered, and different events can be registered
+for each feature.
+
+Layer Types
+###########
+* :ref:`layer.markers` (Base Class)
+* :ref:`layer.georss`
+* :ref:`layer.text`
+* :ref:`layer.boxes` (Uses Special "Box" Marker)
 
 Transitioning from Text Layer or GeoRSS Layer to Vectors
 --------------------------------------------------------
 
-Many OpenLayers-applications make use of OpenLayers.Layer.Text which parses a
-TSV-file (tab separated values) and displays markers on the given coordinates.
-When clicking on one of the markers a popup opens and displays the content of
-the name and description column of that file.
+Many OpenLayers-applications make use of the :ref:`layer.text` Layer or
+:ref:`layer.georss` Layer, which each parse a file (tab separated values) and
+displays markers an the provided coordinates.  When clicking on one of the
+markers a popup opens and displays the content of the name and description
+from that location.
 
 This behavior is relatively easy to achieve using vector layers, and doing so
 allows for more configurability of the behavior when clicking on a feature.
@@ -147,11 +164,12 @@ go to a new URL, or change the behavior in other ways.
 Loading Data
 ############
 
-To mimic the loading behavior of a Text Layer or a GeoRSS Layer, there are two
-options:
+To mimic the loading behavior of a :ref:`layer.text` Layer or a
+:ref:`layer.georss` Layer, there are two options:
 
-* Use a GML Layer 
-* Use a Vector Layer, with a strategy and protocol.
+* Use a :ref:`layer.gml` Layer -- covered in this document.
+* Use a :ref:`layer.vector` Layer, with a strategy and protocol.
+
 
 In either case, the way for controlling the behavior of the feature selection
 is the same.
@@ -159,9 +177,9 @@ is the same.
 Loading data with a GML Layer 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-The GML Layer is a simple "Load data from a URL once" data layer. You provide
-it a URL, and a format to use, and it will load the data from the URL, and
-parse it according to the format.
+The :ref:`layer.gml` Layer is a simple "Load data from a URL once" data layer.
+You provide it a URL, and a format to use, and it will load the data from the
+URL, and parse it according to the format.
 
 .. code-block:: javascript
   
@@ -213,12 +231,14 @@ object, and instead create your styleMap like:
         'select': selectStyle
     });
 
+For more information on styling your features, see the :ref:`styling` or :ref:`stylemap` documentation. 
+
 Displaying Popups
 #################
 
-The Text Layer and the GeoRSS Layer open popups containing title and
-description text for the feature when clicked. Replicating this behavior in
-your application is easy.
+The :ref:`layer.text` Layer and the :ref:`layer.georss` Layer open popups
+containing title and description text for the feature when clicked. Replicating
+this behavior in your application is easy.
 
 First, define a set of functions for managing your popup. 
 

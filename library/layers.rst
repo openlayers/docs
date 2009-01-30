@@ -45,6 +45,8 @@ Raster Layers
 Raster Layers are imagery layers. These layers are typically in a fixed
 projection which can not be changed on the client side.
 
+.. _layer.google:
+
 Google
 ++++++
 
@@ -62,12 +64,16 @@ The Google Layer class is designed to be used only as a base layer.
 
 .. _`Spherical Mercator example`: http://openlayers.org/dev/examples/spherical-mercator.html
 
+.. _layer.image:
+
 Image
 +++++
 
 For API information, see the `Image Layer API Docs`_.
 
 .. _`Image Layer API Docs`: http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/Image-js.html
+
+.. _layer.kamap:
 
 KaMap
 +++++
@@ -76,12 +82,15 @@ For API information, see the `KaMap Layer API Docs`_.
 
 .. _`KaMap Layer API Docs`: http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/KaMap-js.html
 
+.. _layer.kamapcache:
+
 KaMapCache
 ++++++++++
 For API information, see the `KaMapCache Layer API Docs`_.
 
 .. _`KaMapCache Layer API Docs`: http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/KaMapCache-js.html
 
+.. _layer.mapguide:
 
 MapGuide
 ++++++++
@@ -89,13 +98,22 @@ For API information, see the `MapGuide Layer API Docs`_.
 
 .. _`MapGuide Layer API Docs`: http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/MapGuide-js.html
 
+.. _layer.mapserver:
 
 MapServer
 +++++++++
+
+In general, the :ref:`layer.wms` Layer is preferred over the MapServer Layer.
+Since MapServer exposes most of its CGI functionality in WMS mode as well,
+the WMS layer is preferred. The MapServer layer can often lead to maps which
+seem to work, but don't due to projection issues or other similar
+misconfigurations.
+
 For API information, see the `MapServer Layer API Docs`_.
 
 .. _`MapServer Layer API Docs`: http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/MapServer-js.html
 
+.. _layer.multimap:
 
 MultiMap
 ++++++++
@@ -103,6 +121,7 @@ For API information, see the `MultiMap Layer API Docs`_.
 
 .. _`MultiMap Layer API Docs`: http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/MultiMap-js.html
 
+.. _layer.tms:
 
 TMS
 +++
@@ -110,6 +129,7 @@ For API information, see the `TMS Layer API Docs`_.
 
 .. _`TMS Layer API Docs`: http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/TMS-js.html
 
+.. _layer.tilecache:
 
 TileCache
 +++++++++
@@ -117,6 +137,7 @@ For API information, see the `TileCache Layer API Docs`_.
 
 .. _`TileCache Layer API Docs`: http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/TileCache-js.html
 
+.. _layer.virtualearth:
 
 VirtualEarth
 ++++++++++++
@@ -124,6 +145,7 @@ For API information, see the `VirtualEarth Layer API Docs`_.
 
 .. _`VirtualEarth Layer API Docs`: http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/VirtualEarth-js.html
 
+.. _layer.wms:
 
 WMS
 +++
@@ -135,6 +157,7 @@ For API information, see the `WMS Layer API Docs`_.
 
 .. _`WMS Layer API Docs`: http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/WMS-js.html
 
+.. _layer.worldwind:
 
 WorldWind
 +++++++++
@@ -143,6 +166,7 @@ For API information, see the `WorldWind Layer API Docs`_.
 
 .. _`WorldWind Layer API Docs`: http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/WorldWind-js.html
 
+.. _layer.yahoo:
 
 Yahoo
 +++++
@@ -159,6 +183,8 @@ Vector layers are any layers that have their source data in a format other than
 imagery. This includes subclasses of both OpenLayers.Layer.Markers and 
 OpenLayers.Layer.Vector layers.
 
+.. _layer.boxes:
+
 Boxes
 +++++
 
@@ -170,6 +196,7 @@ For API information, see the `Boxes Layer API Docs`_.
 
 .. _`Boxes Layer API Docs`: http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/Boxes-js.html
 
+.. _layer.gml:
 
 GML
 +++
@@ -218,6 +245,8 @@ For API information, see the `GML Layer API Docs`_.
 .. _`GML Layer example`: http://openlayers.org/dev/examples/gml-layer.html
 .. _`GML Layer API Docs`: http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/GML-js.html
 
+.. _layer.georss:
+
 GeoRSS
 ++++++
 
@@ -231,6 +260,8 @@ For API information, see the `GeoRSS Layer API Docs`_.
 
 .. _`GeoRSS Layer API Docs`: http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/GeoRSS-js.html
 
+.. _layer.markers:
+
 Markers
 +++++++
 
@@ -241,6 +272,8 @@ For API information, see the `Markers Layer API Docs`_.
 
 .. _`Markers Layer API Docs`: http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/Markers-js.html
 
+.. _layer.pointtrack:
+
 PointTrack
 ++++++++++
 
@@ -248,6 +281,7 @@ For API information, see the `PointTrack Layer API Docs`_.
 
 .. _`PointTrack Layer API Docs`: http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/PointTrack-js.html
 
+.. _layer.text:
 
 Text
 ++++
@@ -261,6 +295,8 @@ layer if you want configurability of your application behavior.
 For API information, see the `Text Layer API Docs`_.
 
 .. _`Text Layer API Docs`: http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/Text-js.html
+
+.. _layer.vector:
 
 Vector
 ++++++
@@ -278,6 +314,8 @@ information on Protocols and Strategies, see the OpenLayers API documentation.
 For API information, see the `Vector Layer API Docs`_.
 
 .. _`Vector Layer API Docs`: http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/Vector-js.html
+
+.. _layer.wfs:
 
 WFS
 +++

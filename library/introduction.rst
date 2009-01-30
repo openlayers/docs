@@ -1,6 +1,6 @@
-===============================
-Getting Started with OpenLayers
-===============================
+===============
+Getting Started
+===============
 
 Creating Your First Map
 -----------------------

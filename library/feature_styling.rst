@@ -1,5 +1,7 @@
-Feature Styling
-===============
+.. _styling:
+
+Styling
+=======
 
 This OpenLayers Styles framework is the way to control the styling of features
 attached to vector layers in OpenLayers, such as points, lines, and polygons.
@@ -70,8 +72,10 @@ use something like::
 In this way, the style can contain rendering information which is dependant on
 the feature.
 
-StyleMaps
-+++++++++
+.. _stylemap:
+
+StyleMap
+++++++++
 
 Simple OpenLayers Style objects are instantiated by passing a symbolizer hash
 to the constructor of the style. This Style can then be passed to a StyleMap constructor::

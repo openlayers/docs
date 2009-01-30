@@ -1,5 +1,5 @@
-Deploying OpenLayers
-====================
+Deploying
+=========
 
 OpenLayers comes with pre-configured examples out of the box: simply download
 a release of OpenLayers, and you get a full set of easy to use examples.
