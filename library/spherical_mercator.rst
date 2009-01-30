@@ -2,18 +2,6 @@
 Spherical Mercator
 ==================
 
-.. contents::
-
-
-OpenLayers is a pure JavaScript library for displaying map data in most
-modern web browsers, with no server-side dependencies. OpenLayers implements a
-`JavaScript API`_ for building rich web-based geographic applications, similar
-to the Google Maps and MSN Virtual Earth APIs, with one important difference --
-OpenLayers is Free Software, developed for and by the Open Source software
-community.
-
-.. _Javascript API: http://trac.openlayers.org/wiki/Documentation
-
 .. include:: spherical_mercator_intro.inc 
 
 |spherical-mercator-intro| 
