@@ -83,11 +83,15 @@ Use of the attribution control is demonstrated in the `Attribution example`_.
 DragFeature
 +++++++++++
 
+.. _control.dragpan:
+
 DragPan
 +++++++
 
 DrawFeature
 +++++++++++
+
+.. _control.editingtoolbar:
 
 EditingToolbar
 ++++++++++++++
@@ -110,8 +114,25 @@ MousePosition
 NavToolbar
 ++++++++++
 
+.. _control.navigation:
+
 Navigation
 ++++++++++
+
+The replacement control for the former :ref:`control.mousedefaults` control. 
+This control is a combination of:
+
+* :ref:`control.dragpan`
+* :ref:`control.zoombox`
+* Handler.Click, for double click zooming
+* Handler.Wheel, for wheel zooming
+
+The most common request for the Navigation control is to disable wheel 
+zooming when using the control. To do this, ensure that no other navigation
+controls are added to your map -- for example, by an
+:ref:`control.editingtoolbar` -- and call disableWheelNavigation on the 
+Navigation control.
+
 
 NavigationHistory
 +++++++++++++++++
@@ -139,6 +160,8 @@ ScaleLine
 
 SelectFeature
 +++++++++++++
+
+.. _control.zoombox:
 
 ZoomBox
 +++++++
@@ -194,10 +217,12 @@ Gathers up buttons/tools to be used together.
 Deprecated Controls
 ------------------- 
 
+.. _control.mousedefaults:
+
 MouseDefaults
 +++++++++++++
 
-Replaced by the Navigation control.
+Replaced by the :ref:`control.navigation` control.
 
 MouseToolbar
 ++++++++++++
