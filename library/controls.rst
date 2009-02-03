@@ -11,7 +11,7 @@ Default Controls
 
 The following controls are default controls on the map:
  
-* ArgParser
+* :ref:`control.argparser`
 * Attribution
 * Navigation
 * PanZoom
@@ -43,10 +43,30 @@ should have a 'type' attribute which is one of:
 Map Controls
 ------------
 
+.. _control.argparser:
+
 ArgParser
 +++++++++
 
-Takes URL arguments, and updates the map. 
+Takes URL arguments, and updates the map.
+
+In order for the ArgParser control to work, you must check that 'getCenter()'
+returns null before centering your map for the first time. Most applications
+use a setCenter or zoomToMaxExtent call: this call should be avoided if the
+center is already set.
+
+.. code-block:: javascript
+
+    var map = new OpenLayers.Map('map');
+    var layer = new OpenLayers.Layer();
+    map.addLayer(layer);
+
+    // Ensure that center is not set
+    if (!map.getCenter()) {
+        map.setCenter(new OpenLayers.LonLat(-71, 42), 4);
+    }    
+
+The ArgParser control is enabled by default.
 
 Attribution
 +++++++++++
