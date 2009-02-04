@@ -68,17 +68,24 @@ center is already set.
 
 The ArgParser control is enabled by default.
 
+.. _control.attribution:
+
 Attribution
 +++++++++++
 
 The attribution control will display attribution properties set on any layers
 in the map in the lower right corner of the map, by default. The style and
 location of this control can be overridden by overriding the
-'olControlAttribution' CSS class.
+'olControlAttribution' CSS class. 
 
 Use of the attribution control is demonstrated in the `Attribution example`_.
+For API information, see the `Attribution API Docs`_.
 
 .. _`Attribution Example`: http://openlayers.org/dev/examples/attribution.html
+
+.. _`Attribution API Docs`: http://dev.openlayers.org/apidocs/files/OpenLayers/Control/Attribution-js.html
+
+.. _control.dragfeature:
 
 DragFeature
 +++++++++++
@@ -88,6 +95,10 @@ DragFeature
 DragPan
 +++++++
 
+The DragPan control implements map dragging interactions. 
+
+.. _control.drawfeature:
+
 DrawFeature
 +++++++++++
 
@@ -96,20 +107,34 @@ DrawFeature
 EditingToolbar
 ++++++++++++++
 
+.. _control.keyboarddefaults:
+
 KeyboardDefaults
 ++++++++++++++++
+
+.. _control.layerswitcher:
 
 LayerSwitcher
 +++++++++++++
 
+.. _control.measure:
+
 Measure
 +++++++
+
+A planar distance measuring tool.
+
+.. _control.modifyfeature:
 
 ModifyFeature
 +++++++++++++
 
+.. _control.mouseposition:
+
 MousePosition
 +++++++++++++
+
+.. _control.navtoolbar:
 
 NavToolbar
 ++++++++++
@@ -227,4 +252,4 @@ Replaced by the :ref:`control.navigation` control.
 MouseToolbar
 ++++++++++++
 
-Replaced by the NavToolbar control.
+Replaced by the :ref:`control.navtoolbar` control.
