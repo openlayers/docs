@@ -129,6 +129,60 @@ A planar distance measuring tool.
 ModifyFeature
 +++++++++++++
 
+The ModifyFeature control can be used to edit an existing vector object.
+
+This control causes three different types of events to fire on the layer:
+* beforefeaturemodified - triggered when a user selects the feature to begin editing. 
+* featuremodified - triggered when a user changes something about the feature.
+* afterfeaturemodified - triggered after the user unselects the feature.
+
+To register for one of these events, register on the layer:
+
+.. code-block:: javascript
+
+  var layer = new OpenLayers.Layer.Vector("");
+  layer.events.on({
+    'beforefeaturemodified': function(evt) {
+        console.log("Selected " + evt.feature.id  + " for modification");
+    },    
+    'afterfeaturemodified': function(evt) {
+        console.log("Finished with " + evt.feature.id);
+    }
+  });  
+
+There are several different modes that the ModifyFeature control can work in.
+These can be combined to work together.
+
+* RESHAPE -- The default. Allos changing the vertices of a feature by dragging existing vertices, creating new vertices by dragging 'virtual vertices', or deleting vertices by hovering over a vertice and pressing the delete key.
+* RESIZE -- Allows changing the size of a geometry.
+* ROTATE -- change the orientation of the geometry
+* DRAG -- change the position of the geometry.
+
+When creating the control, you can use a bitwise OR to combine these:
+
+.. code-block:: javascript
+
+  var modifyFeature = new OpenLayers.Control.ModifyFeature(layer, {
+    mode: OpenLayers.Control.ModifyFeature.RESIZE | OpenLayers.Control.ModifyFeature.DRAG
+  });  
+
+For an example of using the ModifyFeature control, see the `ModifyFeature
+example`_. For API information, see the `ModifyFeature API Documentation`_.
+
+The ModifyFeature control can only be used with a single layer at any given
+time. To modify multiple layers, use multiple ModifyFeature controls. 
+
+Deprecation Warning
+@@@@@@@@@@@@@@@@@@@
+
+As of OpenLayers 2.6, the onModificationStart, onModification and
+onModificationEnd functions on this control are no longer the recommended way
+to receive modification events. Instead, use the beforefeaturemodified,
+featuremodified, and afterfeaturemodified events to handle these cases.
+
+.. _`ModifyFeature API Documentation`: http://dev.openlayers.org/apidocs/files/OpenLayers/Control/ModifyFeature-js.html 
+.. _`ModifyFeature example`: http://openlayers.org/dev/examples/modify-feature.html
+
 .. _control.mouseposition:
 
 MousePosition
