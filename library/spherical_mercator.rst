@@ -74,7 +74,10 @@ base layer to the map.
   
   var map = new OpenLayers.Map('map');
   var layer = new OpenLayers.Layer.VirtualEarth("Virtual Earth",
-   { sphericalMercator: true });
+   { 
+       sphericalMercator: true,  
+       maxExtent: new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34) 
+   });
   map.addLayer(layer);
   map.zoomToMaxExtent();
 
@@ -84,21 +87,22 @@ longitude and latitude! Instead, they are in projected units -- meters, in this
 case. This map will let you drag around, but without understanding a bit more
 about spherical mercator, it will be difficult to do anything more with it. 
 
-This map has a set of assumptions about the extents and maxResolution of the 
-map. Specifically, most spherical mercator maps use an extent of the world
-from -180 to 180 longitude, and from -85.0511 to 85.0511 latitude. Because 
-the mercator projection stretches to infinity as you approach the poles, 
-a cutoff in the north-south direction is required, and this particular
-cutoff results in a perfect square of projected meters: coordinates stretch
-from -20037508.34 to 20037508.34 in each direction. 
+This map has a set of assumptions about the maxResolution of the map.
+Specifically, most spherical mercator maps use an extent of the world from -180
+to 180 longitude, and from -85.0511 to 85.0511 latitude. Because the mercator
+projection stretches to infinity as you approach the poles, a cutoff in the
+north-south direction is required, and this particular cutoff results in a
+perfect square of projected meters. As you can see from the maxExtent
+parameter sent in the constructor of the layer, the coordinates stretch from
+-20037508.34 to 20037508.34 in each direction. 
 
 The maxResolution of the map defaults to fitting this extent into 256 pixels,
-resulting in a maxResolution of 156543.0339.
+resulting in a maxResolution of 156543.0339. This is handled internally by
+the layer, and does not need to be set in the layer options.
 
-These defaults are hardcoded into the commercial layers. If you are using
-a standalone WMS or TMS layer with spherical mercator, you will need to 
-specify these properties as the maxResolution and maxExtent of your map
-or layer.
+If you are using a standalone WMS or TMS layer with spherical mercator, you
+will need to specify the maxResolution property of the layer, in addition
+to defining the maxExtent as demonstrated here. 
 
 Working with Projected Coordinates
 ----------------------------------
@@ -188,7 +192,9 @@ correctly, and ensure that your map projection is correct.
     projection: new OpenLayers.Projection("EPSG:900913")
   });
   var myBaseLayer = new OpenLayers.Layer.Google("Google", 
-                {'sphericalMercator': true});
+                {'sphericalMercator': true,
+                 'maxExtent': new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34) 
+                });
   map.addLayer(myBaseLayer);
   var myGML = new OpenLayers.Layer.GML("GML", "mygml.gml", { 
     projection: new OpenLayers.Projection("EPSG:4326")
@@ -311,7 +317,9 @@ in OpenLayers.
             // create Google Mercator layers
             var gmap = new OpenLayers.Layer.Google(
                 "Google Streets",
-                {'sphericalMercator': true}
+                {'sphericalMercator': true,
+                 'maxExtent': new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34) 
+                }
             );
             
             // create WMS layer
