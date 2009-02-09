@@ -219,8 +219,20 @@ NavigationHistory
 OverviewMap
 +++++++++++
 
+.. _control.panpanel:
+
 PanPanel
 ++++++++
+A set of visual buttons for controlling the location of the map. A subclass
+of Control.Panel, this is easily controlled by styling via CSS. The
+``.olControlPanPanel`` class, and its internal divs, control the styling of  
+the PanPanel. If you wish to customize the look and feel of the controls
+in the upper left corner of the map, this control is the one for you.
+
+This control is designed to work with the :ref:`control.zoompanel` control
+to replicate the functionality of the :ref:`control.panzoom` control.
+
+.. _control.panzoom:
 
 PanZoom
 +++++++
@@ -245,8 +257,19 @@ SelectFeature
 ZoomBox
 +++++++
 
+.. _control.zoompanel:
+
 ZoomPanel
 +++++++++
+
+A set of visual buttons for controlling the zoom of the map. A subclass
+of Control.Panel, this is easily controlled by styling via CSS. The
+``.olControlZoomPanel`` class, and its internal divs, control the styling of  
+the PanPanel. If you wish to customize the look and feel of the controls
+in the upper left corner of the map, this control is the one for you.
+
+This control is designed to work with the :ref:`control.panpanel` control
+to replicate the functionality of the :ref:`control.panzoom` control.
 
 Button Classes
 --------------
