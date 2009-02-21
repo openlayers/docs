@@ -6,6 +6,7 @@ OpenLayers Library Documentation
    introduction 
    layers
    controls
+   formats
    overlays
    feature_styling
    deploying 
