@@ -22,13 +22,67 @@ Panels
 Control panels allow collections of multiple controls together, as is common
 in many applications. 
 
+.. _styling_panels:
+
 Styling Panels
 ++++++++++++++
 
 Panels are styled by CSS. The "ItemActive" and "ItemInactive" are added to the 
 control's displayClass.
 
-.. add more
+All controls have an overridable 'displayClass' property which maps to
+their base CSS class name. This name is calculated by changing the 
+class name by removing all '.' characters, and changing "OpenLayers" to 
+"ol". So, OpenLayers.Control.ZoomBox changes to olControlZoomBox. 
+
+Panel items are styled by combining the style of the Panel with the style
+of a control inside of it. Using the NavToolbar Panel as an example:
+
+.. code-block::
+
+    .olControlNavToolbar div {
+      display:block;
+      width:  28px;
+      height: 28px;
+      top: 300px;
+      left: 6px;
+      position: relative;
+    }
+    .olControlNavToolbar .olControlNavigationItemActive {
+      background-image: url("img/panning-hand-on.png");
+      background-repeat: no-repeat;
+    }
+    .olControlNavToolbar .olControlNavigationItemInactive {
+      background-image: url("img/panning-hand-off.png");
+      background-repeat: no-repeat;
+    }
+
+Here, we say:
+
+* Div elements displayed inside the toolbar are 28px wide and 28px high. 
+  The top of the div should be at 300px, the left side should be at 6px.
+* Then, for the control, we provide two background images: one for active
+  and one for inactive. 
+
+For toolbars to go left to right, you can also control them with CSS:
+
+.. code-block::
+    
+    .olControlEditingToolbar div {
+        float:right;
+        right: 0px;
+        height: 30px;
+        width: 200px;
+    }
+
+Simply set the 'float: right' parameter, and give the parent element some 
+
+In order to improve the user experience, existing panels like the
+:ref:`control.editingtoolbar` use a single background image, and control the 
+icon to display via 'top' and 'left' parameters, offsetting and clipping 
+the background image. This is not required, but doing this makes it so that
+when you select a tool, you don't have to wait for the 'inactive' image
+to display before continuing.
 
 Controls to be used with Panels
 +++++++++++++++++++++++++++++++
@@ -39,6 +93,46 @@ should have a 'type' attribute which is one of:
 * OpenLayers.Control.TYPE_TOOL (the default)
 * OpenLayers.Control.TYPE_BUTTON
 * OpenLayers.Control.TYPE_TOGGLE
+
+.. _customizing_panels:
+
+Customizing an Existing Panel
++++++++++++++++++++++++++++++
+
+Several existing panels -- like the :ref:`control.editingtoolbar` or
+:ref:`control.panpanel` -- have multiple controls combined, but it is not
+always desirable to use all those controls. However, it is relatively simple to
+createa control which mimics the behavior of these controls. For example, if
+you wish to create an editing toolbar control that only has the ability to draw
+lines, you could do so with the following code:
+
+.. code-block:: javascript
+   
+   var layer = new OpenLayers.Layer.Vector();
+   var panelControls = [
+    new OpenLayers.Control.Navigation(),
+    new OpenLayers.Control.DrawFeature(layer, 
+        OpenLayers.Handler.Path, 
+        {'displayClass': 'olControlDrawFeaturePath'})
+   ];     
+   var toolbar = new OpenLayers.Control.Panel({
+      displayClass: 'olControlEditingToolbar',
+      defaultControl: panelControls[0]
+   });
+   toolbar.addControls(panelControls);
+   map.addControl(toolbar);
+
+There are two things to note here:
+
+* We are reusing the style of the EditingToolbar by taking its 'displayClass'
+  property. This means we will pick up the default icons and so on of the
+  CSS for that toolbar. (For more details, see :ref:`styling_panels`.)
+* We set the default control to be the Navigation control, but we could just
+  as easily change that.
+
+In this way, you can use any control which works in a panel -- including,
+for example, the SelectFeature control, the ZoomToMaxExtent control, and 
+more, simply by changing the controls which are in the list.
 
 Map Controls
 ------------
@@ -106,6 +200,10 @@ DrawFeature
 
 EditingToolbar
 ++++++++++++++
+
+Display a :ref:`control.navigation` control, along with three editing tools:
+Point, Path, and Polygon. If this does not fit your needs, see
+:ref:`customizing_panels` above.
 
 .. _control.keyboarddefaults:
 
