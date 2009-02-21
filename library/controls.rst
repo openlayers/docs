@@ -38,8 +38,8 @@ class name by removing all '.' characters, and changing "OpenLayers" to
 Panel items are styled by combining the style of the Panel with the style
 of a control inside of it. Using the NavToolbar Panel as an example:
 
-.. code-block::
-
+.. code-block:: css
+    
     .olControlNavToolbar div {
       display:block;
       width:  28px;
@@ -66,7 +66,7 @@ Here, we say:
 
 For toolbars to go left to right, you can also control them with CSS:
 
-.. code-block::
+.. code-block:: css
     
     .olControlEditingToolbar div {
         float:right;
