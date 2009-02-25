@@ -10,7 +10,7 @@ product `flexmls Web`_.  FBS uses OpenLayers to add value to their web-based
 product by delivering highly-interactive maps that also provide a rich amount
 of data.
 
-.. image:: _static/fbs2.png
+.. image:: _static/fbs1.png
   :align: right
 
 When FBS decided to reinvent their mapping platform, all options were on the
