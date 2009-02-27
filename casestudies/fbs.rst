@@ -1,5 +1,5 @@
-FBS Data Systems
-----------------
+FBS
+---
 
 .. _`FBS`: http://www.mlslistingonlinesoftware.com/
 .. _`flexmls Web`: http://www.flexmls.com/
