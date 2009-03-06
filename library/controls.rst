@@ -350,6 +350,15 @@ ScaleLine
 SelectFeature
 +++++++++++++
 
+.. _control.snapping:
+
+Snapping
+++++++++
+
+Provides an agent to control snapping vertices of features from one layer to nodes, vertices, and edges of features from any number of layers. The control operates as a toggle - acting as a snapping agent while active and not altering behavior of editing while not active. The control can be configured to allow node, vertex, and or edge snapping to any number of layers (given vector layers with features loaded client side). The tolerance, snapping type, and an optional filter can be configured for each target layer.
+
+Find more detail on the :ref:`control.snapping-detail` page.
+
 .. _control.zoombox:
 
 ZoomBox
