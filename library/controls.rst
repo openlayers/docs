@@ -359,6 +359,16 @@ Provides an agent to control snapping vertices of features from one layer to nod
 
 Find more detail on the :ref:`control.snapping-detail` page.
 
+.. _control.split:
+
+Split
++++++
+
+Provides an agent for splitting linear features on a vector layer given edits to linear features on any other vector layer or a temporary sketch layer.  The control operates in two modes.  By default, the control allows for temporary features to be drawn on a sketch layer (managed by the control) that will be used to split eligible features on the target layer.  In auto-split mode, the control listens for edits (new features or modifications to existing features) on an editable layer and splits eligible features on a target layer.
+
+The control can be added to a map as with other controls.  It has no distinct visual representation but can be connected to a button or other tool to toggle activation with a click.  In addition, no GUI elements are provided for control configuration.  Collecting user input to configure behavior of the control is an application specific task.
+
+
 .. _control.zoombox:
 
 ZoomBox
