@@ -368,6 +368,7 @@ Provides an agent for splitting linear features on a vector layer given edits to
 
 The control can be added to a map as with other controls.  It has no distinct visual representation but can be connected to a button or other tool to toggle activation with a click.  In addition, no GUI elements are provided for control configuration.  Collecting user input to configure behavior of the control is an application specific task.
 
+Find more detail on the :ref:`control.split-detail` page.
 
 .. _control.zoombox:
 
