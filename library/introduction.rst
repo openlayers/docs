@@ -23,7 +23,7 @@ In addition to a single block level element, it is also required to
 include a script tag which includes the OpenLayers library to the
 page. 
 
-.. code-block:: javascript
+.. code-block:: html
   
   <html>
   <head>
@@ -79,7 +79,7 @@ Putting it All Together
 The following code block puts all the pieces together to create an 
 OpenLayers viewer.
 
-.. code-block:: javascript
+.. code-block:: html
 
   <html>
   <head>
@@ -135,7 +135,7 @@ Using the transparent: 'true' parameter sets two flags automatically:
 
 Putting this code together with our earlier example, we get the following:
 
-.. code-block:: javascript
+.. code-block:: html
 
   <html>
   <head>
