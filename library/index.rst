@@ -3,7 +3,8 @@ OpenLayers Library Documentation
 
 .. toctree::
    
-   introduction 
+   introduction
+   syntax
    layers
    controls
    formats
