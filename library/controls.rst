@@ -448,3 +448,11 @@ MouseToolbar
 ++++++++++++
 
 Replaced by the :ref:`control.navtoolbar` control.
+   
+More documentation 
+------------------
+
+.. toctree::
+
+   controls/snapping
+   controls/split
