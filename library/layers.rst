@@ -101,11 +101,22 @@ For API information, see the `MapGuide Layer API Docs`_.
 MapServer
 +++++++++
 
-In general, the :ref:`layer.wms` Layer is preferred over the MapServer Layer.
-Since MapServer exposes most of its CGI functionality in WMS mode as well,
-the WMS layer is preferred. The MapServer layer can often lead to maps which
-seem to work, but don't due to projection issues or other similar
-misconfigurations.
+This layer is not required to interact with MapServer. In general, the
+:ref:`layer.wms` Layer is preferred over the MapServer Layer.  Since MapServer
+exposes most of its CGI functionality in WMS mode as well, the WMS layer is
+preferred. The MapServer layer can often lead to maps which seem to work, but
+don't due to projection issues or other similar misconfigurations. Unless
+you have a strong reason not to, you should use the Layer.WMS instead 
+of a Layer.MapServer.
+
+.. _`FAQ on setting different projection properties`: http://faq.openlayers.org/map/how-do-i-set-a-different-projection-on-my-map/
+
+If you are using a Layer.MapServer, and your map is being repeated several
+times, this indicates that you have not properly configured your map to be in a
+different projection. OpenLayers can not read this information from your
+mapfile, and it must be configured explicitly. The `FAQ on setting different
+projection properties`_ provides information on how to configure different
+projections in OpenLayers. 
 
 For API information, see the `MapServer Layer API Docs`_.
 
