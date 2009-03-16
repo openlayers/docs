@@ -39,23 +39,23 @@ which takes in a string, and returns an array of features.
 
 .. code-block:: javascript
 
-var MyFormatClass = OpenLayers.Class(OpenLayers.Format, {
-    read: function(data) {
-        // We're going to read XML
-        if(typeof data == "string") {
-            data = OpenLayers.Format.XML.prototype.read.apply(this, [data]);
-        }
-        var elems = data.getElementByTagName("line");
-        var features = [];
-        var wkt = new OpenLayers.Format.WKT();
-        for (var i = 0; i < elems.length; i++) {
-            var node = elems[i];
-            var wktString = this.concatChildValues(node);
-            features.push(wkt.read(wktString));
-        }
-        return features;
-    }
-});    
+  var MyFormatClass = OpenLayers.Class(OpenLayers.Format.XML, {
+      read: function(data) {
+          // We're going to read XML
+          if(typeof data == "string") {
+              data = OpenLayers.Format.XML.prototype.read.apply(this, [data]);
+          }
+          var elems = data.getElementByTagName("line");
+          var features = [];
+          var wkt = new OpenLayers.Format.WKT();
+          for (var i = 0; i < elems.length; i++) {
+              var node = elems[i];
+              var wktString = this.concatChildValues(node);
+              features.push(wkt.read(wktString));
+          }
+          return features;
+      }
+  });    
 
 This will read an XML document that has a series of 'line' XML elements with
 WKT embedded in each of them. It can be used with a "'format: MyFormatClass'
