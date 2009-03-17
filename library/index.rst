@@ -10,5 +10,6 @@ OpenLayers Library Documentation
    formats
    overlays
    feature_styling
-   deploying 
+   deploying
+   request
    spherical_mercator
