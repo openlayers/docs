@@ -341,6 +341,22 @@ PanZoomBar
 Permalink
 +++++++++
 
+The Permalink control, together with the ArgParser control, are designed to 
+make it easy to link to an existing map view. By adding the permalink control 
+to your map, you will make available a piece of text in the map that acts as
+a link for your users.
+
+In order for the permalink to work, you must ensure that you check whether the
+center has already been set by the ArgParser control before you set the center
+of your map. To do this, simply check map.getCenter() first:
+
+.. code-block:: javascript
+
+  if (!map.getCenter()) {
+    map.setCenter(new OpenLayers.LonLat(0,0),0);
+  }
+  
+
 Scale
 +++++
 
