@@ -5,5 +5,6 @@ Table of Contents
    :maxdepth: 2
    
    library/index
+   help/index
    casestudies/index
    links/index
