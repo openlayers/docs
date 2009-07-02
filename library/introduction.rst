@@ -59,6 +59,7 @@ an example provided by MetaCarta.
 .. code-block:: javascript
 
   var wms = new OpenLayers.Layer.WMS(
+    "OpenLayers WMS",
     "http://labs.metacarta.com/wms/vmap0", 
     {'layers':'basic'} );
   map.addLayer(wms);
