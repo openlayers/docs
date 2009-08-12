@@ -167,3 +167,24 @@ One thing to note here is that we have used addLayers on the map object
 to add both layers at the same time. This allows us to save a line of
 code in this case, and may be useful in other cases when you need to 
 add multiple layers to the map at the same time.
+
+Adding a Vector Marker to the Map
+---------------------------------
+
+To add a single marker at a latitude and longitude to the map, you can use
+a Vector Layer to add an overlay.
+
+.. code-block:: html  
+   
+   var vectorLayer = new OpenLayers.Layer.Vector("Overlay");
+   var feature = new OpenLayers.Feature.Vector(
+    new OpenLayers.Geometry.Point(-71, 42),
+    {some:'data'},
+    {externalGraphic: 'img/marker.png', graphicHeight: 21, graphicWidth: 16});
+   vectorLayer.addFeatures(feature);
+   map.addLayer(vectorLayer);
+
+This is a simple demonstration -- more information is available on overlays,
+how to interact with them, and how to control and style them via the
+:ref:`styling` and :ref:`overlays` documentation.
+
