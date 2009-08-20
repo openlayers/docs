@@ -22,9 +22,9 @@ The ``options`` Argument
 
 Most OpenLayers object constructors take an ``options`` object as one of their arguments.  In general, you can set the value of any API property in a contructor's options argument.
 
-For example, looking at the `docs <vector-api-docs>`_ for the Vector layer, you can see the ``isBaseLayer`` property.  If you specify a value for ``isBaseLayer`` in the options argument, this will be set on the layer.
+For example, looking at the `API Docs for the Vector layer`_, you can see the ``isBaseLayer`` property.  If you specify a value for ``isBaseLayer`` in the options argument, this will be set on the layer.
 
-.. _`vector-api-docs`: http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/Vector-js.html
+.. _`API Docs for the Vector layer`: http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/Vector-js.html
 
 For example:
 
