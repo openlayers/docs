@@ -135,7 +135,7 @@ individual marker event property:
 
     var marker = new OpenLayers.Marker(lonlat);
     marker.id = "1";
-    marker.events.register("onmousedown", marker, function() { 
+    marker.events.register("mousedown", marker, function() { 
         alert(this.id);
     });
 
