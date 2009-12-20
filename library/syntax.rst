@@ -17,6 +17,10 @@ The code above creates a new ``map`` object with all the properties of the ``Ope
 
 .. _`API Documentation`: http://dev.openlayers.org/apidocs
 
+In general, all parameters to a constructor are required, except for the
+options parameter. When this is not the case, the API documentation for the 
+constructor will usually say so.
+
 The ``options`` Argument
 ------------------------
 
