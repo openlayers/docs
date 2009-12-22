@@ -1,4 +1,5 @@
 .. _Javascript API: http://trac.openlayers.org/wiki/Documentation
+
 What is OpenLayers?
 ===================
 
