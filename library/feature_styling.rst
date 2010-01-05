@@ -329,6 +329,9 @@ The properties that you can use for styling are:
 * graphicXOffset, graphicYOffset
     Where the 'center' of an externalGraphic should be.
 
+* rotation
+    The rotation angle in degrees clockwise for a point symbolizer.
+
 * graphicName
     Name of a type of symbol to be used for a point mark. 
 
