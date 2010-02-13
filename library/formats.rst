@@ -7,6 +7,10 @@ internal objects. Most (but not all) formats are centered around reading data
 from an XML DOM or a string and converting them to OpenLayers.Feature.Vector
 objects.
 
+Formats are a way of transforming data from a server to objects that 
+OpenLayers can interact with.
+
+
 Built In Formats
 ++++++++++++++++
 
