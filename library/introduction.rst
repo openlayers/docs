@@ -66,8 +66,10 @@ an example provided by MetaCarta.
 
 **Ex. 3:** Layer Constructor
 
-The first parameter in this constructor is the URL of the WMS server.
-The second argument is an object containing the parameterss to be 
+The first parameter in this constructor is the name of the layer,
+which is used for some display purposes. The second 
+argument is the URL of the WMS server.
+The third argument is an object containing the parameterss to be 
 appended to the WMS request.
 
 Finally, in order to display the map, you must set a center and zoom
