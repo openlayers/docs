@@ -397,3 +397,40 @@ maxResolution that are used with Google Maps:
 
 As describe above, when using this layer, you will interact with the map in
 projected coordinates.
+
+SphericalMercator and EPSG aliases
+++++++++++++++++++++++++++++++++++
+
+The SphericalMercator projection in OpenLayers uses code EPSG:900913. Many
+other services, such as OpenStreetMap, Bing and Yahoo are now also using the
+same projection, but are not necessarily supporting the use of code
+EPSG:900913. Other codes, such as EPSG:3857 and EPSG:102113 were invented.
+Today, there is an officially registered EPSG code 3857 whose projection is
+identical to EPSG:900913.
+(http://www.epsg-registry.org/export.htm?gml=urn:ogc:def:crs:EPSG::3857). So,
+if you need to combine overlay layers that are using either an alias or the
+official EPSG code with an OpenLayers SphericalMercator layer, you have to make
+sure that OpenLayers requests EPSG:3857 or other alias in stead of EPSG:900913.
+You can accomplish this by overriding the layer projection before adding the
+layer to the map. For example:
+
+.. code-block:: javascript
+  
+  // set transformation functions from/to alias projection
+  OpenLayers.Projection.addTransform("EPSG:4326", "EPSG:3857", OpenLayers.Layer.SphericalMercator.projectForward);
+  OpenLayers.Projection.addTransform("EPSG:3857", "EPSG:4326", OpenLayers.Layer.SphericalMercator.projectInverse);
+
+  // create sphericalmercator layers
+  var googleLayer = new OpenLayers.Layer.Google("Google", {"sphericalMercator": true});
+  var osmLayer = new OpenLayers.Layer.OSM("OpenStreetMap");
+
+  // override default epsg code
+  aliasproj = new OpenLayers.Projection("EPSG:3857");
+  googleLayer.projection = osmLayer.projection = aliasproj;
+
+
+  //add baselayers to map
+  map.addLayers([googleLayer, osmLayer]);
+
+At this point, overlays (such as WMS layers) will be requested using the
+3857 code; transformations will work between 4326 and 3857 as expected.
