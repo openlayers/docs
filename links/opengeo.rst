@@ -1,4 +1,4 @@
-.. _`Introduction to OpenLayers Workshop`: http://workshops.opengeo.org/openlayers/intro/doc/
+.. _`Introduction to OpenLayers Workshop`: http://workshops.opengeo.org/openlayers-intro/
 
 `Introduction to OpenLayers Workshop`_
 ++++++++++++++++++++++++++++++++++++++
