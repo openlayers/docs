@@ -276,7 +276,8 @@ First, define a set of functions for managing your popup.
 
 Next, we define two event handlers on the layer to call these functions
 appropriately. We use the layer definition from above, and assume that the
-layer has been added to the map.
+layer has been added to the map. We also add a select feature control, to
+actually trigger the events:
 
 .. code-block:: javascript
 
@@ -284,7 +285,9 @@ layer has been added to the map.
         'featureselected': onFeatureSelect,
         'featureunselected': onFeatureUnselect
     });
-    
+    selectControl = new OpenLayers.Control.SelectFeature(layer);
+
+
 Combining these two sections of code will cause the map to open a popup
 any time the feature is selected, and close the popup when the feature is
 unselected or the close button is pressed.
