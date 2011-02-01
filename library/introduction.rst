@@ -115,12 +115,18 @@ WMS to demonstrate overlaying a transparent WMS.
 
 .. code-block:: javascript
 
-    var twms = new OpenLayers.Layer.WMS( "World Map", 
-        "http://world.freemap.in/cgi-bin/mapserv?", 
-        { map: '/www/freemap.in/world/map/factbooktrans.map', 
-          transparent: 'true', layers: 'factbook'} 
-        );
-    map.addLayer(twms);
+    var dm_wms = new OpenLayers.Layer.WMS(
+        "Canadian Data",
+        "http://www2.dmsolutions.ca/cgi-bin/mswms_gmap",
+        {
+            layers: "bathymetry,land_fn,park,drain_fn,drainage," +
+                    "prov_bound,fedlimit,rail,road,popplace",
+            transparent: "true",
+            format: "image/png"
+        },
+        {isBaseLayer: false}
+    );
+    map.addLayer(dm_wms);
 
 **Ex. 5:** How to add a transparent WMS overlay to your map.
 
@@ -151,12 +157,18 @@ Putting this code together with our earlier example, we get the following:
           var map = new OpenLayers.Map('map');
           var wms = new OpenLayers.Layer.WMS( "OpenLayers WMS", 
               "http://vmap0.tiles.osgeo.org/wms/vmap0", {layers: 'basic'} );
-          var twms = new OpenLayers.Layer.WMS( "World Map", 
-              "http://world.freemap.in/cgi-bin/mapserv?", 
-              { map: '/www/freemap.in/world/map/factbooktrans.map', 
-                transparent: 'true', layers: 'factbook'} 
-              );
-          map.addLayers([wms, twms]);
+          var dm_wms = new OpenLayers.Layer.WMS(
+              "Canadian Data",
+              "http://www2.dmsolutions.ca/cgi-bin/mswms_gmap",
+              {
+                  layers: "bathymetry,land_fn,park,drain_fn,drainage," +
+                          "prov_bound,fedlimit,rail,road,popplace",
+                  transparent: "true",
+                  format: "image/png"
+              },
+              {isBaseLayer: false}
+          );
+          map.addLayers([wms, dm_wms]);
           map.zoomToMaxExtent();
         </script>
   
