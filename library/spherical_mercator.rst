@@ -325,7 +325,7 @@ in OpenLayers.
             // create WMS layer
             var wms = new OpenLayers.Layer.WMS(
                 "World Map",
-                "http://labs.metacarta.com/wms/vmap0",
+                "http://vmap0.tiles.osgeo.org/wms/vmap0",
                 {'layers': 'basic', 'transparent': true}
             );
             

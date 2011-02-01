@@ -94,7 +94,7 @@ OpenLayers viewer.
         <script defer="defer" type="text/javascript">
           var map = new OpenLayers.Map('map');
           var wms = new OpenLayers.Layer.WMS( "OpenLayers WMS", 
-              "http://labs.metacarta.com/wms/vmap0", {layers: 'basic'} );
+              "http://vmap0.tiles.osgeo.org/wms/vmap0", {layers: 'basic'} );
           map.addLayer(wms);
           map.zoomToMaxExtent();
         </script>
@@ -150,7 +150,7 @@ Putting this code together with our earlier example, we get the following:
         <script defer="defer" type="text/javascript">
           var map = new OpenLayers.Map('map');
           var wms = new OpenLayers.Layer.WMS( "OpenLayers WMS", 
-              "http://labs.metacarta.com/wms/vmap0", {layers: 'basic'} );
+              "http://vmap0.tiles.osgeo.org/wms/vmap0", {layers: 'basic'} );
           var twms = new OpenLayers.Layer.WMS( "World Map", 
               "http://world.freemap.in/cgi-bin/mapserv?", 
               { map: '/www/freemap.in/world/map/factbooktrans.map', 
