@@ -1,0 +1,50 @@
+Mobile Browsing Controls
+++++++++++++++++++++++++
+
+Mobile browsing generally demands a different method of map navigation. 
+OpenLayers built in Navigation and TouchNavigation controls attempt to 
+handle this appropriately by default, using whatever events are available
+in the browser in use.
+
+These controls were added after OpenLayers 2.10.
+
+Map Dragging
+------------
+
+Browsers which support touch events (touchstart/touchmove/touchend) will
+support dragging the map by touch, in the same way that you can generally
+navigate other map applications on these platforms.
+
+Both the Navigation Control and the TouchNavigation Control support 
+this method of moving.
+
+Pinch Zoom
+----------
+
+On devices which support multiple touch events, it is possible to zoom
+the map by pinching in or out. This is provided by Control.PinchZoom,
+which uses Handler.PinchZoom internally.
+
+Both the Navigation Control and the TouchNavigation Control include
+this method of zooming by default.
+
+Tap Panning
+-----------
+
+In order to support touch browsers which do not support touch events, 
+OpenLayers attempts to support 'tap panning', or panning to the center of
+a tap on the map. Combined with a set of zoom controls, this makes it
+possible for these types of browser to navigate the map.
+
+This functionality is enabled by default. To disable it explicitly (if you
+find it is enabled in cases you would not otherwise expect it to be),
+you can set {'clickOptions': {'tap': false}} in the Navigation control
+options.
+
+There are some mobile devices which behave very similar to browsers with
+regard to taps; if you have a more advanced detection mechanism for
+finding these browsers and wish to enable tap-pan navigation explicitly,
+you can do so by passing true as the tap click option.
+
+In general, devices which support tap but not touch will zoom on a double
+click. There is not generally any way to prevent this behavior.
