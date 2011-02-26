@@ -28,6 +28,16 @@ which uses Handler.PinchZoom internally.
 Both the Navigation Control and the TouchNavigation Control include
 this method of zooming by default.
 
+Pinch zooming only works if your device delivers information about multiple
+touch events to the browser. This support exists in iOS 2.0+, and was 
+added around the time of Android 2.2, but not all Android devices deliver
+this information to the browser. To test whether your Android device
+delivers this information, you can visit the `Multitouch Test Page`_; 
+if your browser supports multiple touch events, you should see the number
+go to 2 when placing multiple fingers on the screen in that example.
+
+.. _`Multitouch Test Page`: http://bit.ly/eDZrIw
+
 Tap Panning
 -----------
 
