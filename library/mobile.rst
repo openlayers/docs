@@ -1,5 +1,5 @@
-Mobile Browsing Controls
-++++++++++++++++++++++++
+Mobile Browsing
++++++++++++++++
 
 Mobile browsing generally demands a different method of map navigation. 
 OpenLayers built in Navigation and TouchNavigation controls attempt to 
@@ -58,3 +58,33 @@ you can do so by passing true as the tap click option.
 
 In general, devices which support tap but not touch will zoom on a double
 click. There is not generally any way to prevent this behavior.
+
+Mobile Browser Support
+----------------------
+
++----------------+--------------+------------------+---------------+
+| Browser        | Touch events | Multiple touches | Accelerometer |
++================+==============+==================+===============+
+| iOS (4.x)      | yes          | yes              | yes           |
++----------------+--------------+------------------+---------------+
+| iOS (3.x)      | yes          | yes              | no            |
++----------------+--------------+------------------+---------------+
+| iOS (2.x)      | yes          | yes              | no            |
++----------------+--------------+------------------+---------------+
+| iOS (1.x)      | yes          | no               | no            |
++----------------+--------------+------------------+---------------+
+| Android        | yes          | no               | no            |
++----------------+--------------+------------------+---------------+
+| Opera Mobile   | no           | no               | no            |
++----------------+--------------+------------------+---------------+
+| Symbian        | no           | no               | no            |
++----------------+--------------+------------------+---------------+
+| IE7 (WP7)      | no           | no               | no            |
++----------------+--------------+------------------+---------------+
+| Firefox*       | no           | no               | no            |
++----------------+--------------+------------------+---------------+
+
+* Firefox 4 beta supports touch events on Windows 7 via the
+  MozTouchDown/MozTouchMove events. Due to lack of available testing
+  platforms, the OpenLayers code does not currently support this type of
+  touch events.
