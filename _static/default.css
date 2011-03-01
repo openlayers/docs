@@ -855,3 +855,10 @@ img.logo {
 .topic-title a {
   color: #000000;
 }  
+
+table.docutils {
+    width: 100%;
+}
+table.docutils td {
+    padding: 5px;
+}    
