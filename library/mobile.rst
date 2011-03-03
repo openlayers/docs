@@ -73,18 +73,26 @@ Mobile Browser Support
 +----------------+--------------+------------------+---------------+-------------+
 | iOS (1.x)      | yes          | no               | no            | ?           |
 +----------------+--------------+------------------+---------------+-------------+
-| Android        | yes          | no               | no            | yes         |
+| Android        | yes          | no(2)            | no            | yes         |
 +----------------+--------------+------------------+---------------+-------------+
-| Opera Mobile   | no           | no               | no            | yes           |
+| Opera Mobile   | no           | no               | no            | yes         |
 +----------------+--------------+------------------+---------------+-------------+
 | Symbian        | no           | no               | no            | no          |
 +----------------+--------------+------------------+---------------+-------------+
 | IE7 (WP7)      | no           | no               | no            | no          |
 +----------------+--------------+------------------+---------------+-------------+
-| Firefox 4*     | no           | no               | no            | yes         |
+| Firefox 4(1)   | no           | no               | no            | yes         |
 +----------------+--------------+------------------+---------------+-------------+
 
-* Firefox 4 beta supports touch events on Windows 7 via the
-  MozTouchDown/MozTouchMove events. Due to lack of available testing
-  platforms, the OpenLayers code does not currently support this type of
-  touch events.
+1. Firefox 4 beta supports touch events on Windows 7 via the
+   MozTouchDown/MozTouchMove events. Due to lack of available testing
+   platforms, the OpenLayers code does not currently support this type of
+   touch events.
+2. The stock android browser does not have any support for multiple touch events.
+   Some users on specific Samsung models reported success with using pinch-zoom
+   in OpenLayers and maps.google.com with 2.1, but lost that functionality after
+   an upgrade to 2.2. There is an `open bug ticket`_ in Android about supporting
+   multiple touch events in the DOM, but no obvious plan for when such a thing
+   might exist.
+
+.. _`open bug ticket`: http://code.google.com/p/android/issues/detail?id=11909   
