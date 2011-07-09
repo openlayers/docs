@@ -34,7 +34,7 @@ all projected into the 'spherical mercator' projection.
 Projections in GIS are commonly referred to by their "EPSG" codes, identifiers
 managed by the European Petroleum Survey Group. One common identifier is
 "EPSG:4326", which describes maps where latitude and longitude are treated as
-X/Y values. Spherical Mercator has an official designation of EPSG:3785. 
+X/Y values. Spherical Mercator has an official designation of EPSG:3857. 
 However, before this was established, a large amount of software used the 
 identifier EPSG:900913. This is an unofficial code, but is still the commonly
 used code in OpenLayers. Any time you see the string "EPSG:4326", you can 
@@ -416,10 +416,6 @@ layer to the map. For example:
 
 .. code-block:: javascript
   
-  // set transformation functions from/to alias projection
-  OpenLayers.Projection.addTransform("EPSG:4326", "EPSG:3857", OpenLayers.Layer.SphericalMercator.projectForward);
-  OpenLayers.Projection.addTransform("EPSG:3857", "EPSG:4326", OpenLayers.Layer.SphericalMercator.projectInverse);
-
   // create sphericalmercator layers
   var googleLayer = new OpenLayers.Layer.Google("Google", {"sphericalMercator": true});
   var osmLayer = new OpenLayers.Layer.OSM("OpenStreetMap");
