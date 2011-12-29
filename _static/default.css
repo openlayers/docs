@@ -38,6 +38,7 @@ div.clearer {
 
 div.footer {
     color: #fff;
+    background: #cc9;
     width: 100%;
     padding: 9px 0 9px 0;
     text-align: center;
@@ -675,7 +676,6 @@ table.footnote td, table.footnote th {
 
 dl {
     margin-bottom: 15px;
-    clear: both;
 }
 
 dd p {
