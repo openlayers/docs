@@ -79,7 +79,7 @@ version:
         Controls. This is the result of what was at the time called "Webmap.js"
         at the FOSS4G 2006 Web Mapping BOF.
 
-Profiles are simple to create. You can start by copying library.cfg or lite.cfg
+Profiles are simple to create. You can start by copying lite.cfg
 to something else, e.g. myversion.cfg in the build directory.
 
 To build a profile, you should add files needed for your application to the 
