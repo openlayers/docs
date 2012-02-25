@@ -14,15 +14,15 @@ OpenLayers has two different types of usage: Single File, where all Javascript
 code is compiled into a single file, OpenLayers.js, and the development
 version, where Javascript files are all loaded at application start time.  The
 single file build takes a set of OpenLayers Javascript files, orders them
-according to dependancies described in the files, and compresses the resulting
-file, using the jsmin compression library.
+according to dependencies described in the files, and optionally compresses the resulting
+file, using a compression library.
 
 Building a single file version of the OpenLayers library changes the behavior
 of the library slightly: by default, the development version of OpenLayers
 expects to live in a directory called "lib", and expects that images and
 CSS live in the directory above the OpenLayers.js file::
 
-  img/pan-hand.png
+  img/panning-hand-off.png
   theme/default/style.css
   lib/OpenLayers.js
   lib/OpenLayers/Map.js
@@ -34,7 +34,7 @@ directories::
 
   OpenLayers.js
   theme/default/style.css
-  img/pan-hand.png
+  img/panning-hand-off.png
   ...
 
 Building the Single File Build
@@ -98,7 +98,7 @@ section::
   OpenLayers/Layer/WMS.js
 
 Once we have done that, we can build our profile by adding the profile name
-to the end of our ealier build command::
+to the end of our earlier build command::
 
   ./build.py myversion 
 
@@ -131,9 +131,20 @@ be deployed.
     This directory provides images to be used for some controls, like the 
     PanZoom control, which do not use CSS for styling.
 
-As described above, when deploying these files with a single file OpenLayers
-build, they should all live in the same directory: this allows OpenLayers
-to properly find and include them.
+As described above, by default when deploying these files with a single-file OpenLayers
+build, they should all live in the same directory. You can however override this:
+
+  theme (css file)
+    simply include the css file in a <link> tag on your page(s), and specify ``theme: null`` as an option to your map instance (see example below)
+
+  img
+    set ``OpenLayers.ImgPath`` at the beginning of your script, for example
+
+    ::
+   
+        OpenLayers.ImgPath = "/css/img/"
+
+Note that you should also do this if you name your build something other than OpenLayers.js.
 
 Minimizing Build Size
 +++++++++++++++++++++
