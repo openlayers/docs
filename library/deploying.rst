@@ -86,7 +86,9 @@ To build a profile, you should add files needed for your application to the
 '[include]' section of the file. The files listed here should be the list of
 files containing any class you use in your application. You can typically find
 these classes by looking through your code for any cases where 'new
-OpenLayers.ClassName()' is used.
+OpenLayers.ClassName()' is used. The build program will then go through these
+classes and add whatever classes are required by the classes in the '[include]' section
+(defined by '@requires' at the top of each class file).
 
 Taking the 'lite.html' example, we see that there are two 'new' statements in
 the file: one for the OpenLayers.Map class, and one for the
@@ -104,6 +106,14 @@ to the end of our earlier build command::
 
 This will create a much smaller OpenLayers version, suitable for limited
 applications.
+
+Note that there is one major exception to the process above of looking for 'new
+OpenLayers.ClassName()'. If you are using a vector layer, you need to specify
+which renderers you wish to cater for. When you load a vector layer, OpenLayers
+checks to see which renderer the browser supports, and currently has renderer
+classes to support SVG (the most widely used in browsers), Canvas, and VML
+(used by Internet Explorer). You can see an example of how to include these in 'mobile.cfg',
+which includes SVG and Canvas, but not VML, which is not used in browsers in mobile devices.
 
 All applications can benefit from a custom build profile. OpenLayers
 supports many different layer types, but most applications will only use one
