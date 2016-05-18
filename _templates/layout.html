@@ -1,8 +1,8 @@
 {# Filename: _templates/layout.html #}
 {% extends '!layout.html' %}
 {%- block extrahead %} 
-  <link rel="stylesheet" href="http://openlayers.org/common.css" type="text/css" />
-  <link rel="stylesheet" href="http://openlayers.org/website.css" type="text/css" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/website.css" type="text/css" />
   <meta name="verify-v1" content="p07VY29NG/hLEwVP1RyE0P1chgYyekPikjkMUEgrVAI=" />  
   <!--[if lt IE 7]>
   <script defer="defer" type="text/javascript" src="http://openlayers.org/pngfix.js"></script>
@@ -16,7 +16,7 @@
 {% endblock %}
 {%- block relbar1 %}
 <div id="olbanner">
-<img class="openlayersbannerimg" src="http://www.openlayers.org/images/OpenLayers.trac.png" style="height: 44px; width: 49px;border:0px" alt="OpenLayers" />
+<img class="openlayersbannerimg" src="http://openlayers.org/two/images/OpenLayers.trac.png" style="height: 44px; width: 49px;border:0px" alt="OpenLayers" />
 <a class="openlayersbanner" href="http://www.openlayers.org/" >
 OpenLayers</a>
 </div>
@@ -29,6 +29,8 @@ OpenLayers</a>
 
 
 {{ relbar() }}
+<h3>You are viewing outdated docs</h3>
+<p>OpenLayers 2.x is not under active development any more. Go to <a href="http://openlayers.org/en/latest/doc/">http://openlayers.org/en/latest/doc/</a> to view the latest OpenLayers 3.x docs.</p>
 {% endblock %}
 
 {%- block sidebar1 %}{{ sidebar() }}{% endblock %}
