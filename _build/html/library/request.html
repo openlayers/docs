@@ -1,0 +1,327 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Requesting Remote Data &mdash; OpenLayers</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="OpenLayers" href="../index.html" />
+    <link rel="up" title="OpenLayers Library Documentation" href="index.html" />
+    <link rel="next" title="Spherical Mercator" href="spherical_mercator.html" />
+    <link rel="prev" title="Deploying (Shipping OpenLayers in your Application)" href="deploying.html" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/website.css" type="text/css" />
+  <meta name="verify-v1" content="p07VY29NG/hLEwVP1RyE0P1chgYyekPikjkMUEgrVAI=" />
+  <!--[if lt IE 7]>
+  <script defer="defer" type="text/javascript" src="http://openlayers.org/pngfix.js"></script>
+  <![endif]-->
+  <style type='text/css'>
+    body {
+     font-family: sans-serif;
+     font-size: .9em;
+    }
+  </style>
+
+  </head>
+  <body role="document">
+<div id="olbanner">
+<img class="openlayersbannerimg" src="http://openlayers.org/two/images/OpenLayers.trac.png" style="height: 44px; width: 49px;border:0px" alt="OpenLayers" />
+<a class="openlayersbanner" href="http://www.openlayers.org/two/" >
+OpenLayers 2</a>
+</div>
+<div id="navcontainer">
+<a class="navtabtraccurrent" href="http://www.openlayers.org">Home</a>
+<a class="navtab" href="http://trac.osgeo.org/openlayers">Support &amp; Development</a>
+</div>
+
+<div id="mainnav" class="nav"><ul><li class="first"><a href="http://www.openlayers.org/sponsorship/">Sponsorship</a></li><li><a href="http://trac.openlayers.org/wiki" accesskey="1">Wiki</a></li><li><a href="http://openlayers.org/blog/">Blog</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/FrequentlyAskedQuestions">FAQ</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/HowToDownload" accesskey="3">Download</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/MailingLists">Email Lists</a></li></ul></div>
+
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="spherical_mercator.html" title="Spherical Mercator"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="deploying.html" title="Deploying (Shipping OpenLayers in your Application)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">OpenLayers</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../contents.html" >Table of Contents</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">OpenLayers Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Requesting Remote Data</a><ul>
+<li><a class="reference internal" href="#example-usage">Example usage</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../contents.html">Table of Contents</a><ul>
+  <li><a href="index.html">OpenLayers Library Documentation</a><ul>
+      <li>Previous: <a href="deploying.html" title="previous chapter">Deploying (Shipping OpenLayers in your Application)</a></li>
+      <li>Next: <a href="spherical_mercator.html" title="next chapter">Spherical Mercator</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/request.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div><div class="body">
+<h3 style="background-color: yellow">You are viewing outdated docs</h3>
+<p>OpenLayers 2.x is not under active development any more. Go to <a href="http://openlayers.org/en/latest/doc/">http://openlayers.org/en/latest/doc/</a> to view the latest OpenLayers 3.x docs.</p>
+</div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="requesting-remote-data">
+<span id="request"></span><h1>Requesting Remote Data<a class="headerlink" href="#requesting-remote-data" title="Permalink to this headline">¶</a></h1>
+<p>There are a number of ways to get data from the server to the client.  Setting image, script, and stylesheet sources can be done at any time to request new data without refreshing an entire document.  These types of requests can be made to any origin.  Another way to retrieve data from a server is to update the location of a document in a frame (iframe or otherwise).  These types of requests can also be made to any origin.  However, the code running in the original document is restricted to reading data in documents that come from the same origin.  This means if your application is served from <a class="reference external" href="http://example.com">http://example.com</a>, your code may load a document in a frame from any other origin (say <a class="reference external" href="http://example.net">http://example.net</a>), but your code can only access data in that document if it was served via the same protocol (http), from the same domain (example.com), and on the same port (likely 80 in this case).</p>
+<p>The above types of request are useful because they are asynchonous.  That is, the user can continue to view and interact with the original page while additional data is being requested.  A more common way to request data asynchronously is to use the <a class="reference external" href="http://www.w3.org/TR/XMLHttpRequest/">XMLHttpRequst</a> object.  With an XMLHttpRequest object, you can open a conection to a server and send or receive data via HTTP (or HTTPS).  XMLHttpRequest objects are a bit awkward to use and are unfortunately not supported in all browsers.  OpenLayers provides a cross-browser <a class="reference external" href="http://code.google.com/p/xmlhttprequest/">XMLHttpRequest</a> function and wraps it in some convenient <code class="docutils literal"><span class="pre">OpenLayers.Request</span></code> methods.</p>
+<p>In general, all communication initiated by <code class="docutils literal"><span class="pre">OpenLayers.Request</span></code> methods is restricted to the same origin policy: requests may only be issued with the same protocol, to the same domain, and through the same port as the document the code is running from.  The <code class="docutils literal"><span class="pre">OpenLayers.Request</span></code> methods allow you to access data asynchronously or synchronously (synchronous requests will lock the UI while the request is pending).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Though you may read about cross-domain Ajax, unless a user has specifically configured their browser&#8217;s security settings, the same origin policy will apply to requests with XMLHttpRequest.  The &#8220;cross-domain&#8221; functionality is typically achieved by either setting up a proxy (on the same origin) that passes on all communication to a remote server or by requesting data without the XMLHttpRequest object (in a script tag for example).  One nuance of the same origin policy is that code running on a page from one domain may set the <code class="docutils literal"><span class="pre">document.domain</span></code> property to a suffix of the original domain.  This means that code running on a document from sub.example.com may request data from example.com by setting <code class="docutils literal"><span class="pre">document.domain</span></code> to example.com.  A document from example.com, however, cannot prefix the domain property to request data from a sub domain.</p>
+</div>
+<p>The <code class="docutils literal"><span class="pre">OpenLayers.Request</span></code> methods correspond to the common HTTP verbs: GET, POST, PUT, DELETE, HEAD, and OPTIONS.  See the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Request-js.html">Request API documentation</a> for a description of each of these methods.  The short examples below demonstrate the use of these methods under a variety of conditions.</p>
+<div class="section" id="example-usage">
+<h2>Example usage<a class="headerlink" href="#example-usage" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Issue a GET request and deal with the response.</li>
+</ol>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">handler</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// if the response was XML, try the parsed doc</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">responseXML</span><span class="p">);</span>
+    <span class="c1">// otherwise, you&#39;ve got the response text</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">responseText</span><span class="p">);</span>
+    <span class="c1">// and don&#39;t forget you&#39;ve got status codes</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+    <span class="c1">// and of course you can get headers</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">getAllResponseHeaders</span><span class="p">());</span>
+    <span class="c1">// etc.</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Request</span><span class="p">.</span><span class="nx">GET</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;http://host/path&quot;</span><span class="p">,</span>
+    <span class="nx">callback</span><span class="o">:</span> <span class="nx">handler</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>Issue a GET request with a query string based on key:value pairs.</li>
+</ol>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">handler</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// do something with the response</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">responseXML</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Request</span><span class="p">.</span><span class="nx">GET</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;http://host/path&quot;</span><span class="p">,</span>
+    <span class="nx">params</span><span class="o">:</span> <span class="p">{</span><span class="nx">somekey</span><span class="o">:</span> <span class="s2">&quot;some value &amp; this will be encoded properly&quot;</span><span class="p">},</span>
+    <span class="nx">callback</span><span class="o">:</span> <span class="nx">handler</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Issue a GET request where the handler is a public method on some object.</li>
+</ol>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// assuming obj was constructed earlier</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">handler</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">doSomething</span><span class="p">(</span><span class="nx">request</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Request</span><span class="p">.</span><span class="nx">GET</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;http://host/path&quot;</span><span class="p">,</span>
+    <span class="nx">callback</span><span class="o">:</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">handler</span><span class="p">,</span>
+    <span class="nx">scope</span><span class="o">:</span> <span class="nx">obj</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li>Issue a synchronous GET request.</li>
+</ol>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Request</span><span class="p">.</span><span class="nx">GET</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;http://host/path&quot;</span><span class="p">,</span>
+    <span class="nx">async</span><span class="o">:</span> <span class="kc">false</span>
+<span class="p">});</span>
+<span class="c1">// do something with the response</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">responseXML</span><span class="p">);</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li>Issue a POST request with some data.</li>
+</ol>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// assuming you already know how to create your handler</span>
+<span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Request</span><span class="p">.</span><span class="nx">POST</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;http://host/path&quot;</span><span class="p">,</span>
+    <span class="nx">data</span><span class="o">:</span> <span class="s2">&quot;my data to post&quot;</span><span class="p">,</span>
+    <span class="nx">callback</span><span class="o">:</span> <span class="nx">handler</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li>Issue a POST request with a custom content type (application/xml is default).</li>
+</ol>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// again assuming you have a handler</span>
+<span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Request</span><span class="p">.</span><span class="nx">POST</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;http://host/path&quot;</span><span class="p">,</span>
+    <span class="nx">data</span><span class="o">:</span> <span class="s2">&quot;this is text not xml!&quot;</span><span class="p">,</span>
+    <span class="nx">headers</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;Content-Type&quot;</span><span class="o">:</span> <span class="s2">&quot;text/plain&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">callback</span><span class="o">:</span> <span class="nx">handler</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="7">
+<li>Issue a POST request with form-encoded data.</li>
+</ol>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Request</span><span class="p">.</span><span class="nx">POST</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;http://host/path&quot;</span><span class="p">,</span>
+    <span class="nx">data</span><span class="o">:</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Util</span><span class="p">.</span><span class="nx">getParameterString</span><span class="p">({</span><span class="nx">foo</span><span class="o">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">}),</span>
+    <span class="nx">headers</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;Content-Type&quot;</span><span class="o">:</span> <span class="s2">&quot;application/x-www-form-urlencoded&quot;</span>
+    <span class="p">},</span>
+    <span class="nx">callback</span><span class="o">:</span> <span class="nx">handler</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="8">
+<li>Issue a GET request and then abort it.</li>
+</ol>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Request</span><span class="p">.</span><span class="nx">GET</span><span class="p">();</span> <span class="c1">// dumb, but possible</span>
+<span class="nx">request</span><span class="p">.</span><span class="nx">abort</span><span class="p">();</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="9">
+<li>Deal with the many ways that a request can &#8220;fail.&#8221;</li>
+</ol>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">handler</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// the server could report an error</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">status</span> <span class="o">==</span> <span class="mi">500</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// do something to calm the user</span>
+    <span class="p">}</span>
+    <span class="c1">// the server could say you sent too much stuff</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">status</span> <span class="o">==</span> <span class="mi">413</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// tell the user to trim their request a bit</span>
+    <span class="p">}</span>
+    <span class="c1">// the browser&#39;s parser may have failed</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">request</span><span class="p">.</span><span class="nx">responseXML</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// get ready for parsing by hand</span>
+    <span class="p">}</span>
+    <span class="c1">// etc.</span>
+<span class="p">}</span>
+<span class="c1">// issue a request as above</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="10">
+<li>Issue DELETE, PUT, HEAD, and OPTIONS requests.</li>
+</ol>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// handlers defined elsewhere</span>
+
+<span class="kd">var</span> <span class="nx">deleteRequest</span> <span class="o">=</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Request</span><span class="p">.</span><span class="nx">DELETE</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;http://host/path&quot;</span><span class="p">,</span>
+    <span class="nx">callback</span><span class="o">:</span> <span class="nx">deleteHandler</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">putRequest</span> <span class="o">=</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Request</span><span class="p">.</span><span class="nx">PUT</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;http://host/path&quot;</span><span class="p">,</span>
+    <span class="nx">callback</span><span class="o">:</span> <span class="nx">putHandler</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">headRequest</span> <span class="o">=</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Request</span><span class="p">.</span><span class="nx">HEAD</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;http://host/path&quot;</span><span class="p">,</span>
+    <span class="nx">callback</span><span class="o">:</span> <span class="nx">headHandler</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">optionsRequest</span> <span class="o">=</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Request</span><span class="p">.</span><span class="nx">OPTIONS</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;http://host/path&quot;</span><span class="p">,</span>
+    <span class="nx">callback</span><span class="o">:</span> <span class="nx">optionsHandler</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="11">
+<li>(Rare) Issue a GET request using a proxy other than the one specified in OpenLayers.ProxyHost (same origin policy applies).</li>
+</ol>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// handler defined elsewhere</span>
+<span class="kd">var</span> <span class="nx">request</span> <span class="o">==</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Request</span><span class="p">.</span><span class="nx">GET</span><span class="p">({</span>
+    <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;http://host/path&quot;</span><span class="p">,</span>
+    <span class="nx">params</span><span class="o">:</span> <span class="p">{</span><span class="nx">somekey</span><span class="o">:</span> <span class="s2">&quot;some value&quot;</span><span class="p">},</span>
+    <span class="nx">proxy</span><span class="o">:</span> <span class="s2">&quot;http://sameorigin/proxy?url=&quot;</span> <span class="c1">// defaults to OpenLayers.ProxyHost</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+    &copy; Copyright 2008, OpenLayers.
+    </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-2577926-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+  </body>
+</html>

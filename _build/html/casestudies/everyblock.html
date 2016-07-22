@@ -1,0 +1,205 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>EveryBlock &mdash; OpenLayers</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="OpenLayers" href="../index.html" />
+    <link rel="up" title="OpenLayers Case Studies" href="index.html" />
+    <link rel="next" title="NuMaps" href="numaps.html" />
+    <link rel="prev" title="OpenLayers Case Studies" href="index.html" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/website.css" type="text/css" />
+  <meta name="verify-v1" content="p07VY29NG/hLEwVP1RyE0P1chgYyekPikjkMUEgrVAI=" />
+  <!--[if lt IE 7]>
+  <script defer="defer" type="text/javascript" src="http://openlayers.org/pngfix.js"></script>
+  <![endif]-->
+  <style type='text/css'>
+    body {
+     font-family: sans-serif;
+     font-size: .9em;
+    }
+  </style>
+
+  </head>
+  <body role="document">
+<div id="olbanner">
+<img class="openlayersbannerimg" src="http://openlayers.org/two/images/OpenLayers.trac.png" style="height: 44px; width: 49px;border:0px" alt="OpenLayers" />
+<a class="openlayersbanner" href="http://www.openlayers.org/two/" >
+OpenLayers 2</a>
+</div>
+<div id="navcontainer">
+<a class="navtabtraccurrent" href="http://www.openlayers.org">Home</a>
+<a class="navtab" href="http://trac.osgeo.org/openlayers">Support &amp; Development</a>
+</div>
+
+<div id="mainnav" class="nav"><ul><li class="first"><a href="http://www.openlayers.org/sponsorship/">Sponsorship</a></li><li><a href="http://trac.openlayers.org/wiki" accesskey="1">Wiki</a></li><li><a href="http://openlayers.org/blog/">Blog</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/FrequentlyAskedQuestions">FAQ</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/HowToDownload" accesskey="3">Download</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/MailingLists">Email Lists</a></li></ul></div>
+
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="numaps.html" title="NuMaps"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="index.html" title="OpenLayers Case Studies"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">OpenLayers</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../contents.html" >Table of Contents</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">OpenLayers Case Studies</a> &raquo;</li> 
+      </ul>
+    </div>
+
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../contents.html">Table of Contents</a><ul>
+  <li><a href="index.html">OpenLayers Case Studies</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">OpenLayers Case Studies</a></li>
+      <li>Next: <a href="numaps.html" title="next chapter">NuMaps</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/casestudies/everyblock.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div><div class="body">
+<h3 style="background-color: yellow">You are viewing outdated docs</h3>
+<p>OpenLayers 2.x is not under active development any more. Go to <a href="http://openlayers.org/en/latest/doc/">http://openlayers.org/en/latest/doc/</a> to view the latest OpenLayers 3.x docs.</p>
+</div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="everyblock">
+<span id="everyblock-study"></span><h1>EveryBlock<a class="headerlink" href="#everyblock" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://www.everyblock.com/">EveryBlock</a> is a website that filters an assortment of local news by
+location so you can keep track of what&#8217;s happening on your block, in your
+neighborhood and all over your city. Made possible by a grant from the
+Knight Foundation, EveryBlock seeks to solve the problem of answering the
+question of &#8220;What&#8217;s happening in my neighborhood?&#8221; A key aspect of any
+local data problem is good maps – and when EveryBlock wanted maps, they
+used OpenLayers.</p>
+<p>EveryBlock considered other existing Javascript APIs for their site, like the
+Google Maps Javascript API. However,  EveryBlock wanted maps that looked like
+the rest of their site, using the same color scheme, style, and more. Paul
+Smith, co-founder of EveryBlock, in describing EveryBlock&#8217;s decision, explained
+that with Google Maps, &#8220;the core component—the map itself—is out of your
+hands.&#8221;</p>
+<img alt="../_images/everyblock_sm.png" class="align-right" src="../_images/everyblock_sm.png" />
+<p>With OpenLayers, on the other hand, EveryBlock gets complete control: over
+styling, data, restrictions on usage, and more. Using OpenLayers, EveryBlock
+was able to create maps for their website that were in their control, rather
+than the control of the API provider.</p>
+<p>Starting with the US Census bureau&#8217;s TIGER/Line dataset, EveryBlock used Mapnik
+to create attractive tiles &#8211; originally using TileCache, and moving to a
+custom tile generation/serving routine later on. OpenLayers was able to
+accomodate both of these needs, providing the support needed to create custom
+layer classes to load EveryBlock&#8217;s tiles from where they needed to be loaded
+from.</p>
+<p>Another benefit of using the OpenLayers library was the ability to quickly and
+easily create customized controls that had the functionality that made sense
+for the application. By using CSS and easy to use map creation options,
+EveryBlock was able to create a minimal set of UI controls that allow quick and
+easy navigation of the map, with items styled in line with the rest of the
+site.</p>
+<img alt="../_images/eb-charlotte.png" class="align-left" src="../_images/eb-charlotte.png" />
+<p>In addition to using built in functionality in OpenLayers, EveryBlock has been
+able to extend OpenLayers for displaying large quantities of data, using custom
+server side tools to create clusters of data. Using OpenLayers vector styling,
+they are then able to create automatically resizing features &#8211; using
+in-browser vector drawing support &#8211; to represent various items &#8211; news
+stories, photos, and more. By using the functionality in OpenLayers, EveryBlock
+is able to create compelling maps that tell stories, within the limited
+framework of the browser.</p>
+<p>As EveryBlock has grown, its use of OpenLayers has changed. Paul Smith
+continues to support the use of OpenLayers for EveryBlock, saying that
+&#8220;OpenLayers is sophisticated enough by default for many applications, but its
+true power is in its design, which allows you to easily build customized
+solutions; it doesn&#8217;t fight with or hide JavaScript&#8217;s nature &#8211; an underrated
+but powerful language &#8211; allowing you to code new functionality with great
+economy.&#8221;</p>
+<p>Using OpenLayers provided EveryBlock the functionality they needed in order to
+get their website up and running. Rather than using Google Maps, like so many
+other sites out there, EveryBlock was able to use open source components like
+OpenLayers and Mapnik with open data from the US Government to build a
+compelling mapping base layer. The ability to extend OpenLayers for support of
+new datasources, and use advanced OpenLayers functionality like vector drawing
+to save on server side image generation, and more, is a key aspect of the
+usability of the EveryBlock mapping interface.</p>
+<p>For more information contact:</p>
+<blockquote>
+<div>Paul Smith</div></blockquote>
+<blockquote>
+<div><a class="reference external" href="http://www.pauladamsmith.com/">Paul Smith</a> is a co-founder and developer at <a class="reference external" href="http://www.everyblock.com/">EveryBlock</a>. He has been
+creating sites and applications on the Web since 1994. He’s also co-creator
+of the <a class="reference external" href="http://www.electiondayadventcalendar.com/">Election Day Advent Calendar</a>, and a founding member of <a class="reference external" href="http://www.bloomingdaletrail.org/">Friends of
+the Bloomingdale Trail</a>. He lives in Chicago, Illinois.</div></blockquote>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+    &copy; Copyright 2008, OpenLayers.
+    </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-2577926-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+  </body>
+</html>

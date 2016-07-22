@@ -1,0 +1,183 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Understanding OpenLayers Syntax &mdash; OpenLayers</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="OpenLayers" href="../index.html" />
+    <link rel="up" title="OpenLayers Library Documentation" href="index.html" />
+    <link rel="next" title="Layers" href="layers.html" />
+    <link rel="prev" title="Getting Started" href="introduction.html" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/website.css" type="text/css" />
+  <meta name="verify-v1" content="p07VY29NG/hLEwVP1RyE0P1chgYyekPikjkMUEgrVAI=" />
+  <!--[if lt IE 7]>
+  <script defer="defer" type="text/javascript" src="http://openlayers.org/pngfix.js"></script>
+  <![endif]-->
+  <style type='text/css'>
+    body {
+     font-family: sans-serif;
+     font-size: .9em;
+    }
+  </style>
+
+  </head>
+  <body role="document">
+<div id="olbanner">
+<img class="openlayersbannerimg" src="http://openlayers.org/two/images/OpenLayers.trac.png" style="height: 44px; width: 49px;border:0px" alt="OpenLayers" />
+<a class="openlayersbanner" href="http://www.openlayers.org/two/" >
+OpenLayers 2</a>
+</div>
+<div id="navcontainer">
+<a class="navtabtraccurrent" href="http://www.openlayers.org">Home</a>
+<a class="navtab" href="http://trac.osgeo.org/openlayers">Support &amp; Development</a>
+</div>
+
+<div id="mainnav" class="nav"><ul><li class="first"><a href="http://www.openlayers.org/sponsorship/">Sponsorship</a></li><li><a href="http://trac.openlayers.org/wiki" accesskey="1">Wiki</a></li><li><a href="http://openlayers.org/blog/">Blog</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/FrequentlyAskedQuestions">FAQ</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/HowToDownload" accesskey="3">Download</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/MailingLists">Email Lists</a></li></ul></div>
+
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="layers.html" title="Layers"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="introduction.html" title="Getting Started"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">OpenLayers</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../contents.html" >Table of Contents</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">OpenLayers Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Understanding OpenLayers Syntax</a><ul>
+<li><a class="reference internal" href="#openlayers-classes">OpenLayers &#8220;Classes&#8221;</a></li>
+<li><a class="reference internal" href="#the-options-argument">The <code class="docutils literal"><span class="pre">options</span></code> Argument</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../contents.html">Table of Contents</a><ul>
+  <li><a href="index.html">OpenLayers Library Documentation</a><ul>
+      <li>Previous: <a href="introduction.html" title="previous chapter">Getting Started</a></li>
+      <li>Next: <a href="layers.html" title="next chapter">Layers</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/syntax.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div><div class="body">
+<h3 style="background-color: yellow">You are viewing outdated docs</h3>
+<p>OpenLayers 2.x is not under active development any more. Go to <a href="http://openlayers.org/en/latest/doc/">http://openlayers.org/en/latest/doc/</a> to view the latest OpenLayers 3.x docs.</p>
+</div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="understanding-openlayers-syntax">
+<h1>Understanding OpenLayers Syntax<a class="headerlink" href="#understanding-openlayers-syntax" title="Permalink to this headline">¶</a></h1>
+<p>This section is intended to get users comfortable with the syntax used when developing an application with OpenLayers.</p>
+<div class="section" id="openlayers-classes">
+<h2>OpenLayers &#8220;Classes&#8221;<a class="headerlink" href="#openlayers-classes" title="Permalink to this headline">¶</a></h2>
+<p>OpenLayers is written in a &#8220;classical&#8221; style.  This means that the library provides functions intended to be used with the <code class="docutils literal"><span class="pre">new</span></code> keyword that return objects.  These functions all begin with a capital letter.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Map</span><span class="p">(</span><span class="s2">&quot;map&quot;</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The code above creates a new <code class="docutils literal"><span class="pre">map</span></code> object with all the properties of the <code class="docutils literal"><span class="pre">OpenLayers.Map</span></code> function&#8217;s prototype.  The properties that are intended to be set or accessed are documented in the <a class="reference external" href="http://dev.openlayers.org/apidocs">API Documentation</a></p>
+<p>In general, all parameters to a constructor are required, except for the
+options parameter. When this is not the case, the API documentation for the
+constructor will usually say so.</p>
+</div>
+<div class="section" id="the-options-argument">
+<h2>The <code class="docutils literal"><span class="pre">options</span></code> Argument<a class="headerlink" href="#the-options-argument" title="Permalink to this headline">¶</a></h2>
+<p>Most OpenLayers object constructors take an <code class="docutils literal"><span class="pre">options</span></code> object as one of their arguments.  In general, you can set the value of any API property in a contructor&#8217;s options argument.</p>
+<p>For example, looking at the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/Vector-js.html">API Docs for the Vector layer</a>, you can see the <code class="docutils literal"><span class="pre">isBaseLayer</span></code> property.  If you specify a value for <code class="docutils literal"><span class="pre">isBaseLayer</span></code> in the options argument, this will be set on the layer.</p>
+<p>For example:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">layer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">Vector</span><span class="p">(</span><span class="s2">&quot;Layer Name&quot;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">isBaseLayer</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">});</span>
+
+<span class="nx">layer</span><span class="p">.</span><span class="nx">isBaseLayer</span> <span class="o">===</span> <span class="kc">true</span><span class="p">;</span>  <span class="c1">// this is true</span>
+</pre></div>
+</div>
+<p>You can also see that the Vector layer inherits from <code class="docutils literal"><span class="pre">OpenLayers.Layer</span></code>.  Following the link to the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Layer-js.html">Layer API documentation</a>, you&#8217;ll find a reference to the layer&#8217;s <code class="docutils literal"><span class="pre">projection</span></code> property.  As with <code class="docutils literal"><span class="pre">isBaseLayer</span></code>, if you provide a <code class="docutils literal"><span class="pre">projection</span></code> property in the <code class="docutils literal"><span class="pre">options</span></code> argument, this value will be set on the layer.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">layer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">Vector</span><span class="p">(</span><span class="s2">&quot;Layer Name&quot;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">projection</span><span class="o">:</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Projection</span><span class="p">(</span><span class="s2">&quot;EPSG:900913&quot;</span><span class="p">)</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+    &copy; Copyright 2008, OpenLayers.
+    </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-2577926-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+  </body>
+</html>

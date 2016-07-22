@@ -2,7 +2,7 @@
 Controls
 ========
 
-Controls are OpenLayers classes which affect the state of the map, or display
+Controls are OpenLayers 2 classes which affect the state of the map, or display
 additional information to the user. Controls are the primary interface for
 map interactions.
 
@@ -10,7 +10,7 @@ Default Controls
 ----------------
 
 The following controls are default controls on the map:
- 
+
 * :ref:`control.argparser`
 * Attribution
 * Navigation
@@ -20,26 +20,26 @@ Panels
 ------
 
 Control panels allow collections of multiple controls together, as is common
-in many applications. 
+in many applications.
 
 .. _styling_panels:
 
 Styling Panels
 ++++++++++++++
 
-Panels are styled by CSS. The "ItemActive" and "ItemInactive" are added to the 
+Panels are styled by CSS. The "ItemActive" and "ItemInactive" are added to the
 control's displayClass.
 
 All controls have an overridable 'displayClass' property which maps to
-their base CSS class name. This name is calculated by changing the 
-class name by removing all '.' characters, and changing "OpenLayers" to 
-"ol". So, OpenLayers.Control.ZoomBox changes to olControlZoomBox. 
+their base CSS class name. This name is calculated by changing the
+class name by removing all '.' characters, and changing "OpenLayers" to
+"ol". So, OpenLayers.Control.ZoomBox changes to olControlZoomBox.
 
 Panel items are styled by combining the style of the Panel with the style
 of a control inside of it. Using the NavToolbar Panel as an example:
 
 .. code-block:: css
-    
+
     .olControlNavToolbar div {
       display:block;
       width:  28px;
@@ -59,15 +59,15 @@ of a control inside of it. Using the NavToolbar Panel as an example:
 
 Here, we say:
 
-* Div elements displayed inside the toolbar are 28px wide and 28px high. 
+* Div elements displayed inside the toolbar are 28px wide and 28px high.
   The top of the div should be at 300px, the left side should be at 6px.
 * Then, for the control, we provide two background images: one for active
-  and one for inactive. 
+  and one for inactive.
 
 For toolbars to go left to right, you can also control them with CSS:
 
 .. code-block:: css
-    
+
     .olControlEditingToolbar div {
         float:right;
         right: 0px;
@@ -75,11 +75,11 @@ For toolbars to go left to right, you can also control them with CSS:
         width: 200px;
     }
 
-Simply set the 'float: right' parameter, and give the parent element some 
+Simply set the 'float: right' parameter, and give the parent element some
 
 In order to improve the user experience, existing panels like the
-:ref:`control.editingtoolbar` use a single background image, and control the 
-icon to display via 'top' and 'left' parameters, offsetting and clipping 
+:ref:`control.editingtoolbar` use a single background image, and control the
+icon to display via 'top' and 'left' parameters, offsetting and clipping
 the background image. This is not required, but doing this makes it so that
 when you select a tool, you don't have to wait for the 'inactive' image
 to display before continuing.
@@ -89,7 +89,7 @@ Controls to be used with Panels
 
 Panels can have controls of many 'types' inside of them. Each tool in a panel
 should have a 'type' attribute which is one of:
-    
+
 * OpenLayers.Control.TYPE_TOOL (the default)
 * OpenLayers.Control.TYPE_BUTTON
 * OpenLayers.Control.TYPE_TOGGLE
@@ -107,14 +107,14 @@ you wish to create an editing toolbar control that only has the ability to draw
 lines, you could do so with the following code:
 
 .. code-block:: javascript
-   
+
    var layer = new OpenLayers.Layer.Vector();
    var panelControls = [
     new OpenLayers.Control.Navigation(),
-    new OpenLayers.Control.DrawFeature(layer, 
-        OpenLayers.Handler.Path, 
+    new OpenLayers.Control.DrawFeature(layer,
+        OpenLayers.Handler.Path,
         {'displayClass': 'olControlDrawFeaturePath'})
-   ];     
+   ];
    var toolbar = new OpenLayers.Control.Panel({
       displayClass: 'olControlEditingToolbar',
       defaultControl: panelControls[0]
@@ -131,7 +131,7 @@ There are two things to note here:
   as easily change that.
 
 In this way, you can use any control which works in a panel -- including,
-for example, the SelectFeature control, the ZoomToMaxExtent control, and 
+for example, the SelectFeature control, the ZoomToMaxExtent control, and
 more, simply by changing the controls which are in the list.
 
 Map Controls
@@ -158,7 +158,7 @@ center is already set.
     // Ensure that center is not set
     if (!map.getCenter()) {
         map.setCenter(new OpenLayers.LonLat(-71, 42), 4);
-    }    
+    }
 
 The ArgParser control is enabled by default.
 
@@ -170,7 +170,7 @@ Attribution
 The attribution control will display attribution properties set on any layers
 in the map in the lower right corner of the map, by default. The style and
 location of this control can be overridden by overriding the
-'olControlAttribution' CSS class. 
+'olControlAttribution' CSS class.
 
 Use of the attribution control is demonstrated in the `Attribution example`_.
 For API information, see the `Attribution API Docs`_.
@@ -189,7 +189,7 @@ DragFeature
 DragPan
 +++++++
 
-The DragPan control implements map dragging interactions. 
+The DragPan control implements map dragging interactions.
 
 .. _control.drawfeature:
 
@@ -230,7 +230,7 @@ ModifyFeature
 The ModifyFeature control can be used to edit an existing vector object.
 
 This control causes three different types of events to fire on the layer:
-* beforefeaturemodified - triggered when a user selects the feature to begin editing. 
+* beforefeaturemodified - triggered when a user selects the feature to begin editing.
 * featuremodified - triggered when a user changes something about the feature.
 * afterfeaturemodified - triggered after the user unselects the feature.
 
@@ -242,11 +242,11 @@ To register for one of these events, register on the layer:
   layer.events.on({
     'beforefeaturemodified': function(evt) {
         console.log("Selected " + evt.feature.id  + " for modification");
-    },    
+    },
     'afterfeaturemodified': function(evt) {
         console.log("Finished with " + evt.feature.id);
     }
-  });  
+  });
 
 There are several different modes that the ModifyFeature control can work in.
 These can be combined to work together.
@@ -262,13 +262,13 @@ When creating the control, you can use a bitwise OR to combine these:
 
   var modifyFeature = new OpenLayers.Control.ModifyFeature(layer, {
     mode: OpenLayers.Control.ModifyFeature.RESIZE | OpenLayers.Control.ModifyFeature.DRAG
-  });  
+  });
 
 For an example of using the ModifyFeature control, see the `ModifyFeature
 example`_. For API information, see the `ModifyFeature API Documentation`_.
 
 The ModifyFeature control can only be used with a single layer at any given
-time. To modify multiple layers, use multiple ModifyFeature controls. 
+time. To modify multiple layers, use multiple ModifyFeature controls.
 
 Deprecation Warning
 @@@@@@@@@@@@@@@@@@@
@@ -278,7 +278,7 @@ onModificationEnd functions on this control are no longer the recommended way
 to receive modification events. Instead, use the beforefeaturemodified,
 featuremodified, and afterfeaturemodified events to handle these cases.
 
-.. _`ModifyFeature API Documentation`: http://dev.openlayers.org/apidocs/files/OpenLayers/Control/ModifyFeature-js.html 
+.. _`ModifyFeature API Documentation`: http://dev.openlayers.org/apidocs/files/OpenLayers/Control/ModifyFeature-js.html
 .. _`ModifyFeature example`: http://openlayers.org/dev/examples/modify-feature.html
 
 .. _control.mouseposition:
@@ -296,7 +296,7 @@ NavToolbar
 Navigation
 ++++++++++
 
-The replacement control for the former :ref:`control.mousedefaults` control. 
+The replacement control for the former :ref:`control.mousedefaults` control.
 This control is a combination of:
 
 * :ref:`control.dragpan`
@@ -304,10 +304,10 @@ This control is a combination of:
 * Handler.Click, for double click zooming
 * Handler.Wheel, for wheel zooming
 
-The most common request for the Navigation control is to disable wheel 
+The most common request for the Navigation control is to disable wheel
 zooming when using the control. To do this, ensure that no other navigation
 controls are added to your map -- for example, by an
-:ref:`control.editingtoolbar` -- and call disableWheelNavigation on the 
+:ref:`control.editingtoolbar` -- and call disableWheelNavigation on the
 Navigation control.
 
 
@@ -323,7 +323,7 @@ PanPanel
 ++++++++
 A set of visual buttons for controlling the location of the map. A subclass
 of Control.Panel, this is easily controlled by styling via CSS. The
-``.olControlPanPanel`` class, and its internal divs, control the styling of  
+``.olControlPanPanel`` class, and its internal divs, control the styling of
 the PanPanel. If you wish to customize the look and feel of the controls
 in the upper left corner of the map, this control is the one for you.
 
@@ -341,8 +341,8 @@ PanZoomBar
 Permalink
 +++++++++
 
-The Permalink control, together with the ArgParser control, are designed to 
-make it easy to link to an existing map view. By adding the permalink control 
+The Permalink control, together with the ArgParser control, are designed to
+make it easy to link to an existing map view. By adding the permalink control
 to your map, you will make available a piece of text in the map that acts as
 a link for your users.
 
@@ -355,7 +355,7 @@ of your map. To do this, simply check map.getCenter() first:
   if (!map.getCenter()) {
     map.setCenter(new OpenLayers.LonLat(0,0),0);
   }
-  
+
 
 Scale
 +++++
@@ -398,7 +398,7 @@ ZoomPanel
 
 A set of visual buttons for controlling the zoom of the map. A subclass
 of Control.Panel, this is easily controlled by styling via CSS. The
-``.olControlZoomPanel`` class, and its internal divs, control the styling of  
+``.olControlZoomPanel`` class, and its internal divs, control the styling of
 the PanPanel. If you wish to customize the look and feel of the controls
 in the upper left corner of the map, this control is the one for you.
 
@@ -414,23 +414,23 @@ inside of a control panel.
 Pan
 +++
 
-Used inside the PanPanel; when triggered, causes the map to pan in a 
+Used inside the PanPanel; when triggered, causes the map to pan in a
 specific direction.
 
 ZoomIn
 ++++++
 
-Used inside the PanPanel; when triggered, causes the map to zoom in. 
+Used inside the PanPanel; when triggered, causes the map to zoom in.
 
 ZoomOut
 +++++++
 
-Used inside the PanPanel; when triggered, causes the map to zoom out. 
+Used inside the PanPanel; when triggered, causes the map to zoom out.
 
 ZoomToMaxExtent
 +++++++++++++++
 
-Used inside the PanPanel; when triggered, causes the map to zoomToMaxExtent. 
+Used inside the PanPanel; when triggered, causes the map to zoomToMaxExtent.
 
 
 Generic Base Classes
@@ -451,7 +451,7 @@ Used as a base for NavToolbar and EditingToolbar controls, as well as others.
 Gathers up buttons/tools to be used together.
 
 Deprecated Controls
-------------------- 
+-------------------
 
 .. _control.mousedefaults:
 
@@ -464,8 +464,8 @@ MouseToolbar
 ++++++++++++
 
 Replaced by the :ref:`control.navtoolbar` control.
-   
-More documentation 
+
+More documentation
 ------------------
 
 .. toctree::

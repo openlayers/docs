@@ -1,0 +1,395 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Layers &mdash; OpenLayers</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="OpenLayers" href="../index.html" />
+    <link rel="up" title="OpenLayers Library Documentation" href="index.html" />
+    <link rel="next" title="Controls" href="controls.html" />
+    <link rel="prev" title="Understanding OpenLayers Syntax" href="syntax.html" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/website.css" type="text/css" />
+  <meta name="verify-v1" content="p07VY29NG/hLEwVP1RyE0P1chgYyekPikjkMUEgrVAI=" />
+  <!--[if lt IE 7]>
+  <script defer="defer" type="text/javascript" src="http://openlayers.org/pngfix.js"></script>
+  <![endif]-->
+  <style type='text/css'>
+    body {
+     font-family: sans-serif;
+     font-size: .9em;
+    }
+  </style>
+
+  </head>
+  <body role="document">
+<div id="olbanner">
+<img class="openlayersbannerimg" src="http://openlayers.org/two/images/OpenLayers.trac.png" style="height: 44px; width: 49px;border:0px" alt="OpenLayers" />
+<a class="openlayersbanner" href="http://www.openlayers.org/two/" >
+OpenLayers 2</a>
+</div>
+<div id="navcontainer">
+<a class="navtabtraccurrent" href="http://www.openlayers.org">Home</a>
+<a class="navtab" href="http://trac.osgeo.org/openlayers">Support &amp; Development</a>
+</div>
+
+<div id="mainnav" class="nav"><ul><li class="first"><a href="http://www.openlayers.org/sponsorship/">Sponsorship</a></li><li><a href="http://trac.openlayers.org/wiki" accesskey="1">Wiki</a></li><li><a href="http://openlayers.org/blog/">Blog</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/FrequentlyAskedQuestions">FAQ</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/HowToDownload" accesskey="3">Download</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/MailingLists">Email Lists</a></li></ul></div>
+
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="controls.html" title="Controls"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="syntax.html" title="Understanding OpenLayers Syntax"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">OpenLayers</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../contents.html" >Table of Contents</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">OpenLayers Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Layers</a><ul>
+<li><a class="reference internal" href="#base-layers-and-non-base-layers">Base Layers and Non-Base Layers</a><ul>
+<li><a class="reference internal" href="#base-layers">Base Layers</a></li>
+<li><a class="reference internal" href="#non-base-layers">Non Base Layers</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#raster-layers">Raster Layers</a><ul>
+<li><a class="reference internal" href="#google">Google</a></li>
+<li><a class="reference internal" href="#image">Image</a></li>
+<li><a class="reference internal" href="#kamap">KaMap</a></li>
+<li><a class="reference internal" href="#kamapcache">KaMapCache</a></li>
+<li><a class="reference internal" href="#mapguide">MapGuide</a></li>
+<li><a class="reference internal" href="#mapserver">MapServer</a></li>
+<li><a class="reference internal" href="#multimap">MultiMap</a></li>
+<li><a class="reference internal" href="#tms">TMS</a></li>
+<li><a class="reference internal" href="#tilecache">TileCache</a></li>
+<li><a class="reference internal" href="#virtualearth">VirtualEarth</a></li>
+<li><a class="reference internal" href="#wms">WMS</a></li>
+<li><a class="reference internal" href="#worldwind">WorldWind</a></li>
+<li><a class="reference internal" href="#yahoo">Yahoo</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#overlay-layers">Overlay Layers</a><ul>
+<li><a class="reference internal" href="#boxes">Boxes</a></li>
+<li><a class="reference internal" href="#gml">GML</a></li>
+<li><a class="reference internal" href="#georss">GeoRSS</a></li>
+<li><a class="reference internal" href="#markers">Markers</a></li>
+<li><a class="reference internal" href="#pointtrack">PointTrack</a></li>
+<li><a class="reference internal" href="#text">Text</a></li>
+<li><a class="reference internal" href="#vector">Vector</a></li>
+<li><a class="reference internal" href="#wfs">WFS</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#generic-subclasses">Generic Subclasses</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../contents.html">Table of Contents</a><ul>
+  <li><a href="index.html">OpenLayers Library Documentation</a><ul>
+      <li>Previous: <a href="syntax.html" title="previous chapter">Understanding OpenLayers Syntax</a></li>
+      <li>Next: <a href="controls.html" title="next chapter">Controls</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/layers.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div><div class="body">
+<h3 style="background-color: yellow">You are viewing outdated docs</h3>
+<p>OpenLayers 2.x is not under active development any more. Go to <a href="http://openlayers.org/en/latest/doc/">http://openlayers.org/en/latest/doc/</a> to view the latest OpenLayers 3.x docs.</p>
+</div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="layers">
+<h1>Layers<a class="headerlink" href="#layers" title="Permalink to this headline">¶</a></h1>
+<p>Layers are the &#8216;datasources&#8217; in OpenLayers.</p>
+<div class="section" id="base-layers-and-non-base-layers">
+<h2>Base Layers and Non-Base Layers<a class="headerlink" href="#base-layers-and-non-base-layers" title="Permalink to this headline">¶</a></h2>
+<p>OpenLayers has two types of layers when operating in your application: base
+layers and overlays. This difference controls several aspects of how you
+interact with an OpenLayers Map.</p>
+<div class="section" id="base-layers">
+<h3>Base Layers<a class="headerlink" href="#base-layers" title="Permalink to this headline">¶</a></h3>
+<p>Base Layers are mutually exclusive layers, meaning only one can be enabled
+at any given time. The currently active base layer determines the available
+projection (coordinate system) and zoom levels available on the map.</p>
+<p>Whether a layer is a base layer or not is determined by the isBaseLayer
+property on the layer. Most raster layers have the isBaseLayer property set
+to true by default. It can be changed in the layer options.</p>
+<p>Base Layers always display below overlay layers.</p>
+</div>
+<div class="section" id="non-base-layers">
+<h3>Non Base Layers<a class="headerlink" href="#non-base-layers" title="Permalink to this headline">¶</a></h3>
+<p>Non base layers &#8211; sometimes called overlays &#8211; are the alternative to Base
+Layers. Multiple non-base layer can be enabled at a time. These layers do not
+control the zoom levels of the map, but can be enabled or disabled at certain
+scales by min/max scale/resolution parameters so that they are only enabled at
+a certain level.</p>
+<p>Some types of overlays support reprojection to the base layer projection at
+layer load time.  Most overlay layers default to non-base overlays, as does the
+base Layer class.  Non-base Layers always display above base layers.</p>
+</div>
+</div>
+<div class="section" id="raster-layers">
+<h2>Raster Layers<a class="headerlink" href="#raster-layers" title="Permalink to this headline">¶</a></h2>
+<p>Raster Layers are imagery layers. These layers are typically in a fixed
+projection which can not be changed on the client side.</p>
+<div class="section" id="google">
+<span id="layer-google"></span><h3>Google<a class="headerlink" href="#google" title="Permalink to this headline">¶</a></h3>
+<p>Layer for using Google Maps data within OpenLayers. For API information, see the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/Google-js.html">Google Layer API Docs</a>. For an example of usage, see the <a class="reference external" href="http://openlayers.org/dev/examples/spherical-mercator.html">Spherical Mercator example</a>.</p>
+<p>If you are overlaying other data on a Google Maps base layer, you will want
+to be interacting with the Google Maps layer in projected coordinates. (This
+is important if you are working with imagery data especially.) You can read
+more about the &#8216;Spherical Mercator&#8217; projection that Google Maps &#8211; and other
+commercial layers &#8211; use in the <a class="reference internal" href="spherical_mercator.html#spherical-mercator"><span class="std std-ref">Spherical Mercator</span></a> documentation.</p>
+<p>The Google Layer class is designed to be used only as a base layer.</p>
+</div>
+<div class="section" id="image">
+<span id="layer-image"></span><h3>Image<a class="headerlink" href="#image" title="Permalink to this headline">¶</a></h3>
+<p>For API information, see the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/Image-js.html">Image Layer API Docs</a>.</p>
+</div>
+<div class="section" id="kamap">
+<span id="layer-kamap"></span><h3>KaMap<a class="headerlink" href="#kamap" title="Permalink to this headline">¶</a></h3>
+<p>For API information, see the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/KaMap-js.html">KaMap Layer API Docs</a>.</p>
+</div>
+<div class="section" id="kamapcache">
+<span id="layer-kamapcache"></span><h3>KaMapCache<a class="headerlink" href="#kamapcache" title="Permalink to this headline">¶</a></h3>
+<p>For API information, see the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/KaMapCache-js.html">KaMapCache Layer API Docs</a>.</p>
+</div>
+<div class="section" id="mapguide">
+<span id="layer-mapguide"></span><h3>MapGuide<a class="headerlink" href="#mapguide" title="Permalink to this headline">¶</a></h3>
+<p>For API information, see the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/MapGuide-js.html">MapGuide Layer API Docs</a>.</p>
+</div>
+<div class="section" id="mapserver">
+<span id="layer-mapserver"></span><h3>MapServer<a class="headerlink" href="#mapserver" title="Permalink to this headline">¶</a></h3>
+<p>This layer is not required to interact with MapServer. In general, the
+<a class="reference internal" href="#layer-wms"><span class="std std-ref">WMS</span></a> Layer is preferred over the MapServer Layer.  Since MapServer
+exposes most of its CGI functionality in WMS mode as well, the WMS layer is
+preferred. The MapServer layer can often lead to maps which seem to work, but
+don&#8217;t due to projection issues or other similar misconfigurations. Unless
+you have a strong reason not to, you should use the Layer.WMS instead
+of a Layer.MapServer.</p>
+<p>If you are using a Layer.MapServer, and your map is being repeated several
+times, this indicates that you have not properly configured your map to be in a
+different projection. OpenLayers can not read this information from your
+mapfile, and it must be configured explicitly. The <a class="reference external" href="http://faq.openlayers.org/map/how-do-i-set-a-different-projection-on-my-map/">FAQ on setting different
+projection properties</a> provides information on how to configure different
+projections in OpenLayers.</p>
+<p>For API information, see the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/MapServer-js.html">MapServer Layer API Docs</a>.</p>
+</div>
+<div class="section" id="multimap">
+<span id="layer-multimap"></span><h3>MultiMap<a class="headerlink" href="#multimap" title="Permalink to this headline">¶</a></h3>
+<p>For API information, see the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/MultiMap-js.html">MultiMap Layer API Docs</a>.</p>
+</div>
+<div class="section" id="tms">
+<span id="layer-tms"></span><h3>TMS<a class="headerlink" href="#tms" title="Permalink to this headline">¶</a></h3>
+<p>For API information, see the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/TMS-js.html">TMS Layer API Docs</a>.</p>
+</div>
+<div class="section" id="tilecache">
+<span id="layer-tilecache"></span><h3>TileCache<a class="headerlink" href="#tilecache" title="Permalink to this headline">¶</a></h3>
+<p>For API information, see the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/TileCache-js.html">TileCache Layer API Docs</a>.</p>
+</div>
+<div class="section" id="virtualearth">
+<span id="layer-virtualearth"></span><h3>VirtualEarth<a class="headerlink" href="#virtualearth" title="Permalink to this headline">¶</a></h3>
+<p>For API information, see the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/VirtualEarth-js.html">VirtualEarth Layer API Docs</a>.</p>
+</div>
+<div class="section" id="wms">
+<span id="layer-wms"></span><h3>WMS<a class="headerlink" href="#wms" title="Permalink to this headline">¶</a></h3>
+<p>Layer type for accessing data served according to the Web Mapping Service
+standard.</p>
+<p>For API information, see the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/WMS-js.html">WMS Layer API Docs</a>.</p>
+</div>
+<div class="section" id="worldwind">
+<span id="layer-worldwind"></span><h3>WorldWind<a class="headerlink" href="#worldwind" title="Permalink to this headline">¶</a></h3>
+<p>For API information, see the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/WorldWind-js.html">WorldWind Layer API Docs</a>.</p>
+</div>
+<div class="section" id="yahoo">
+<span id="layer-yahoo"></span><h3>Yahoo<a class="headerlink" href="#yahoo" title="Permalink to this headline">¶</a></h3>
+<p>For API information, see the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/Yahoo-js.html">Yahoo Layer API Docs</a>.</p>
+</div>
+</div>
+<div class="section" id="overlay-layers">
+<h2>Overlay Layers<a class="headerlink" href="#overlay-layers" title="Permalink to this headline">¶</a></h2>
+<p>Overlay layers are any layers that have their source data in a format other
+than imagery. This includes subclasses of both <a class="reference internal" href="#layer-markers"><span class="std std-ref">Markers</span></a> Layers and
+<a class="reference internal" href="#layer-vector"><span class="std std-ref">Vector</span></a> Layers. For more information on the differences between
+these two base classes, see the <a class="reference internal" href="overlays.html#overlays"><span class="std std-ref">Overlays</span></a> documentation.</p>
+<div class="section" id="boxes">
+<span id="layer-boxes"></span><h3>Boxes<a class="headerlink" href="#boxes" title="Permalink to this headline">¶</a></h3>
+<p>Based on subclassing markers. In general, it is probably better to implement
+this functionality with a Vectors layer and polygon geometries. Maintained
+for backwards compatibility.</p>
+<p>For API information, see the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/Boxes-js.html">Boxes Layer API Docs</a>.</p>
+</div>
+<div class="section" id="gml">
+<span id="layer-gml"></span><h3>GML<a class="headerlink" href="#gml" title="Permalink to this headline">¶</a></h3>
+<p>The GML layer is a vector layer subclass designed to read data from a file
+once and display it. It is ideal for working with many formats, not just GML,
+and can be configured to read other formats via the &#8216;format&#8217; option on the
+layer.</p>
+<p>The simplest use case of the GML layer is simply to load a GML file. The
+<a class="reference external" href="http://openlayers.org/dev/examples/gml-layer.html">GML Layer Example</a> shows this: simply add:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">layer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">GML</span><span class="p">(</span><span class="s2">&quot;GML&quot;</span><span class="p">,</span> <span class="s2">&quot;gml/polygon.xml&quot;</span><span class="p">)</span>
+<span class="nx">map</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">layer</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If you want to add a different type of format, you can change the format
+option of the layer at initialization. The <a class="reference external" href="http://openlayers.org/dev/examples/kml-layer.html">KML example</a> demonstrates this:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">layer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">GML</span><span class="p">(</span><span class="s2">&quot;KML&quot;</span><span class="p">,</span> <span class="s2">&quot;kml/lines.kml&quot;</span><span class="p">,</span> <span class="p">{</span>
+   <span class="nx">format</span><span class="o">:</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Format</span><span class="p">.</span><span class="nx">KML</span>
+<span class="p">})</span>
+<span class="nx">map</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">layer</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>You can also add formatOption to the layer: these options are used when
+creating the format class internally to the layer.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">layer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">GML</span><span class="p">(</span><span class="s2">&quot;KML&quot;</span><span class="p">,</span> <span class="s2">&quot;kml/lines.kml&quot;</span><span class="p">,</span> <span class="p">{</span>
+   <span class="nx">format</span><span class="o">:</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Format</span><span class="p">.</span><span class="nx">KML</span><span class="p">,</span>
+   <span class="nx">formatOptions</span><span class="o">:</span> <span class="p">{</span>
+     <span class="s1">&#39;extractStyles&#39;</span><span class="o">:</span> <span class="kc">true</span>
+   <span class="p">}</span>
+<span class="p">});</span>
+<span class="nx">map</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">layer</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The format options are determined by the format class.</p>
+<p>For API information, see the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/GML-js.html">GML Layer API Docs</a>.</p>
+</div>
+<div class="section" id="georss">
+<span id="layer-georss"></span><h3>GeoRSS<a class="headerlink" href="#georss" title="Permalink to this headline">¶</a></h3>
+<p>The GeoRSS layer uses the GeoRSS format, and displays the results as clickable
+markers. It is a subclass of the Markers layer, and does not support lines
+or polygons. It has many hardcoded behaviors, and in general, you may be better
+off using a GML layer with a SelectFeature Control instead of the GeoRSS
+layer if you want configurability of your application behavior. (For more
+information on how to make that transition, see
+<a class="reference internal" href="overlays.html#transition-markers-to-vectors"><span class="std std-ref">Transitioning from Text Layer or GeoRSS Layer to Vectors</span></a>.)</p>
+<p>For API information, see the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/GeoRSS-js.html">GeoRSS Layer API Docs</a>.</p>
+</div>
+<div class="section" id="markers">
+<span id="layer-markers"></span><h3>Markers<a class="headerlink" href="#markers" title="Permalink to this headline">¶</a></h3>
+<p>The Markers base layer is simple, and allows use of the addMarkers function
+to add markers to the layer. It supports only points, not lines or polygons.</p>
+<p>For API information, see the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/Markers-js.html">Markers Layer API Docs</a>.</p>
+</div>
+<div class="section" id="pointtrack">
+<span id="layer-pointtrack"></span><h3>PointTrack<a class="headerlink" href="#pointtrack" title="Permalink to this headline">¶</a></h3>
+<p>For API information, see the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/PointTrack-js.html">PointTrack Layer API Docs</a>.</p>
+</div>
+<div class="section" id="text">
+<span id="layer-text"></span><h3>Text<a class="headerlink" href="#text" title="Permalink to this headline">¶</a></h3>
+<p>The Text layer uses the Text format, and displays the results as clickable
+markers. It is a subclass of the Markers layer, and does not support lines
+or polygons. It has many hardcoded behaviors, and in general, you may be better
+off using a GML layer with a SelectFeature Control instead of the Text
+layer if you want configurability of your application behavior. (For more
+information on how to make that transition, see
+<a class="reference internal" href="overlays.html#transition-markers-to-vectors"><span class="std std-ref">Transitioning from Text Layer or GeoRSS Layer to Vectors</span></a>.)</p>
+<p>For API information, see the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/Text-js.html">Text Layer API Docs</a>.</p>
+</div>
+<div class="section" id="vector">
+<span id="layer-vector"></span><h3>Vector<a class="headerlink" href="#vector" title="Permalink to this headline">¶</a></h3>
+<p>The Vector Layer is the basis of the advanced geometry support in OpenLayers.
+Classes like GML and WFS subclass from the Vector layer. When creating features
+in JavaScript code, using the Vector layer directly is likely a good way to go.</p>
+<p>As of OpenLayers 2.7, development has begun on extending the Vector Layer to
+have additional capabilities for loading data, to replace the large number
+of layer subclasses. This work on Strategy and Protocol classes is designed
+to make it easier to interact with data from remote datasources. For more
+information on Protocols and Strategies, see the OpenLayers API documentation.</p>
+<p>For API information, see the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/Vector-js.html">Vector Layer API Docs</a>.</p>
+</div>
+<div class="section" id="wfs">
+<span id="layer-wfs"></span><h3>WFS<a class="headerlink" href="#wfs" title="Permalink to this headline">¶</a></h3>
+<p>For API information, see the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Layer/WFS-js.html">WFS Layer API Docs</a>.</p>
+</div>
+</div>
+<div class="section" id="generic-subclasses">
+<h2>Generic Subclasses<a class="headerlink" href="#generic-subclasses" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>EventPane</li>
+<li>FixedZoomLevels</li>
+<li>Grid</li>
+<li>HTTPRequest</li>
+<li>SphericalMercator</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+    &copy; Copyright 2008, OpenLayers.
+    </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-2577926-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+  </body>
+</html>

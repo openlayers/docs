@@ -1,0 +1,268 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Minimizing your code &mdash; OpenLayers</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="OpenLayers" href="../index.html" />
+    <link rel="up" title="Getting Help" href="index.html" />
+    <link rel="next" title="OpenLayers Case Studies" href="../casestudies/index.html" />
+    <link rel="prev" title="Getting Help" href="index.html" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/website.css" type="text/css" />
+  <meta name="verify-v1" content="p07VY29NG/hLEwVP1RyE0P1chgYyekPikjkMUEgrVAI=" />
+  <!--[if lt IE 7]>
+  <script defer="defer" type="text/javascript" src="http://openlayers.org/pngfix.js"></script>
+  <![endif]-->
+  <style type='text/css'>
+    body {
+     font-family: sans-serif;
+     font-size: .9em;
+    }
+  </style>
+
+  </head>
+  <body role="document">
+<div id="olbanner">
+<img class="openlayersbannerimg" src="http://openlayers.org/two/images/OpenLayers.trac.png" style="height: 44px; width: 49px;border:0px" alt="OpenLayers" />
+<a class="openlayersbanner" href="http://www.openlayers.org/two/" >
+OpenLayers 2</a>
+</div>
+<div id="navcontainer">
+<a class="navtabtraccurrent" href="http://www.openlayers.org">Home</a>
+<a class="navtab" href="http://trac.osgeo.org/openlayers">Support &amp; Development</a>
+</div>
+
+<div id="mainnav" class="nav"><ul><li class="first"><a href="http://www.openlayers.org/sponsorship/">Sponsorship</a></li><li><a href="http://trac.openlayers.org/wiki" accesskey="1">Wiki</a></li><li><a href="http://openlayers.org/blog/">Blog</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/FrequentlyAskedQuestions">FAQ</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/HowToDownload" accesskey="3">Download</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/MailingLists">Email Lists</a></li></ul></div>
+
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../casestudies/index.html" title="OpenLayers Case Studies"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="index.html" title="Getting Help"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">OpenLayers</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../contents.html" >Table of Contents</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">Getting Help</a> &raquo;</li> 
+      </ul>
+    </div>
+
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Minimizing your code</a><ul>
+<li><a class="reference internal" href="#minimizing-test-cases">Minimizing Test Cases</a><ul>
+<li><a class="reference internal" href="#openlayers-library-references">OpenLayers Library References</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#publishing-your-problem">Publishing your Problem</a></li>
+<li><a class="reference internal" href="#communicating-about-your-problem">Communicating about your Problem</a></li>
+<li><a class="reference internal" href="#finally">Finally,</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../contents.html">Table of Contents</a><ul>
+  <li><a href="index.html">Getting Help</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Getting Help</a></li>
+      <li>Next: <a href="../casestudies/index.html" title="next chapter">OpenLayers Case Studies</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/help/minimize.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div><div class="body">
+<h3 style="background-color: yellow">You are viewing outdated docs</h3>
+<p>OpenLayers 2.x is not under active development any more. Go to <a href="http://openlayers.org/en/latest/doc/">http://openlayers.org/en/latest/doc/</a> to view the latest OpenLayers 3.x docs.</p>
+</div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="minimizing-your-code">
+<h1>Minimizing your code<a class="headerlink" href="#minimizing-your-code" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="minimizing-test-cases">
+<h2>Minimizing Test Cases<a class="headerlink" href="#minimizing-test-cases" title="Permalink to this headline">¶</a></h2>
+<p>In order for developers to help fix a problem, they first have to
+understand it. In order to do that, they need to understand everything
+thati s going on in a situation where the problem is reproducible.
+Oftentimes, the particular behavior is only existing in a certain type
+of situation, or in a limited case that is not exploited by the commonly
+used code. (In addition, some problems are the result of user error in
+some way.)</p>
+<p>In order to help developers help you, the best thing to do is to
+minimize the error to the <em>smallest amount of code that can cause it to
+happen</em>. Additionally, when attempting to reproduce, any developer will
+need to set up the code so that it is possible to run in the developer&#8217;s
+test environment. This means that it is ideal to remove external
+references to other Javascript files, and external files at all, where
+possible. (Clearly, this is not always possible: WFS server bugs can&#8217;t
+typically be demonstrated inside of a single page, for example &#8211; but
+you should minimize external dependancies as much as possible.)</p>
+<p>Once you&#8217;ve done this, you should remove <em>all non-neccesary lines of
+code</em> from your example. Does the problem require the ScaleBar control
+in order to manifest itself? If not, toss it. Does it need multiple
+layers? If not, toss them. In short, any line of code that is not
+directly related to reproducing the problem should be removed, as each
+line will need to be read by the developer &#8211; and in the case of
+multiple developers working on a problem, read by <em>each</em> developer &#8211; in
+order to determine whether the problem is related to that.</p>
+<p>This minimization step should include removing any unneccesary
+Javascript, unneccesary CSS files, unneccesary HTML, etc. until the
+resulting code is as small as possible.</p>
+<p>Many times, in doing this, you will come across a particular
+minimization step that causes the problem to go away. This is a good
+sign, because it means you have narrowed the problem down to that
+particular aspect of code. Put it back, and keep minimizing.</p>
+<p>Additionally, many times in doing this, you find a particular construct
+in your code that can help you understand how to work around the
+problem.</p>
+<p>If not, then continue onto the next section.</p>
+<div class="section" id="openlayers-library-references">
+<h3>OpenLayers Library References<a class="headerlink" href="#openlayers-library-references" title="Permalink to this headline">¶</a></h3>
+<p>There are multiple hosted versions of the OpenLayers library.</p>
+<blockquote>
+<div><a class="reference external" href="http://openlayers.org/api/OpenLayers.js">http://openlayers.org/api/OpenLayers.js</a></div></blockquote>
+<p>This will always represent the most recent released &#8216;stable&#8217; version of
+the OpenLayers API.</p>
+<blockquote>
+<div><a class="reference external" href="http://openlayers.org/dev/OpenLayers.js">http://openlayers.org/dev/OpenLayers.js</a></div></blockquote>
+<p>This is always a 10-minute delayed build of OpenLayers trunk.</p>
+<p>To simplify allowing developers to set up the code on their own testing
+environments, it is often beneficial to point directly to one of these
+library URLs. In addition, this also ensures that the problem is not
+something specific to your build of OpenLayers.</p>
+</div>
+</div>
+<div class="section" id="publishing-your-problem">
+<h2>Publishing your Problem<a class="headerlink" href="#publishing-your-problem" title="Permalink to this headline">¶</a></h2>
+<p>Once you have minimized your test case, you need to publish it. In
+general, it is easiest if you publish an HTML page on a web accessible
+URL. Even if your project is not yet public, you can likely put a page
+up on another server which demonstrates the problem. Doing this is much
+more likely to have a developer actually follow the link and explore
+your problem. This is <em>especially</em> true for things like WFS which
+require a proxy to work correctly:  Downloading the page, setting up a
+proxy, and testing locally is a lot of work for a developer simply to
+confirm that a problem exists.</p>
+<p>If you do not have <em>any</em> place to publish webpages, you can attempt to
+paste your code to a public site like &#8216;nopaste.com&#8217;. However, be aware
+that doing so means that a developer has to perform more steps to
+reproduce your problem &#8211; and every step is one that makes the problem
+less likely to be solved quickly and easily.</p>
+</div>
+<div class="section" id="communicating-about-your-problem">
+<h2>Communicating about your Problem<a class="headerlink" href="#communicating-about-your-problem" title="Permalink to this headline">¶</a></h2>
+<p>The best way to communicate your problem is to send an email to the
+users list demonstrating the problem. Oftentimes other users will be
+able to point out a particular flaw in your code that is causing the
+error, or explain that the behavior is a known lack of functionality in
+OpenLayers.</p>
+<p><em>Be clear on steps for reproduction</em>. Users who don&#8217;t know what they&#8217;re
+supposed to do to cause the bug will not be able to see it, and if they
+can&#8217;t see it, they can&#8217;t help you.</p>
+<p><em>Be clear on expected behavior</em>. Oftentimes, it is unclear why you think
+something is not working, because the behavior you&#8217;re seeing is expected or
+the problem is otherwise not obvious. Explain what you expect to see.</p>
+<p>If you have determined the particular change in the OpenLayers source
+code which is required to change the behavior, then it is more likely
+that the Developers list is the best place to go. Any discussion which
+involves code from OpenLayers itself is probably better suited for the
+dev list.</p>
+</div>
+<div class="section" id="finally">
+<h2>Finally,<a class="headerlink" href="#finally" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>By following the steps:</dt>
+<dd><ul class="first last simple">
+<li>Simplify/Minimize</li>
+<li>Publish</li>
+<li>Communicate</li>
+</ul>
+</dd>
+</dl>
+<p>(If you&#8217;d like, you can toss a &#8221;???, Profit!&#8221; at the end of this.)</p>
+<p>You can ensure that it is as easy as possible for a developer to
+determine whether the problem you&#8217;re having is with the library. You
+also make it easier for develpoers and users to find potential problems
+in your usage of the library and suggest solutions. Finally, you may
+find in the process that you find the bug yourself, thus saving yourself
+and everyone else time in trying to debug.</p>
+<p>The end result is a more workable system for everyone. The easier it is
+to understand the problem you&#8217;re having, the faster, and more easily,
+you will be able to get help.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+    &copy; Copyright 2008, OpenLayers.
+    </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-2577926-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+  </body>
+</html>

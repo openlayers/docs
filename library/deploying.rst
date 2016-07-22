@@ -1,24 +1,24 @@
-Deploying (Shipping OpenLayers in your Application)
+Deploying (Shipping OpenLayers 2 in your Application)
 ===================================================
 
-OpenLayers comes with pre-configured examples out of the box: simply download
-a release of OpenLayers, and you get a full set of easy to use examples.
+OpenLayers 2 comes with pre-configured examples out of the box: simply download
+a release of OpenLayers 2, and you get a full set of easy to use examples.
 However, these examples are designed to be used for development. When you're
-ready to deploy your application, you want a highly optimized OpenLayers
+ready to deploy your application, you want a highly optimized OpenLayers 2
 distribution, to limit bandwidth and loading time.
 
 Single File Build
 +++++++++++++++++
 
-OpenLayers has two different types of usage: Single File, where all Javascript
+OpenLayers 2 has two different types of usage: Single File, where all Javascript
 code is compiled into a single file, OpenLayers.js, and the development
 version, where Javascript files are all loaded at application start time.  The
-single file build takes a set of OpenLayers Javascript files, orders them
+single file build takes a set of OpenLayers 2 Javascript files, orders them
 according to dependencies described in the files, and optionally compresses the resulting
 file, using a compression library.
 
-Building a single file version of the OpenLayers library changes the behavior
-of the library slightly: by default, the development version of OpenLayers
+Building a single file version of the OpenLayers 2 library changes the behavior
+of the library slightly: by default, the development version of OpenLayers 2
 expects to live in a directory called "lib", and expects that images and
 CSS live in the directory above the OpenLayers.js file::
 
@@ -28,9 +28,9 @@ CSS live in the directory above the OpenLayers.js file::
   lib/OpenLayers/Map.js
   ...
 
-However, when deploying a single file build of OpenLayers, it is expected that
+However, when deploying a single file build of OpenLayers 2, it is expected that
 the library will instead be at the same level as the theme and img
-directories:: 
+directories::
 
   OpenLayers.js
   theme/default/style.css
@@ -40,18 +40,18 @@ directories::
 Building the Single File Build
 ------------------------------
 
-The single file build tools are deployed with an OpenLayers release in the 
+The single file build tools are deployed with an OpenLayers 2 release in the
 'build' directory. The tools require Python in order to build.
 
-On Linux and other similar operating systems, given that OpenLayers is stored
+On Linux and other similar operating systems, given that OpenLayers 2 is stored
 in the 'openlayers' directory, a single file build could be created by
-issuing the following commands:: 
+issuing the following commands::
 
   cd openlayers/build
-  ./build.py  
+  ./build.py
 
 This would create a file in the build directory called "OpenLayers.js", which
-contains all the library code for your single file build of OpenLayers.
+contains all the library code for your single file build of OpenLayers 2.
 
 In Windows, from the Start Menu, select Run. Copy the path to build.py from the address bar of the Explorer Window into the text box and then add the name of the configuration file (or blank for the default):
 
@@ -60,20 +60,20 @@ In Windows, from the Start Menu, select Run. Copy the path to build.py from the 
 Custom Build Profiles
 +++++++++++++++++++++
 
-In order to optimize the end-user's experience, the OpenLayers distribution
+In order to optimize the end-user's experience, the OpenLayers 2 distribution
 includes tools which allow you to build your own single file version of the
 code. This code uses a configuration file to choose which files should be
 included in the build: In this way, for production use, you can remove classes
-from your OpenLayers JavaScript library file which are not used in your
+from your OpenLayers 2 JavaScript library file which are not used in your
 application.
 
-OpenLayers ships with two standard configurations to create a single file
+OpenLayers 2 ships with two standard configurations to create a single file
 version:
 
-    full: 
+    full:
         This is the full build with all files.
-    lite: 
-        This file includes a small subset of OpenLayers code, designed to be
+    lite:
+        This file includes a small subset of OpenLayers 2 code, designed to be
         integrated into another application. It includes only the Layer types
         neccesary to create tiled or untiled WMS, and does not include any
         Controls. This is the result of what was at the time called "Webmap.js"
@@ -82,7 +82,7 @@ version:
 Profiles are simple to create. You can start by copying lite.cfg
 to something else, e.g. myversion.cfg in the build directory.
 
-To build a profile, you should add files needed for your application to the 
+To build a profile, you should add files needed for your application to the
 '[include]' section of the file. The files listed here should be the list of
 files containing any class you use in your application. You can typically find
 these classes by looking through your code for any cases where 'new
@@ -102,31 +102,31 @@ section::
 Once we have done that, we can build our profile by adding the profile name
 to the end of our earlier build command::
 
-  ./build.py myversion 
+  ./build.py myversion
 
-This will create a much smaller OpenLayers version, suitable for limited
+This will create a much smaller OpenLayers 2 version, suitable for limited
 applications.
 
 Note that there is one major exception to the process above of looking for 'new
 OpenLayers.ClassName()'. If you are using a vector layer, you need to specify
-which renderers you wish to cater for. When you load a vector layer, OpenLayers
+which renderers you wish to cater for. When you load a vector layer, OpenLayers 2
 checks to see which renderer the browser supports, and currently has renderer
 classes to support SVG (the most widely used in browsers), Canvas, and VML
 (used by Internet Explorer). You can see an example of how to include these in 'mobile.cfg',
 which includes SVG and Canvas, but not VML, which is not used in browsers in mobile devices.
 
-All applications can benefit from a custom build profile. OpenLayers
+All applications can benefit from a custom build profile. OpenLayers 2
 supports many different layer types, but most applications will only use one
 or two, and many applications do not need the full support of many of the
-features in OpenLayers. In order to limit your download time and library
+features in OpenLayers 2. In order to limit your download time and library
 size, building a custom profile is highly recommended before deploying an
-OpenLayers application: it can help shrink the size of your library by a 
+OpenLayers 2 application: it can help shrink the size of your library by a
 factor of five over using the full library.
 
 Deploying Files
 +++++++++++++++
 
-In order to deploy OpenLayers, there are several different pieces that must
+In order to deploy OpenLayers 2, there are several different pieces that must
 be deployed.
 
   OpenLayers.js
@@ -138,10 +138,10 @@ be deployed.
     whose styling and positioning is controlled entirely by CSS.
 
   img directory
-    This directory provides images to be used for some controls, like the 
+    This directory provides images to be used for some controls, like the
     PanZoom control, which do not use CSS for styling.
 
-As described above, by default when deploying these files with a single-file OpenLayers
+As described above, by default when deploying these files with a single-file OpenLayers 2
 build, they should all live in the same directory. You can however override this:
 
   theme (css file)
@@ -151,7 +151,7 @@ build, they should all live in the same directory. You can however override this
     set ``OpenLayers.ImgPath`` at the beginning of your script, for example
 
     ::
-   
+
         OpenLayers.ImgPath = "/css/img/"
 
 Note that you should also do this if you name your build something other than OpenLayers.js.
@@ -164,39 +164,39 @@ two important factors: minimizing the size of all downloads (via whitespace
 removal, for example) and delivering compressed data to clients which
 support it.
 
-There are three types of data that OpenLayers uses, and each has a different
+There are three types of data that OpenLayers 2 uses, and each has a different
 means of compression.
 
  * Control Images
 
    Control images are generally PNG images. These images should be compressed
    with png compression tools like pngcrush to create the minimal png images.
-   The images provided with OpenLayers (both for CSS-styled and non-CSS 
-   styled controls) have had this applied to them, so these images are 
+   The images provided with OpenLayers 2 (both for CSS-styled and non-CSS
+   styled controls) have had this applied to them, so these images are
    already minimized.
 
  * CSS
 
-   csstidy_ is a library which removes whitespace from CSS stylesheets. 
-   By using csstidy, you can reduce the size of OpenLayers stylesheets
-   by approximately 30%. 
+   csstidy_ is a library which removes whitespace from CSS stylesheets.
+   By using csstidy, you can reduce the size of OpenLayers 2 stylesheets
+   by approximately 30%.
 
-   Releases of OpenLayers beyond 2.10 include CSS tidy stylesheets in
-   the theme directory with .tidy. in the name. To take advantage of 
+   Releases of OpenLayers 2 beyond 2.10 include CSS tidy stylesheets in
+   the theme directory with .tidy. in the name. To take advantage of
    these stylesheets, you should create your map with a null theme,
    and include the stylesheet directly in the page.
 
    ::
-        
+
         <link rel="stylesheet" href="../theme/default/style.tidy.css" type="text/css" />
         <script>
             new OpenLayers.Map("map", {
                 theme: null
-            });    
+            });
         </script>
 
  * Javascript
-   
+
    The singlefile build tools have support for a number of tools which can
    remove whitespace from Javascript, including jsmin (from Douglas Crockford)
    and the Closure Compiler (from Google).
@@ -207,37 +207,37 @@ means of compression.
    jsmin's compression.
 
    The options available for compression are:
-   
+
     * closure
 
       This requires you to have a closure-compiler.jar in your
       tools directory. You can do this by fetching the compiler
       from:
-   
+
         http://closure-compiler.googlecode.com/files/compiler-latest.zip
-   
+
       Then unzipping that file, and placing compiler.jar into tools
       and renaming it closure-compiler.jar.
-   
+
     * closure_ws
 
       This uses the closure compiler webservice. This will only work
       for files source Javascript files which are under 1MB. (Note that
-      the default OpenLayers full build is not under 1MB.)
-   
+      the default OpenLayers 2 full build is not under 1MB.)
+
     * jsmin
 
       jsmin is the default compiler, and uses the Python-based
-      jsmin script to compress the Javascript. 
-   
+      jsmin script to compress the Javascript.
+
     * minimize
 
       This is a simple whitespace removing Python script, designed
       to fill in when other tools are unavailable.
-   
+
     * none
 
       None will leave the Javascript uncompressed.
 
 
-.. _csstidy: http://csstidy.sourceforge.net/   
+.. _csstidy: http://csstidy.sourceforge.net/

@@ -1,0 +1,205 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>What is OpenLayers? &mdash; OpenLayers</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="OpenLayers" href="#" />
+    <link rel="next" title="Table of Contents" href="contents.html" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/website.css" type="text/css" />
+  <meta name="verify-v1" content="p07VY29NG/hLEwVP1RyE0P1chgYyekPikjkMUEgrVAI=" />
+  <!--[if lt IE 7]>
+  <script defer="defer" type="text/javascript" src="http://openlayers.org/pngfix.js"></script>
+  <![endif]-->
+  <style type='text/css'>
+    body {
+     font-family: sans-serif;
+     font-size: .9em;
+    }
+  </style>
+
+  </head>
+  <body role="document">
+<div id="olbanner">
+<img class="openlayersbannerimg" src="http://openlayers.org/two/images/OpenLayers.trac.png" style="height: 44px; width: 49px;border:0px" alt="OpenLayers" />
+<a class="openlayersbanner" href="http://www.openlayers.org/two/" >
+OpenLayers 2</a>
+</div>
+<div id="navcontainer">
+<a class="navtabtraccurrent" href="http://www.openlayers.org">Home</a>
+<a class="navtab" href="http://trac.osgeo.org/openlayers">Support &amp; Development</a>
+</div>
+
+<div id="mainnav" class="nav"><ul><li class="first"><a href="http://www.openlayers.org/sponsorship/">Sponsorship</a></li><li><a href="http://trac.openlayers.org/wiki" accesskey="1">Wiki</a></li><li><a href="http://openlayers.org/blog/">Blog</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/FrequentlyAskedQuestions">FAQ</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/HowToDownload" accesskey="3">Download</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/MailingLists">Email Lists</a></li></ul></div>
+
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="contents.html" title="Table of Contents"
+             accesskey="N">next</a></li>
+        <li class="nav-item nav-item-0"><a href="#">OpenLayers</a> &raquo;</li> 
+      </ul>
+    </div>
+
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">What is OpenLayers?</a><ul>
+<li><a class="reference internal" href="#openlayers-documentation">OpenLayers Documentation</a></li>
+<li><a class="reference internal" href="#openlayers-examples">OpenLayers Examples</a></li>
+<li><a class="reference internal" href="#code-documentation">Code Documentation</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="contents.html" title="next chapter">Table of Contents</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div><div class="body">
+<h3 style="background-color: yellow">You are viewing outdated docs</h3>
+<p>OpenLayers 2.x is not under active development any more. Go to <a href="http://openlayers.org/en/latest/doc/">http://openlayers.org/en/latest/doc/</a> to view the latest OpenLayers 3.x docs.</p>
+</div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="what-is-openlayers">
+<h1>What is OpenLayers?<a class="headerlink" href="#what-is-openlayers" title="Permalink to this headline">¶</a></h1>
+<p>OpenLayers is a pure JavaScript library for displaying map data in most
+modern web browsers, with no server-side dependencies. OpenLayers implements a
+<a class="reference external" href="http://trac.openlayers.org/wiki/Documentation">JavaScript API</a> for building rich web-based geographic applications, similar
+to the Google Maps and MSN Virtual Earth APIs, with one important difference &#8211;
+OpenLayers is Free Software, developed for and by the Open Source software
+community.</p>
+<div class="section" id="openlayers-documentation">
+<h2>OpenLayers Documentation<a class="headerlink" href="#openlayers-documentation" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contents.html">Table of Contents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="library/index.html">OpenLayers Library Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="library/introduction.html">Getting Started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="library/syntax.html">Understanding OpenLayers Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="library/layers.html">Layers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="library/controls.html">Controls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="library/formats.html">Formats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="library/overlays.html">Overlays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="library/feature_styling.html">Styling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="library/mobile.html">Mobile Browsing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="library/deploying.html">Deploying (Shipping OpenLayers in your Application)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="library/request.html">Requesting Remote Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="library/spherical_mercator.html">Spherical Mercator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="help/index.html">Getting Help</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="help/minimize.html">Minimizing your code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="casestudies/index.html">OpenLayers Case Studies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="casestudies/index.html#featured-case-studies">Featured Case Studies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="casestudies/index.html#all-case-studies">All Case Studies</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="links/index.html">Links to other Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="links/turbogears-openlayers.html">tg.ext.geo OpenLayers and TileCache Tutorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="links/opengeo.html">Introduction to OpenLayers Workshop</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="openlayers-examples">
+<h2>OpenLayers Examples<a class="headerlink" href="#openlayers-examples" title="Permalink to this headline">¶</a></h2>
+<p>One of the guiding principles of OpenLayers development has been to maintain
+a set of small examples of most functionality, allowing the library to
+demonstrate most of what it can do by example. This means that our examples
+are typically our most up to date source of documentation, and provide more
+than 100 different code snippets for use in your applications.</p>
+<p>These examples are available from the <a class="reference external" href="http://openlayers.org/dev/examples/">OpenLayers Examples</a> page.</p>
+</div>
+<div class="section" id="code-documentation">
+<h2>Code Documentation<a class="headerlink" href="#code-documentation" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="docutils">
+<dt><a class="reference external" href="http://dev.openlayers.org/apidocs/">API Docs</a></dt>
+<dd>Documentation for the OpenLayers API</dd>
+<dt><a class="reference external" href="http://dev.openlayers.org/docs/">Developer Docs</a></dt>
+<dd>Developer Documentation for the OpenLayers API</dd>
+</dl>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+    &copy; Copyright 2008, OpenLayers.
+    </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-2577926-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+  </body>
+</html>

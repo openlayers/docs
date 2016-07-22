@@ -7,4 +7,4 @@
   Knight Foundation, EveryBlock seeks to solve the problem of answering the
   question of "What's happening in my neighborhood?" A key aspect of any
   local data problem is good maps – and when EveryBlock wanted maps, they
-  used OpenLayers.
+  used OpenLayers 2.

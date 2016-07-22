@@ -1,0 +1,541 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Spherical Mercator &mdash; OpenLayers</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="OpenLayers" href="../index.html" />
+    <link rel="up" title="OpenLayers Library Documentation" href="index.html" />
+    <link rel="next" title="Getting Help" href="../help/index.html" />
+    <link rel="prev" title="Requesting Remote Data" href="request.html" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/website.css" type="text/css" />
+  <meta name="verify-v1" content="p07VY29NG/hLEwVP1RyE0P1chgYyekPikjkMUEgrVAI=" />
+  <!--[if lt IE 7]>
+  <script defer="defer" type="text/javascript" src="http://openlayers.org/pngfix.js"></script>
+  <![endif]-->
+  <style type='text/css'>
+    body {
+     font-family: sans-serif;
+     font-size: .9em;
+    }
+  </style>
+
+  </head>
+  <body role="document">
+<div id="olbanner">
+<img class="openlayersbannerimg" src="http://openlayers.org/two/images/OpenLayers.trac.png" style="height: 44px; width: 49px;border:0px" alt="OpenLayers" />
+<a class="openlayersbanner" href="http://www.openlayers.org/two/" >
+OpenLayers 2</a>
+</div>
+<div id="navcontainer">
+<a class="navtabtraccurrent" href="http://www.openlayers.org">Home</a>
+<a class="navtab" href="http://trac.osgeo.org/openlayers">Support &amp; Development</a>
+</div>
+
+<div id="mainnav" class="nav"><ul><li class="first"><a href="http://www.openlayers.org/sponsorship/">Sponsorship</a></li><li><a href="http://trac.openlayers.org/wiki" accesskey="1">Wiki</a></li><li><a href="http://openlayers.org/blog/">Blog</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/FrequentlyAskedQuestions">FAQ</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/HowToDownload" accesskey="3">Download</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/MailingLists">Email Lists</a></li></ul></div>
+
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../help/index.html" title="Getting Help"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="request.html" title="Requesting Remote Data"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">OpenLayers</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../contents.html" >Table of Contents</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">OpenLayers Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Spherical Mercator</a><ul>
+<li><a class="reference internal" href="#what-is-spherical-mercator">What is Spherical Mercator?</a></li>
+<li><a class="reference internal" href="#first-map">First Map</a></li>
+<li><a class="reference internal" href="#working-with-projected-coordinates">Working with Projected Coordinates</a><ul>
+<li><a class="reference internal" href="#reprojecting-points-bounds">Reprojecting Points, Bounds</a></li>
+<li><a class="reference internal" href="#reprojecting-geometries">Reprojecting Geometries</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reprojecting-vector-data">Reprojecting Vector Data</a></li>
+<li><a class="reference internal" href="#serializing-projected-data">Serializing Projected Data</a><ul>
+<li><a class="reference internal" href="#display-projection-on-controls">Display Projection on Controls</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#creating-spherical-mercator-raster-images">Creating Spherical Mercator Raster Images</a><ul>
+<li><a class="reference internal" href="#mapserver">MapServer</a></li>
+<li><a class="reference internal" href="#geoserver">GeoServer</a></li>
+<li><a class="reference internal" href="#custom-tiles">Custom Tiles</a></li>
+<li><a class="reference internal" href="#sphericalmercator-and-epsg-aliases">SphericalMercator and EPSG aliases</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../contents.html">Table of Contents</a><ul>
+  <li><a href="index.html">OpenLayers Library Documentation</a><ul>
+      <li>Previous: <a href="request.html" title="previous chapter">Requesting Remote Data</a></li>
+      <li>Next: <a href="../help/index.html" title="next chapter">Getting Help</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/spherical_mercator.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div><div class="body">
+<h3 style="background-color: yellow">You are viewing outdated docs</h3>
+<p>OpenLayers 2.x is not under active development any more. Go to <a href="http://openlayers.org/en/latest/doc/">http://openlayers.org/en/latest/doc/</a> to view the latest OpenLayers 3.x docs.</p>
+</div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="spherical-mercator">
+<span id="id1"></span><h1>Spherical Mercator<a class="headerlink" href="#spherical-mercator" title="Permalink to this headline">¶</a></h1>
+<p>This document describes the Spherical Mercator projection, what it is, and
+when you should use it. It includes some background information,
+demonstration of using the code with just a commercial layer, and how to add
+a WMS over the top of that layer, and how to reproject coordinates within
+OpenLayers so that you can reproject coordinates inside of OpenLayers. It is
+expected that readers of this tutorial will have a basic understanding of
+reprojection and a basic understanding of OpenLayers.</p>
+<div class="section" id="what-is-spherical-mercator">
+<h2>What is Spherical Mercator?<a class="headerlink" href="#what-is-spherical-mercator" title="Permalink to this headline">¶</a></h2>
+<p>Spherical Mercator is a de facto term used inside the OpenLayers community &#8211;
+and also the other existing Open Source GIS community &#8211; to describe the
+projection used by Google Maps, Microsoft Virtual Earth, Yahoo Maps, and other
+commercial API providers.</p>
+<p>This term is used to refer to the fact that these providers use a Mercator
+projection which treats the earth as a sphere, rather than a projection which
+treats the earth as an ellipsoid. This affects calculations done based on
+treating the map as a flat plane, and is therefore important to be aware
+of when working with these map providers.</p>
+<p>In order to properly overlay data on top of the maps provided by the
+commerical API providers, it is neccesary to use this projection. This
+applies primarily to displaying raster tiles over the commercial API layers
+&#8211; such as TMS, WMS, or other similar tiles.</p>
+<p>In order to work well with the existing commercial APIs, many users who
+create data designed for use within Google Maps will also use this
+projection. One prime example is OpenStreetMap, whose raster map tiles are
+all projected into the &#8216;spherical mercator&#8217; projection.</p>
+<p>Projections in GIS are commonly referred to by their &#8220;EPSG&#8221; codes, identifiers
+managed by the European Petroleum Survey Group. One common identifier is
+&#8220;EPSG:4326&#8221;, which describes maps where latitude and longitude are treated as
+X/Y values. Spherical Mercator has an official designation of EPSG:3857.
+However, before this was established, a large amount of software used the
+identifier EPSG:900913. This is an unofficial code, but is still the commonly
+used code in OpenLayers. Any time you see the string &#8220;EPSG:4326&#8221;, you can
+assume it describes latitude/longitude coordinates. Any time you see the
+string &#8220;EPSG:900913&#8221;, it will be describing coordinates in meters in x/y.</p>
+</div>
+<div class="section" id="first-map">
+<h2>First Map<a class="headerlink" href="#first-map" title="Permalink to this headline">¶</a></h2>
+<p>The first thing to do with the Spherical Mercator projection is to create a
+map using the projection. This map will be based on the Microsoft
+Virtual Earth API. The following HTML template will be used for the map.</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>OpenLayers Example<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#39;http://dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=6.1&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;http://openlayers.org/api/OpenLayers.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:100%; height:100%&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;map&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">script</span> <span class="na">defer</span><span class="o">=</span><span class="s">&#39;defer&#39;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#39;text/javascript&#39;</span><span class="p">&gt;</span>
+        <span class="c1">// Code goes here</span>
+      <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p><strong>Ex. 1</strong>: HTML Template</p>
+<p>The next step is to add the default Microsoft Virtual Earth layer as a
+base layer to the map.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Map</span><span class="p">(</span><span class="s1">&#39;map&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">layer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">VirtualEarth</span><span class="p">(</span><span class="s2">&quot;Virtual Earth&quot;</span><span class="p">,</span>
+ <span class="p">{</span>
+     <span class="nx">sphericalMercator</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+     <span class="nx">maxExtent</span><span class="o">:</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Bounds</span><span class="p">(</span><span class="o">-</span><span class="mf">20037508.34</span><span class="p">,</span><span class="o">-</span><span class="mf">20037508.34</span><span class="p">,</span><span class="mf">20037508.34</span><span class="p">,</span><span class="mf">20037508.34</span><span class="p">)</span>
+ <span class="p">});</span>
+<span class="nx">map</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">layer</span><span class="p">);</span>
+<span class="nx">map</span><span class="p">.</span><span class="nx">zoomToMaxExtent</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>This creates a map. However, once you have this map, there is something very
+important to be aware of: the coordinates that you use in setCenter are not
+longitude and latitude! Instead, they are in projected units &#8211; meters, in this
+case. This map will let you drag around, but without understanding a bit more
+about spherical mercator, it will be difficult to do anything more with it.</p>
+<p>This map has a set of assumptions about the maxResolution of the map.
+Specifically, most spherical mercator maps use an extent of the world from -180
+to 180 longitude, and from -85.0511 to 85.0511 latitude. Because the mercator
+projection stretches to infinity as you approach the poles, a cutoff in the
+north-south direction is required, and this particular cutoff results in a
+perfect square of projected meters. As you can see from the maxExtent
+parameter sent in the constructor of the layer, the coordinates stretch from
+-20037508.34 to 20037508.34 in each direction.</p>
+<p>The maxResolution of the map defaults to fitting this extent into 256 pixels,
+resulting in a maxResolution of 156543.0339. This is handled internally by
+the layer, and does not need to be set in the layer options.</p>
+<p>If you are using a standalone WMS or TMS layer with spherical mercator, you
+will need to specify the maxResolution property of the layer, in addition
+to defining the maxExtent as demonstrated here.</p>
+</div>
+<div class="section" id="working-with-projected-coordinates">
+<h2>Working with Projected Coordinates<a class="headerlink" href="#working-with-projected-coordinates" title="Permalink to this headline">¶</a></h2>
+<p>Thankfully, OpenLayers now provides tools to help you reproject your data
+on the client side. This makes it possible to transform coordinates from
+Longitude/Latitude to Spherical Mercator as part of your normal operation.
+First, we will transform coordinates for use within the setCenter and
+other calls. Then we will show how to use the displayProjection option on
+the map to modify the display of coordinate data to take into account the
+projection of the base map.</p>
+<div class="section" id="reprojecting-points-bounds">
+<h3>Reprojecting Points, Bounds<a class="headerlink" href="#reprojecting-points-bounds" title="Permalink to this headline">¶</a></h3>
+<p>To do this, first create a projection object for your default projection.
+The standard latitude/longitude projection string is &#8220;EPSG:4326&#8221; &#8211;
+this is latitude/longitude based on the WGS84 datum. (If your data
+lines up correctly on Google Maps, this is what you have.)</p>
+<p>You will then be creating an object to hold your coordinates, and transforming
+it.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">proj</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Projection</span><span class="p">(</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">point</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">LonLat</span><span class="p">(</span><span class="o">-</span><span class="mi">71</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>
+<span class="nx">point</span><span class="p">.</span><span class="nx">transform</span><span class="p">(</span><span class="nx">proj</span><span class="p">,</span> <span class="nx">map</span><span class="p">.</span><span class="nx">getProjectionObject</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>The point is now projected into the spherical mercator projection,
+and you can pass it to the setCenter method on the map:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">map</span><span class="p">.</span><span class="nx">setCenter</span><span class="p">(</span><span class="nx">point</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This can also be done directly in the setCenter call:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">proj</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Projection</span><span class="p">(</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">point</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">LonLat</span><span class="p">(</span><span class="o">-</span><span class="mi">71</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>
+<span class="nx">map</span><span class="p">.</span><span class="nx">setCenter</span><span class="p">(</span><span class="nx">point</span><span class="p">.</span><span class="nx">transform</span><span class="p">(</span><span class="nx">proj</span><span class="p">,</span> <span class="nx">map</span><span class="p">.</span><span class="nx">getProjectionObject</span><span class="p">()));</span>
+</pre></div>
+</div>
+<p>In this way, you can use latitude/longitude coordinates to choosing
+a center for your map.</p>
+<p>You can use the same technique for reprojecting OpenLayers.Bounds objects:
+simply call the transfrom method on your Bounds object.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">bounds</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Bounds</span><span class="p">(</span><span class="o">-</span><span class="mf">74.047185</span><span class="p">,</span> <span class="mf">40.679648</span><span class="p">,</span> <span class="o">-</span><span class="mf">73.907005</span><span class="p">,</span> <span class="mf">40.882078</span><span class="p">)</span>
+<span class="nx">bounds</span><span class="p">.</span><span class="nx">transform</span><span class="p">(</span><span class="nx">proj</span><span class="p">,</span> <span class="nx">map</span><span class="p">.</span><span class="nx">getProjectionObject</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>Transformations take place on the existing object, so there is no need to
+assign a new variable.</p>
+</div>
+<div class="section" id="reprojecting-geometries">
+<h3>Reprojecting Geometries<a class="headerlink" href="#reprojecting-geometries" title="Permalink to this headline">¶</a></h3>
+<p>Geometry objects have the same transform method as LonLat and Bounds objects.
+This means that any geometry object you create in your application code must
+be transformed by calling the transform method on it before you add it to a
+layer, and any geometry objects that you take from a layer and wish to use
+will need to be transformed before further use.</p>
+<p>Because all transforms are in place, once you have added a geometry to a
+layer, you should not call transform on the geometry directly: instead,
+you should transform a <em>clone</em> of the geometry:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">feature</span> <span class="o">=</span> <span class="nx">vector_layer</span><span class="p">.</span><span class="nx">features</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">geometry</span> <span class="o">=</span> <span class="nx">feature</span><span class="p">.</span><span class="nx">geometry</span><span class="p">.</span><span class="nx">clone</span><span class="p">();</span>
+<span class="nx">geometry</span><span class="p">.</span><span class="nx">transform</span><span class="p">(</span><span class="nx">layerProj</span><span class="p">,</span> <span class="nx">targetProj</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="reprojecting-vector-data">
+<h2>Reprojecting Vector Data<a class="headerlink" href="#reprojecting-vector-data" title="Permalink to this headline">¶</a></h2>
+<p>When creating projected maps, it is possible to reproject vector data onto
+a basemap. To do so, you must simply set the projection of your vector data
+correctly, and ensure that your map projection is correct.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Map</span><span class="p">(</span><span class="s2">&quot;map&quot;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">projection</span><span class="o">:</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Projection</span><span class="p">(</span><span class="s2">&quot;EPSG:900913&quot;</span><span class="p">)</span>
+<span class="p">});</span>
+<span class="kd">var</span> <span class="nx">myBaseLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">Google</span><span class="p">(</span><span class="s2">&quot;Google&quot;</span><span class="p">,</span>
+              <span class="p">{</span><span class="s1">&#39;sphericalMercator&#39;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+               <span class="s1">&#39;maxExtent&#39;</span><span class="o">:</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Bounds</span><span class="p">(</span><span class="o">-</span><span class="mf">20037508.34</span><span class="p">,</span><span class="o">-</span><span class="mf">20037508.34</span><span class="p">,</span><span class="mf">20037508.34</span><span class="p">,</span><span class="mf">20037508.34</span><span class="p">)</span>
+              <span class="p">});</span>
+<span class="nx">map</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">myBaseLayer</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">myGML</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">GML</span><span class="p">(</span><span class="s2">&quot;GML&quot;</span><span class="p">,</span> <span class="s2">&quot;mygml.gml&quot;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">projection</span><span class="o">:</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Projection</span><span class="p">(</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">)</span>
+<span class="p">});</span>
+<span class="nx">map</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">myGML</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Note that you can also use this setup to load any format of vector data which
+OpenLayers supports, including WKT, GeoJSON, KML and others. Simply specify
+the format option of the GML layer.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">geojson</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">GML</span><span class="p">(</span><span class="s2">&quot;GeoJSON&quot;</span><span class="p">,</span> <span class="s2">&quot;geo.json&quot;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">projection</span><span class="o">:</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Projection</span><span class="p">(</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">),</span>
+  <span class="nx">format</span><span class="o">:</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Format</span><span class="p">.</span><span class="nx">GeoJSON</span>
+<span class="p">});</span>
+<span class="nx">map</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">geojson</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Note that even if you set the projection object on a layer, if you are adding
+features to the layer manually (via layer.addFeatures), they <em>must</em> be
+transformed before adding to the layer. OpenLayers will only transform the
+projection of geometries that are created internally to the library, to
+prevent duplicating projection work.</p>
+</div>
+<div class="section" id="serializing-projected-data">
+<h2>Serializing Projected Data<a class="headerlink" href="#serializing-projected-data" title="Permalink to this headline">¶</a></h2>
+<p>The way to serialize vector data in OpenLayers is to take a collection of data
+from a vector layer and pass it to a Format class to write out data. However,
+in the case of a projected map, the data that you get from this will be
+projected. To reproject the data when converting, you should pass the
+internal and external projection to the format class, then use that format
+to write out your data.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">format</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Format</span><span class="p">.</span><span class="nx">GeoJSON</span><span class="p">({</span>
+  <span class="s1">&#39;internalProjection&#39;</span><span class="o">:</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Projection</span><span class="p">(</span><span class="s2">&quot;EPSG:900913&quot;</span><span class="p">),</span>
+  <span class="s1">&#39;externalProjection&#39;</span><span class="o">:</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Projection</span><span class="p">(</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">)</span>
+<span class="p">});</span>
+<span class="kd">var</span> <span class="nx">jsonstring</span> <span class="o">=</span> <span class="nx">format</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">vector_layer</span><span class="p">.</span><span class="nx">features</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="section" id="display-projection-on-controls">
+<h3>Display Projection on Controls<a class="headerlink" href="#display-projection-on-controls" title="Permalink to this headline">¶</a></h3>
+<p>Several controls display map coordinates to the user, either directly
+or built into their links. The MousePosition and Permalink control (and its
+companion control, ArgParser) both use coordinates which match the internal
+projection of the map &#8211; which in the case of Spherical Mercator layers is
+projected. To prevent user confusion, OpenLayers allows one to set a
+&#8216;display&#8217; projection. When these controls are used, transformation is made
+from the map projection to the display projection.</p>
+<p>To use this option, when creating your map, you should specify the projection
+and displayProjection options. Once this is done, the controls will
+automatically pick up this option from the map.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Map</span><span class="p">(</span><span class="s2">&quot;map&quot;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">projection</span><span class="o">:</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Projection</span><span class="p">(</span><span class="s2">&quot;EPSG:900913&quot;</span><span class="p">),</span>
+  <span class="nx">displayProjection</span><span class="o">:</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Projection</span><span class="p">(</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">)</span>
+<span class="p">});</span>
+<span class="nx">map</span><span class="p">.</span><span class="nx">addControl</span><span class="p">(</span><span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Control</span><span class="p">.</span><span class="nx">Permalink</span><span class="p">());</span>
+<span class="nx">map</span><span class="p">.</span><span class="nx">addControl</span><span class="p">(</span><span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Control</span><span class="p">.</span><span class="nx">MousePosition</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>You can then add your layer as normal.</p>
+</div>
+</div>
+<div class="section" id="creating-spherical-mercator-raster-images">
+<h2>Creating Spherical Mercator Raster Images<a class="headerlink" href="#creating-spherical-mercator-raster-images" title="Permalink to this headline">¶</a></h2>
+<p>One of the reasons that the Spherical Mercator projection is so important is
+that it is the only projection which will allow for overlaying image data on
+top of commercial layers like Google Maps correctly. When using raster images,
+in the browser, it is not possible to reproject the images in the same way
+it might be in a &#8216;thick&#8217; GIS client. Instead, all images must be in the same
+projection.</p>
+<p>How to create Spherical Mercator projected tiles depends on the software you
+are using to generate your images. MapServer is covered
+in this document.</p>
+<div class="section" id="mapserver">
+<h3>MapServer<a class="headerlink" href="#mapserver" title="Permalink to this headline">¶</a></h3>
+<p>MapServer uses proj.4 for its reprojection support. In order to enable
+reprojection to Spherical Mercator in MapServer, you must add the definition
+for the projection to your proj.4 data directories.</p>
+<p>On Linux systems, edit the /usr/share/proj/epsg file. At the bottom of that
+file, add the line:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="mi">900913</span><span class="o">&gt;</span> <span class="o">+</span><span class="n">proj</span><span class="o">=</span><span class="n">merc</span> <span class="o">+</span><span class="n">a</span><span class="o">=</span><span class="mi">6378137</span> <span class="o">+</span><span class="n">b</span><span class="o">=</span><span class="mi">6378137</span> <span class="o">+</span><span class="n">lat_ts</span><span class="o">=</span><span class="mf">0.0</span> <span class="o">+</span><span class="n">lon_0</span><span class="o">=</span><span class="mf">0.0</span> <span class="o">+</span><span class="n">x_0</span><span class="o">=</span><span class="mf">0.0</span> <span class="o">+</span><span class="n">y_0</span><span class="o">=</span><span class="mi">0</span> <span class="o">+</span><span class="n">k</span><span class="o">=</span><span class="mf">1.0</span> <span class="o">+</span><span class="n">units</span><span class="o">=</span><span class="n">m</span> <span class="o">+</span><span class="n">nadgrids</span><span class="o">=</span><span class="nd">@null</span> <span class="o">+</span><span class="n">no_defs</span>
+</pre></div>
+</div>
+<p>After you do this, you must add the projection to your wms_srs metdadata in your map file:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">map</span>
+  <span class="n">web</span>
+    <span class="n">metadata</span>
+      <span class="n">wms_srs</span> <span class="s2">&quot;EPSG:4326 EPSG:900913&quot;</span>
+    <span class="n">end</span>
+  <span class="n">end</span>
+  <span class="c1"># Layers go here</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+<p>This will allow you to request tiles from your MapServer WMS server in the
+Spherical Mercator projection, which will align with commercial provider data
+in OpenLayers.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">projection</span><span class="o">:</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Projection</span><span class="p">(</span><span class="s2">&quot;EPSG:900913&quot;</span><span class="p">),</span>
+    <span class="nx">units</span><span class="o">:</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span>
+    <span class="nx">maxResolution</span><span class="o">:</span> <span class="mf">156543.0339</span><span class="p">,</span>
+    <span class="nx">maxExtent</span><span class="o">:</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Bounds</span><span class="p">(</span><span class="o">-</span><span class="mf">20037508.34</span><span class="p">,</span> <span class="o">-</span><span class="mf">20037508.34</span><span class="p">,</span>
+                                     <span class="mf">20037508.34</span><span class="p">,</span> <span class="mf">20037508.34</span><span class="p">)</span>
+<span class="p">};</span>
+
+<span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Map</span><span class="p">(</span><span class="s1">&#39;map&#39;</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+
+<span class="c1">// create Google Mercator layers</span>
+<span class="kd">var</span> <span class="nx">gmap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">Google</span><span class="p">(</span>
+    <span class="s2">&quot;Google Streets&quot;</span><span class="p">,</span>
+    <span class="p">{</span><span class="s1">&#39;sphericalMercator&#39;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+     <span class="s1">&#39;maxExtent&#39;</span><span class="o">:</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Bounds</span><span class="p">(</span><span class="o">-</span><span class="mf">20037508.34</span><span class="p">,</span><span class="o">-</span><span class="mf">20037508.34</span><span class="p">,</span><span class="mf">20037508.34</span><span class="p">,</span><span class="mf">20037508.34</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+
+<span class="c1">// create WMS layer</span>
+<span class="kd">var</span> <span class="nx">wms</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">WMS</span><span class="p">(</span>
+    <span class="s2">&quot;World Map&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;http://vmap0.tiles.osgeo.org/wms/vmap0&quot;</span><span class="p">,</span>
+    <span class="p">{</span><span class="s1">&#39;layers&#39;</span><span class="o">:</span> <span class="s1">&#39;basic&#39;</span><span class="p">,</span> <span class="s1">&#39;transparent&#39;</span><span class="o">:</span> <span class="kc">true</span><span class="p">}</span>
+<span class="p">);</span>
+
+<span class="nx">map</span><span class="p">.</span><span class="nx">addLayers</span><span class="p">(</span><span class="nx">gmap</span><span class="p">,</span> <span class="nx">wms</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>WMS layers automatically inherit the projection from the base layer of a map,
+so there is no need to set the projection option on the layer.</p>
+</div>
+<div class="section" id="geoserver">
+<h3>GeoServer<a class="headerlink" href="#geoserver" title="Permalink to this headline">¶</a></h3>
+<p>Current versions of GeoServer have support for EPSG:900913 built in, so there
+is no need to add additional projection data. Simply add your GeoServer layer
+as a WMS and add it to the map.</p>
+</div>
+<div class="section" id="custom-tiles">
+<h3>Custom Tiles<a class="headerlink" href="#custom-tiles" title="Permalink to this headline">¶</a></h3>
+<p>Another common use case for spherical mercator maps is to load custom tiles.
+Many custom tile sets are created using the same projection as Google Maps,
+usually with the same z/x/y scheme for accessing tiles.</p>
+<p>If you have tiles which are set up according to the &#8216;Google&#8217; tile schema &#8211; that is, based on x,y,z and starting in the upper left corner of the world &#8211; you can load these tiles with the TMS layer with a slightly modified get_url function. (Note that in the past there was a &#8216;LikeGoogle&#8217; layer in SVN &#8211; this is the appropriate replacement for that code/functionality.)</p>
+<p>First, define a getURL function that you want to use: it should accept a bounds as an argument, and will look something like this:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">get_my_url</span> <span class="p">(</span><span class="nx">bounds</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">res</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">map</span><span class="p">.</span><span class="nx">getResolution</span><span class="p">();</span>
+    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span> <span class="p">((</span><span class="nx">bounds</span><span class="p">.</span><span class="nx">left</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">maxExtent</span><span class="p">.</span><span class="nx">left</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="nx">res</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">tileSize</span><span class="p">.</span><span class="nx">w</span><span class="p">));</span>
+    <span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span> <span class="p">((</span><span class="k">this</span><span class="p">.</span><span class="nx">maxExtent</span><span class="p">.</span><span class="nx">top</span> <span class="o">-</span> <span class="nx">bounds</span><span class="p">.</span><span class="nx">top</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="nx">res</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">tileSize</span><span class="p">.</span><span class="nx">h</span><span class="p">));</span>
+    <span class="kd">var</span> <span class="nx">z</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">map</span><span class="p">.</span><span class="nx">getZoom</span><span class="p">();</span>
+
+    <span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">z</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="nx">x</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="nx">y</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">type</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">url</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">url</span> <span class="k">instanceof</span> <span class="nb">Array</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">url</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">selectUrl</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">url</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">url</span> <span class="o">+</span> <span class="nx">path</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Then, when creating your TMS layer, you pass in an option to tell the layer
+what your custom tile loading function is:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">TMS</span><span class="p">(</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;http://example.com/&quot;</span><span class="p">,</span>
+                       <span class="p">{</span> <span class="s1">&#39;type&#39;</span><span class="o">:</span><span class="s1">&#39;png&#39;</span><span class="p">,</span> <span class="s1">&#39;getURL&#39;</span><span class="o">:</span><span class="nx">get_my_url</span> <span class="p">});</span>
+</pre></div>
+</div>
+<p>This will cause the getURL function to be overridden by your function, thus requesting your inverted google-like tiles instead of standard TMS tiles.</p>
+<p>When doing this, your map options should contain the maxExtent and
+maxResolution that are used with Google Maps:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Map</span><span class="p">(</span><span class="s2">&quot;map&quot;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">maxExtent</span><span class="o">:</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Bounds</span><span class="p">(</span><span class="o">-</span><span class="mf">20037508.34</span><span class="p">,</span><span class="o">-</span><span class="mf">20037508.34</span><span class="p">,</span><span class="mf">20037508.34</span><span class="p">,</span><span class="mf">20037508.34</span><span class="p">),</span>
+    <span class="nx">numZoomLevels</span><span class="o">:</span><span class="mi">18</span><span class="p">,</span>
+    <span class="nx">maxResolution</span><span class="o">:</span><span class="mf">156543.0339</span><span class="p">,</span>
+    <span class="nx">units</span><span class="o">:</span><span class="s1">&#39;m&#39;</span><span class="p">,</span>
+    <span class="nx">projection</span><span class="o">:</span> <span class="s2">&quot;EPSG:900913&quot;</span><span class="p">,</span>
+    <span class="nx">displayProjection</span><span class="o">:</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Projection</span><span class="p">(</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">)</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>As describe above, when using this layer, you will interact with the map in
+projected coordinates.</p>
+</div>
+<div class="section" id="sphericalmercator-and-epsg-aliases">
+<h3>SphericalMercator and EPSG aliases<a class="headerlink" href="#sphericalmercator-and-epsg-aliases" title="Permalink to this headline">¶</a></h3>
+<p>The SphericalMercator projection in OpenLayers uses code EPSG:900913. Many
+other services, such as OpenStreetMap, Bing and Yahoo are now also using the
+same projection, but are not necessarily supporting the use of code
+EPSG:900913. Other codes, such as EPSG:3857 and EPSG:102113 were invented.
+Today, there is an officially registered EPSG code 3857 whose projection is
+identical to EPSG:900913.
+(http://www.epsg-registry.org/export.htm?gml=urn:ogc:def:crs:EPSG::3857). So,
+if you need to combine overlay layers that are using either an alias or the
+official EPSG code with an OpenLayers SphericalMercator layer, you have to make
+sure that OpenLayers requests EPSG:3857 or other alias in stead of EPSG:900913.
+You can accomplish this by overriding the layer projection before adding the
+layer to the map. For example:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// create sphericalmercator layers</span>
+<span class="kd">var</span> <span class="nx">googleLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">Google</span><span class="p">(</span><span class="s2">&quot;Google&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;sphericalMercator&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">});</span>
+<span class="kd">var</span> <span class="nx">osmLayer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">OSM</span><span class="p">(</span><span class="s2">&quot;OpenStreetMap&quot;</span><span class="p">);</span>
+
+<span class="c1">// override default epsg code</span>
+<span class="nx">aliasproj</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Projection</span><span class="p">(</span><span class="s2">&quot;EPSG:3857&quot;</span><span class="p">);</span>
+<span class="nx">googleLayer</span><span class="p">.</span><span class="nx">projection</span> <span class="o">=</span> <span class="nx">osmLayer</span><span class="p">.</span><span class="nx">projection</span> <span class="o">=</span> <span class="nx">aliasproj</span><span class="p">;</span>
+
+
+<span class="c1">//add baselayers to map</span>
+<span class="nx">map</span><span class="p">.</span><span class="nx">addLayers</span><span class="p">([</span><span class="nx">googleLayer</span><span class="p">,</span> <span class="nx">osmLayer</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>At this point, overlays (such as WMS layers) will be requested using the
+3857 code; transformations will work between 4326 and 3857 as expected.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+    &copy; Copyright 2008, OpenLayers.
+    </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-2577926-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+  </body>
+</html>

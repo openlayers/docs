@@ -1,0 +1,204 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Formats &mdash; OpenLayers</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="OpenLayers" href="../index.html" />
+    <link rel="up" title="OpenLayers Library Documentation" href="index.html" />
+    <link rel="next" title="Overlays" href="overlays.html" />
+    <link rel="prev" title="OpenLayers.Control.Split" href="controls/split.html" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/website.css" type="text/css" />
+  <meta name="verify-v1" content="p07VY29NG/hLEwVP1RyE0P1chgYyekPikjkMUEgrVAI=" />
+  <!--[if lt IE 7]>
+  <script defer="defer" type="text/javascript" src="http://openlayers.org/pngfix.js"></script>
+  <![endif]-->
+  <style type='text/css'>
+    body {
+     font-family: sans-serif;
+     font-size: .9em;
+    }
+  </style>
+
+  </head>
+  <body role="document">
+<div id="olbanner">
+<img class="openlayersbannerimg" src="http://openlayers.org/two/images/OpenLayers.trac.png" style="height: 44px; width: 49px;border:0px" alt="OpenLayers" />
+<a class="openlayersbanner" href="http://www.openlayers.org/two/" >
+OpenLayers 2</a>
+</div>
+<div id="navcontainer">
+<a class="navtabtraccurrent" href="http://www.openlayers.org">Home</a>
+<a class="navtab" href="http://trac.osgeo.org/openlayers">Support &amp; Development</a>
+</div>
+
+<div id="mainnav" class="nav"><ul><li class="first"><a href="http://www.openlayers.org/sponsorship/">Sponsorship</a></li><li><a href="http://trac.openlayers.org/wiki" accesskey="1">Wiki</a></li><li><a href="http://openlayers.org/blog/">Blog</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/FrequentlyAskedQuestions">FAQ</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/HowToDownload" accesskey="3">Download</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/MailingLists">Email Lists</a></li></ul></div>
+
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="overlays.html" title="Overlays"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="controls/split.html" title="OpenLayers.Control.Split"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">OpenLayers</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../contents.html" >Table of Contents</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">OpenLayers Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Formats</a><ul>
+<li><a class="reference internal" href="#built-in-formats">Built In Formats</a><ul>
+<li><a class="reference internal" href="#kml">KML</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#creating-custom-formats">Creating Custom Formats</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../contents.html">Table of Contents</a><ul>
+  <li><a href="index.html">OpenLayers Library Documentation</a><ul>
+      <li>Previous: <a href="controls/split.html" title="previous chapter">OpenLayers.Control.Split</a></li>
+      <li>Next: <a href="overlays.html" title="next chapter">Overlays</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/formats.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div><div class="body">
+<h3 style="background-color: yellow">You are viewing outdated docs</h3>
+<p>OpenLayers 2.x is not under active development any more. Go to <a href="http://openlayers.org/en/latest/doc/">http://openlayers.org/en/latest/doc/</a> to view the latest OpenLayers 3.x docs.</p>
+</div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="formats">
+<h1>Formats<a class="headerlink" href="#formats" title="Permalink to this headline">¶</a></h1>
+<p>Formats are classes that parse different sources of data into OpenLayers
+internal objects. Most (but not all) formats are centered around reading data
+from an XML DOM or a string and converting them to OpenLayers.Feature.Vector
+objects.</p>
+<p>Formats are a way of transforming data from a server to objects that
+OpenLayers can interact with.</p>
+<div class="section" id="built-in-formats">
+<h2>Built In Formats<a class="headerlink" href="#built-in-formats" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="kml">
+<span id="format-kml"></span><h3>KML<a class="headerlink" href="#kml" title="Permalink to this headline">¶</a></h3>
+<p>The KML format reads KML data and returns an array of OpenLayers.Feature.Vector
+objects.</p>
+<p>The KML parser supports parsing local and remote styles.</p>
+<p>The KML parser supports fetching network links.</p>
+<p>For fetching remoteData, the maxDepth option must be greater than 0. This
+option tells the KML parser how far the traverse before giving up.</p>
+<p><em>Note</em>: Prior to OpenLayers 2.8, the maxDepth option was broken. No setting in
+the KML format would cause it to fetch network links or remote styles.</p>
+</div>
+</div>
+<div class="section" id="creating-custom-formats">
+<h2>Creating Custom Formats<a class="headerlink" href="#creating-custom-formats" title="Permalink to this headline">¶</a></h2>
+<p>Creating custom formats, particularly for use with OpenLayers Protocols, is
+relatively easy: simply create a subclass of Format that has a &#8216;read&#8217; method
+which takes in a string, and returns an array of features.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">MyFormatClass</span> <span class="o">=</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Class</span><span class="p">(</span><span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Format</span><span class="p">.</span><span class="nx">XML</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">read</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// We&#39;re going to read XML</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">data</span> <span class="o">==</span> <span class="s2">&quot;string&quot;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">data</span> <span class="o">=</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Format</span><span class="p">.</span><span class="nx">XML</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">read</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="p">[</span><span class="nx">data</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="kd">var</span> <span class="nx">elems</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">getElementByTagName</span><span class="p">(</span><span class="s2">&quot;line&quot;</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">features</span> <span class="o">=</span> <span class="p">[];</span>
+        <span class="kd">var</span> <span class="nx">wkt</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Format</span><span class="p">.</span><span class="nx">WKT</span><span class="p">();</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">elems</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">node</span> <span class="o">=</span> <span class="nx">elems</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+            <span class="kd">var</span> <span class="nx">wktString</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">concatChildValues</span><span class="p">(</span><span class="nx">node</span><span class="p">);</span>
+            <span class="nx">features</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">wkt</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="nx">wktString</span><span class="p">));</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nx">features</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>This will read an XML document that has a series of &#8216;line&#8217; XML elements with
+WKT embedded in each of them. It can be used with a &#8220;&#8216;format: MyFormatClass&#8217;
+line in a Layer.GML, or a &#8216;format: new MyFormatClass()&#8217; in Protocols which
+support setting a format.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+    &copy; Copyright 2008, OpenLayers.
+    </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-2577926-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+  </body>
+</html>

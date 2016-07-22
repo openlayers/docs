@@ -1,9 +1,9 @@
 {# Filename: _templates/layout.html #}
 {% extends '!layout.html' %}
-{%- block extrahead %} 
+{%- block extrahead %}
   <link rel="stylesheet" href="http://openlayers.org/two/css/common.css" type="text/css" />
   <link rel="stylesheet" href="http://openlayers.org/two/css/website.css" type="text/css" />
-  <meta name="verify-v1" content="p07VY29NG/hLEwVP1RyE0P1chgYyekPikjkMUEgrVAI=" />  
+  <meta name="verify-v1" content="p07VY29NG/hLEwVP1RyE0P1chgYyekPikjkMUEgrVAI=" />
   <!--[if lt IE 7]>
   <script defer="defer" type="text/javascript" src="http://openlayers.org/pngfix.js"></script>
   <![endif]-->
@@ -12,13 +12,13 @@
      font-family: sans-serif;
      font-size: .9em;
     }
-  </style>  
+  </style>
 {% endblock %}
 {%- block relbar1 %}
 <div id="olbanner">
 <img class="openlayersbannerimg" src="http://openlayers.org/two/images/OpenLayers.trac.png" style="height: 44px; width: 49px;border:0px" alt="OpenLayers" />
-<a class="openlayersbanner" href="http://www.openlayers.org/" >
-OpenLayers</a>
+<a class="openlayersbanner" href="http://www.openlayers.org/two/" >
+OpenLayers 2</a>
 </div>
 <div id="navcontainer">
 <a class="navtabtraccurrent" href="http://www.openlayers.org">Home</a>
@@ -29,13 +29,13 @@ OpenLayers</a>
 
 
 {{ relbar() }}
-<h3>You are viewing outdated docs</h3>
-<p>OpenLayers 2.x is not under active development any more. Go to <a href="http://openlayers.org/en/latest/doc/">http://openlayers.org/en/latest/doc/</a> to view the latest OpenLayers 3.x docs.</p>
 {% endblock %}
-
-{%- block sidebar1 %}{{ sidebar() }}{% endblock %}
+{%- block sidebar1 %}{{ sidebar() }}<div class="body">
+<h3 style="background-color: yellow">You are viewing outdated docs</h3>
+<p>OpenLayers 2.x is not under active development any more. Go to <a href="http://openlayers.org/en/latest/doc/">http://openlayers.org/en/latest/doc/</a> to view the latest OpenLayers 3.x docs.</p>
+</div>
+{% endblock %}
 {%- block sidebar2 %}{% endblock %}
-
 
 {%- block footer %}
     <div class="footer">

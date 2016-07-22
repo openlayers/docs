@@ -1,0 +1,190 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>OpenLayers.Control.Snapping &mdash; OpenLayers</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="OpenLayers" href="../../index.html" />
+    <link rel="up" title="Controls" href="../controls.html" />
+    <link rel="next" title="OpenLayers.Control.Split" href="split.html" />
+    <link rel="prev" title="Controls" href="../controls.html" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/website.css" type="text/css" />
+  <meta name="verify-v1" content="p07VY29NG/hLEwVP1RyE0P1chgYyekPikjkMUEgrVAI=" />
+  <!--[if lt IE 7]>
+  <script defer="defer" type="text/javascript" src="http://openlayers.org/pngfix.js"></script>
+  <![endif]-->
+  <style type='text/css'>
+    body {
+     font-family: sans-serif;
+     font-size: .9em;
+    }
+  </style>
+
+  </head>
+  <body role="document">
+<div id="olbanner">
+<img class="openlayersbannerimg" src="http://openlayers.org/two/images/OpenLayers.trac.png" style="height: 44px; width: 49px;border:0px" alt="OpenLayers" />
+<a class="openlayersbanner" href="http://www.openlayers.org/two/" >
+OpenLayers 2</a>
+</div>
+<div id="navcontainer">
+<a class="navtabtraccurrent" href="http://www.openlayers.org">Home</a>
+<a class="navtab" href="http://trac.osgeo.org/openlayers">Support &amp; Development</a>
+</div>
+
+<div id="mainnav" class="nav"><ul><li class="first"><a href="http://www.openlayers.org/sponsorship/">Sponsorship</a></li><li><a href="http://trac.openlayers.org/wiki" accesskey="1">Wiki</a></li><li><a href="http://openlayers.org/blog/">Blog</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/FrequentlyAskedQuestions">FAQ</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/HowToDownload" accesskey="3">Download</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/MailingLists">Email Lists</a></li></ul></div>
+
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="split.html" title="OpenLayers.Control.Split"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="../controls.html" title="Controls"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">OpenLayers</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../contents.html" >Table of Contents</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="../index.html" >OpenLayers Library Documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-3"><a href="../controls.html" accesskey="U">Controls</a> &raquo;</li> 
+      </ul>
+    </div>
+
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../../contents.html">Table of Contents</a><ul>
+  <li><a href="../index.html">OpenLayers Library Documentation</a><ul>
+  <li><a href="../controls.html">Controls</a><ul>
+      <li>Previous: <a href="../controls.html" title="previous chapter">Controls</a></li>
+      <li>Next: <a href="split.html" title="next chapter">OpenLayers.Control.Split</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/library/controls/snapping.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div><div class="body">
+<h3 style="background-color: yellow">You are viewing outdated docs</h3>
+<p>OpenLayers 2.x is not under active development any more. Go to <a href="http://openlayers.org/en/latest/doc/">http://openlayers.org/en/latest/doc/</a> to view the latest OpenLayers 3.x docs.</p>
+</div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="openlayers-control-snapping">
+<span id="control-snapping-detail"></span><h1>OpenLayers.Control.Snapping<a class="headerlink" href="#openlayers-control-snapping" title="Permalink to this headline">¶</a></h1>
+<p>Provides an agent to control snapping vertices of features from one layer to nodes, vertices, and edges of features from any number of layers. The control operates as a toggle - acting as a snapping agent while active and not altering behavior of editing while not active. The control can be configured to allow node, vertex, and or edge snapping to any number of layers (given vector layers with features loaded client side). The tolerance, snapping type, and an optional filter can be configured for each target layer.</p>
+<p>See the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Control/Snapping-js.html">Snapping API docs</a> for a complete list of configuration options.  The <a class="reference external" href="http://openlayers.org/dev/examples/snapping.html">Snapping example</a> demonstrates use of the control in a complete example.  While the other samples below are not complete working examples, they are intended to demonstrate different aspects of the control&#8217;s behavior.</p>
+<p>Example usage:</p>
+<ol class="arabic simple">
+<li>Snap feature from one layer to features within the same layer using default configuration.</li>
+</ol>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// Assume one vector layer named &quot;roads&quot;.</span>
+<span class="kd">var</span> <span class="nx">snap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Control</span><span class="p">.</span><span class="nx">Snapping</span><span class="p">(</span><span class="nx">roads</span><span class="p">);</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>Snap features from one layer to features within the same layer using non-default configuration.</li>
+</ol>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// Snap vertices to other road vertices only (not edges).</span>
+<span class="c1">// Use a tolerance of 30 pixels and don&#39;t engage dirt roads in snapping.</span>
+<span class="kd">var</span> <span class="nx">snap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Control</span><span class="p">.</span><span class="nx">Snapping</span><span class="p">(</span><span class="nx">roads</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">targets</span><span class="o">:</span> <span class="p">[{</span>
+        <span class="nx">layer</span><span class="o">:</span> <span class="nx">roads</span><span class="p">,</span>
+        <span class="nx">tolerance</span><span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+        <span class="nx">edge</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">filter</span><span class="o">:</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Filter</span><span class="p">.</span><span class="nx">Comparison</span><span class="p">({</span>
+            <span class="nx">type</span><span class="o">:</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Filter</span><span class="p">.</span><span class="nx">Comparison</span><span class="p">.</span><span class="nx">NOT_EQUAL_TO</span><span class="p">,</span>
+            <span class="nx">property</span><span class="o">:</span> <span class="s2">&quot;surface&quot;</span><span class="p">,</span>
+            <span class="nx">value</span><span class="o">:</span> <span class="s2">&quot;dirt&quot;</span>
+        <span class="p">})</span>
+    <span class="p">}]</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Snap features from one layer to features from several additional layers all using the same target layer configuration. Search all layers for the closest feature instead of snapping to the closest feature in the first layer that applies (set greedy to false).</li>
+</ol>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// Assume an editable layer named &quot;editable&quot; and 3 target layers named &quot;roads&quot;,</span>
+<span class="c1">// &quot;parcels&quot;, and &quot;buildings&quot;.</span>
+<span class="kd">var</span> <span class="nx">snap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Control</span><span class="p">.</span><span class="nx">Snapping</span><span class="p">(</span><span class="nx">editable</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">defaults</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">tolerance</span><span class="o">:</span> <span class="mi">15</span><span class="p">,</span>
+        <span class="nx">edge</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+    <span class="nx">targets</span><span class="o">:</span> <span class="p">[</span><span class="nx">roads</span><span class="p">,</span> <span class="nx">parcels</span><span class="p">,</span> <span class="nx">buildings</span><span class="p">],</span>
+    <span class="nx">greedy</span><span class="o">:</span> <span class="kc">false</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+    &copy; Copyright 2008, OpenLayers.
+    </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-2577926-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+  </body>
+</html>

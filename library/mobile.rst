@@ -1,8 +1,8 @@
 Mobile Browsing
 +++++++++++++++
 
-Mobile browsing generally demands a different method of map navigation. 
-OpenLayers built in Navigation and TouchNavigation controls attempt to 
+Mobile browsing generally demands a different method of map navigation.
+OpenLayers 2 built in Navigation and TouchNavigation controls attempt to 
 handle this appropriately by default, using whatever events are available
 in the browser in use.
 
@@ -15,7 +15,7 @@ Browsers which support touch events (touchstart/touchmove/touchend) will
 support dragging the map by touch, in the same way that you can generally
 navigate other map applications on these platforms.
 
-Both the Navigation Control and the TouchNavigation Control support 
+Both the Navigation Control and the TouchNavigation Control support
 this method of moving.
 
 Pinch Zoom
@@ -29,10 +29,10 @@ Both the Navigation Control and the TouchNavigation Control include
 this method of zooming by default.
 
 Pinch zooming only works if your device delivers information about multiple
-touch events to the browser. This support exists in iOS 2.0+, and was 
+touch events to the browser. This support exists in iOS 2.0+, and was
 added around the time of Android 2.2, but not all Android devices deliver
 this information to the browser. To test whether your Android device
-delivers this information, you can visit the `Multitouch Test Page`_; 
+delivers this information, you can visit the `Multitouch Test Page`_;
 if your browser supports multiple touch events, you should see the number
 go to 2 when placing multiple fingers on the screen in that example.
 
@@ -41,8 +41,8 @@ go to 2 when placing multiple fingers on the screen in that example.
 Tap Panning
 -----------
 
-In order to support touch browsers which do not support touch events, 
-OpenLayers attempts to support 'tap panning', or panning to the center of
+In order to support touch browsers which do not support touch events,
+OpenLayers 2 attempts to support 'tap panning', or panning to the center of
 a tap on the map. Combined with a set of zoom controls, this makes it
 possible for these types of browser to navigate the map.
 
@@ -86,13 +86,13 @@ Mobile Browser Support
 
 1. Firefox 4 beta supports touch events on Windows 7 via the
    MozTouchDown/MozTouchMove events. Due to lack of available testing
-   platforms, the OpenLayers code does not currently support this type of
+   platforms, the OpenLayers 2 code does not currently support this type of
    touch events.
 2. The stock android browser does not have any support for multiple touch events.
    Some users on specific Samsung models reported success with using pinch-zoom
-   in OpenLayers and maps.google.com with 2.1, but lost that functionality after
+   in OpenLayers 2 and maps.google.com with 2.1, but lost that functionality after
    an upgrade to 2.2. There is an `open bug ticket`_ in Android about supporting
    multiple touch events in the DOM, but no obvious plan for when such a thing
    might exist.
 
-.. _`open bug ticket`: http://code.google.com/p/android/issues/detail?id=11909   
+.. _`open bug ticket`: http://code.google.com/p/android/issues/detail?id=11909

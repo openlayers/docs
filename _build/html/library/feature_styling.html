@@ -1,0 +1,510 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Styling &mdash; OpenLayers</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="OpenLayers" href="../index.html" />
+    <link rel="up" title="OpenLayers Library Documentation" href="index.html" />
+    <link rel="next" title="Mobile Browsing" href="mobile.html" />
+    <link rel="prev" title="Overlays" href="overlays.html" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/website.css" type="text/css" />
+  <meta name="verify-v1" content="p07VY29NG/hLEwVP1RyE0P1chgYyekPikjkMUEgrVAI=" />
+  <!--[if lt IE 7]>
+  <script defer="defer" type="text/javascript" src="http://openlayers.org/pngfix.js"></script>
+  <![endif]-->
+  <style type='text/css'>
+    body {
+     font-family: sans-serif;
+     font-size: .9em;
+    }
+  </style>
+
+  </head>
+  <body role="document">
+<div id="olbanner">
+<img class="openlayersbannerimg" src="http://openlayers.org/two/images/OpenLayers.trac.png" style="height: 44px; width: 49px;border:0px" alt="OpenLayers" />
+<a class="openlayersbanner" href="http://www.openlayers.org/two/" >
+OpenLayers 2</a>
+</div>
+<div id="navcontainer">
+<a class="navtabtraccurrent" href="http://www.openlayers.org">Home</a>
+<a class="navtab" href="http://trac.osgeo.org/openlayers">Support &amp; Development</a>
+</div>
+
+<div id="mainnav" class="nav"><ul><li class="first"><a href="http://www.openlayers.org/sponsorship/">Sponsorship</a></li><li><a href="http://trac.openlayers.org/wiki" accesskey="1">Wiki</a></li><li><a href="http://openlayers.org/blog/">Blog</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/FrequentlyAskedQuestions">FAQ</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/HowToDownload" accesskey="3">Download</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/MailingLists">Email Lists</a></li></ul></div>
+
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="mobile.html" title="Mobile Browsing"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="overlays.html" title="Overlays"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">OpenLayers</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../contents.html" >Table of Contents</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">OpenLayers Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Styling</a><ul>
+<li><a class="reference internal" href="#style-classes">Style Classes</a><ul>
+<li><a class="reference internal" href="#attribute-replacement-syntax">Attribute Replacement Syntax</a></li>
+<li><a class="reference internal" href="#stylemap">StyleMap</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-style-objects">Using Style Objects</a></li>
+<li><a class="reference internal" href="#rule-based-styling">Rule Based Styling</a><ul>
+<li><a class="reference internal" href="#adduniquevaluerules">addUniqueValueRules</a></li>
+<li><a class="reference internal" href="#custom-rules">Custom Rules</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#style-properties">Style Properties</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../contents.html">Table of Contents</a><ul>
+  <li><a href="index.html">OpenLayers Library Documentation</a><ul>
+      <li>Previous: <a href="overlays.html" title="previous chapter">Overlays</a></li>
+      <li>Next: <a href="mobile.html" title="next chapter">Mobile Browsing</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/feature_styling.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div><div class="body">
+<h3 style="background-color: yellow">You are viewing outdated docs</h3>
+<p>OpenLayers 2.x is not under active development any more. Go to <a href="http://openlayers.org/en/latest/doc/">http://openlayers.org/en/latest/doc/</a> to view the latest OpenLayers 3.x docs.</p>
+</div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="styling">
+<span id="id1"></span><h1>Styling<a class="headerlink" href="#styling" title="Permalink to this headline">¶</a></h1>
+<p>This OpenLayers Styles framework is the way to control the styling of features
+attached to vector layers in OpenLayers, such as points, lines, and polygons.
+It provides capabilities which correspond to the features provided by standards
+like SLD, allowing the use of advanced feature styling with properties and
+rules.</p>
+<div class="section" id="style-classes">
+<h2>Style Classes<a class="headerlink" href="#style-classes" title="Permalink to this headline">¶</a></h2>
+<p>When a feature is added to a map, its style information can come from one of
+three sources:</p>
+<ul class="simple">
+<li>A symbolizer hash set directly on the feature. This
+is unusual, but may occur when parsing remote data which embeds
+style information at the feature level, like some KML content.</li>
+<li>A symbolizer hash attached to a layer as layer.style.</li>
+<li>A Style or StyleMap object attached to the layer as layer.styleMap.</li>
+</ul>
+<p>A symbolizer hash is a simple JavaScript object, with key/value pairs
+describing the values to be used.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s1">&#39;strokeWidth&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+  <span class="s1">&#39;strokeColor&#39;</span><span class="p">:</span> <span class="s1">&#39;#ff0000&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>A StyleMap object is a more descriptive element, which allows for the use of
+advanced feature-based styling. It uses the OpenLayers.Style and
+OpenLayers.StyleMap objects. A style map has support for different &#8216;render
+intents&#8217;: ways in which a feature should be drawn. OpenLayers uses three
+different render intents internally:</p>
+<ul class="simple">
+<li>&#8216;default&#8217;: Used in most cases</li>
+<li>&#8216;select&#8217;: Used when a feature is selected</li>
+<li>&#8216;temporary&#8217;: Used while &#8216;sketching&#8217; a feature.</li>
+</ul>
+<p>When a feature is drawn, it is possible to pass one of these renderIntents to
+the Layer&#8217;s &#8216;drawFeature&#8217; function, or to set the &#8216;renderIntent&#8217; property of
+the feature to one of these three intents.</p>
+<p>Each renderIntent in the StyleMap has an OpenLayers Style object associated
+with it.</p>
+<p>OpenLayers Style objects are descriptions of the way that features should be
+rendered. When a feature is added to a layer, the layer combines the style
+property with the feature to create a &#8216;symbolizer&#8217; &#8211; described above as a set
+of style properties that will be used when rendering the layer. (Internally,
+this is done via the <cite>createSymbolizer</cite> function.)</p>
+<div class="section" id="attribute-replacement-syntax">
+<h3>Attribute Replacement Syntax<a class="headerlink" href="#attribute-replacement-syntax" title="Permalink to this headline">¶</a></h3>
+<p>The most common way of accessing attributes of the feature when creating a
+style is through the attribute replacement syntax. By using style values
+like <code class="docutils literal"><span class="pre">${varname}</span></code> in your style, OpenLayers can replace these strings with
+attributes of your feature. For example, if you had a GeoJSON file where each
+feature had a <code class="docutils literal"><span class="pre">thumbnail</span></code> property describing an image to use, you might
+use something like:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">s</span> <span class="o">=</span> <span class="n">new</span> <span class="n">OpenLayers</span><span class="o">.</span><span class="n">Style</span><span class="p">({</span>
+  <span class="s1">&#39;pointRadius&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="s1">&#39;externalGraphic&#39;</span><span class="p">:</span> <span class="s1">&#39;$</span><span class="si">{thumbnail}</span><span class="s1">&#39;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>In this way, the style can contain rendering information which is dependant on
+the feature.</p>
+</div>
+<div class="section" id="stylemap">
+<span id="id2"></span><h3>StyleMap<a class="headerlink" href="#stylemap" title="Permalink to this headline">¶</a></h3>
+<p>Simple OpenLayers Style objects are instantiated by passing a symbolizer hash
+to the constructor of the style. This Style can then be passed to a StyleMap constructor:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">new</span> <span class="n">OpenLayers</span><span class="o">.</span><span class="n">StyleMap</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>As a convenience, you can also create a StyleMap by passing a symbolizer hash
+directly. (The StyleMap will then create the Style object for you.)</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">new</span> <span class="n">OpenLayers</span><span class="o">.</span><span class="n">StyleMap</span><span class="p">({</span><span class="s1">&#39;pointRadius&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+                         <span class="s1">&#39;externalGraphic&#39;</span><span class="p">:</span> <span class="s1">&#39;$</span><span class="si">{thumbnail}</span><span class="s1">&#39;</span><span class="p">});</span>
+</pre></div>
+</div>
+<p>In almost all simple cases, this will be sufficient. By default, passing in a
+Style object will cause all the render intents of the StyleMap to be set to the
+same style. If you wish to have different Style objects for the different
+render intents, instead pass a hash of Style objects or symbolizer hashes:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">defaultStyle</span> <span class="o">=</span> <span class="n">new</span> <span class="n">OpenLayers</span><span class="o">.</span><span class="n">Style</span><span class="p">({</span>
+  <span class="s1">&#39;pointRadius&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="s1">&#39;externalGraphic&#39;</span><span class="p">:</span> <span class="s1">&#39;$</span><span class="si">{thumbnail}</span><span class="s1">&#39;</span>
+<span class="p">});</span>
+
+<span class="n">var</span> <span class="n">selectStyle</span> <span class="o">=</span> <span class="n">new</span> <span class="n">OpenLayers</span><span class="o">.</span><span class="n">Style</span><span class="p">({</span>
+  <span class="s1">&#39;pointRadius&#39;</span><span class="p">:</span> <span class="mi">20</span>
+<span class="p">});</span>
+
+<span class="n">new</span> <span class="n">OpenLayers</span><span class="o">.</span><span class="n">StyleMap</span><span class="p">({</span><span class="s1">&#39;default&#39;</span><span class="p">:</span> <span class="n">defaultStyle</span><span class="p">,</span>
+                         <span class="s1">&#39;select&#39;</span><span class="p">:</span> <span class="n">selectStyle</span><span class="p">});</span>
+</pre></div>
+</div>
+<p>The &#8220;default&#8221; intent has a special role: if the extendDefault property of the
+StyleMap is set to true (default), symbolizers calculated for other render
+intents will extend the symbolizer calcualated for the &#8220;default&#8221; intent. So if
+we want selected features just to have a different size or color, we only have
+to set a single property (in this example: pointRadius).</p>
+</div>
+</div>
+<div class="section" id="using-style-objects">
+<h2>Using Style Objects<a class="headerlink" href="#using-style-objects" title="Permalink to this headline">¶</a></h2>
+<p>Once you have created a style object, it needs to be passed to a layer in order
+for it to be used. The StyleMap object should be passed as the layer&#8217;s
+&#8216;styleMap&#8217; option:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">styleMap</span> <span class="o">=</span> <span class="n">new</span> <span class="n">OpenLayers</span><span class="o">.</span><span class="n">StyleMap</span><span class="p">({</span><span class="n">pointRadius</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+                         <span class="n">externalGraphic</span><span class="p">:</span> <span class="s1">&#39;$</span><span class="si">{thumbnail}</span><span class="s1">&#39;</span><span class="p">});</span>
+<span class="n">var</span> <span class="n">l</span> <span class="o">=</span> <span class="n">new</span> <span class="n">OpenLayers</span><span class="o">.</span><span class="n">Layer</span><span class="o">.</span><span class="n">Vector</span><span class="p">(</span><span class="s2">&quot;Vector Layer&quot;</span><span class="p">,</span>
+                                    <span class="p">{</span><span class="n">styleMap</span><span class="p">:</span> <span class="n">styleMap</span><span class="p">});</span>
+</pre></div>
+</div>
+<p>Features added to the layer will then be styled according to the StyleMap.</p>
+</div>
+<div class="section" id="rule-based-styling">
+<h2>Rule Based Styling<a class="headerlink" href="#rule-based-styling" title="Permalink to this headline">¶</a></h2>
+<p>In addition to simple attribute based styles, OpenLayers also has support for
+rule-based styling &#8211; where a property on the feature can determine the other
+styles in use. For example, if you have an attribute, &#8216;size&#8217;, which is &#8216;large&#8217;
+or &#8216;small&#8217;, which determines the desired size of the icon, you can use
+that property to control the pointRadius.</p>
+<p>OpenLayers provides two different ways to do this. Many simple cases can
+be solved with the <a class="reference internal" href="#adduniquevaluerules">addUniqueValueRules</a> convenience function, while more
+complex cases require creating your own rules.</p>
+<div class="section" id="adduniquevaluerules">
+<h3>addUniqueValueRules<a class="headerlink" href="#adduniquevaluerules" title="Permalink to this headline">¶</a></h3>
+<p>In order to use addUniqueValueRules, you first create a StyleMap with the
+&#8216;shared&#8217; properties of the style. As in the case above, we imagine that we
+are loading features with URLs in the &#8216;thumbnail&#8217; attribute:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">styleMap</span> <span class="o">=</span> <span class="n">new</span> <span class="n">OpenLayers</span><span class="o">.</span><span class="n">StyleMap</span><span class="p">({</span><span class="n">externalGraphic</span><span class="p">:</span> <span class="s1">&#39;$</span><span class="si">{thumbnail}</span><span class="s1">&#39;</span><span class="p">});</span>
+</pre></div>
+</div>
+<p>We then create a mapping between feature attribute value and symbolizer value,
+then add rules to the default symbolizer that check for the &#8220;size&#8221; attribute
+and apply the symbolizer defined in that variable:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">lookup</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;small&quot;</span><span class="p">:</span> <span class="p">{</span><span class="n">pointRadius</span><span class="p">:</span> <span class="mi">10</span><span class="p">},</span>
+  <span class="s2">&quot;large&quot;</span><span class="p">:</span> <span class="p">{</span><span class="n">pointRadius</span><span class="p">:</span> <span class="mi">30</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">styleMap</span><span class="o">.</span><span class="n">addUniqueValueRules</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="n">lookup</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This adds rules to the Styles in the &#8216;default&#8217; renderIntent, stating that
+the Style should change the pointRadius based on the &#8216;size&#8217; attribute of the
+feature.</p>
+<p>The symbolizers inside rules do not have to be complete symbolizers, because
+they extend the default symbolizer passed with the constructor of
+OpenLayers.Style or OpenLayers.StyleMap.</p>
+<p>The <a class="reference external" href="http://www.openlayers.org/dev/examples/styles-unique.html">Unique Values example</a> demonstrates the use of addUniqueValueRules.</p>
+</div>
+<div class="section" id="custom-rules">
+<h3>Custom Rules<a class="headerlink" href="#custom-rules" title="Permalink to this headline">¶</a></h3>
+<p>OpenLayers supports many types of Rules and Filters. The addUniqueValueRules
+function creats Comparison rules, with the EQUAL_TO operator. We can also
+create rules that allow us to apply styles based on whether a value is greater
+than or less than a value, or whether it matches a certain string, and more.</p>
+<p>Here, we demonstrate how to create filters using the LESS_THAN and
+GREATER_THAN_OR_EQUAL_TO operators:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">style</span> <span class="o">=</span> <span class="n">new</span> <span class="n">OpenLayers</span><span class="o">.</span><span class="n">Style</span><span class="p">();</span>
+
+<span class="n">var</span> <span class="n">ruleLow</span> <span class="o">=</span> <span class="n">new</span> <span class="n">OpenLayers</span><span class="o">.</span><span class="n">Rule</span><span class="p">({</span>
+  <span class="nb">filter</span><span class="p">:</span> <span class="n">new</span> <span class="n">OpenLayers</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">Comparison</span><span class="p">({</span>
+      <span class="nb">type</span><span class="p">:</span> <span class="n">OpenLayers</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">Comparison</span><span class="o">.</span><span class="n">LESS_THAN</span><span class="p">,</span>
+      <span class="nb">property</span><span class="p">:</span> <span class="s2">&quot;amount&quot;</span><span class="p">,</span>
+      <span class="n">value</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+  <span class="p">}),</span>
+  <span class="n">symbolizer</span><span class="p">:</span> <span class="p">{</span><span class="n">pointRadius</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="n">fillColor</span><span class="p">:</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span>
+               <span class="n">fillOpacity</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">strokeColor</span><span class="p">:</span> <span class="s2">&quot;black&quot;</span><span class="p">}</span>
+<span class="p">});</span>
+
+<span class="n">var</span> <span class="n">ruleHigh</span> <span class="o">=</span> <span class="n">new</span> <span class="n">OpenLayers</span><span class="o">.</span><span class="n">Rule</span><span class="p">({</span>
+  <span class="nb">filter</span><span class="p">:</span> <span class="n">new</span> <span class="n">OpenLayers</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">Comparison</span><span class="p">({</span>
+      <span class="nb">type</span><span class="p">:</span> <span class="n">OpenLayers</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">Comparison</span><span class="o">.</span><span class="n">GREATER_THAN_OR_EQUAL_TO</span><span class="p">,</span>
+      <span class="nb">property</span><span class="p">:</span> <span class="s2">&quot;amount&quot;</span><span class="p">,</span>
+      <span class="n">value</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+  <span class="p">}),</span>
+  <span class="n">symbolizer</span><span class="p">:</span> <span class="p">{</span><span class="n">pointRadius</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="n">fillColor</span><span class="p">:</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span>
+               <span class="n">fillOpacity</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span> <span class="n">strokeColor</span><span class="p">:</span> <span class="s2">&quot;black&quot;</span><span class="p">}</span>
+<span class="p">});</span>
+
+<span class="n">style</span><span class="o">.</span><span class="n">addRules</span><span class="p">([</span><span class="n">ruleLow</span><span class="p">,</span> <span class="n">ruleHigh</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>Each of these rules uses a Comparison filter. There are several types of filters:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Filter/Comparison-js.html">Comparison Filters</a>: Comparison filters take an operator &#8211; one of the
+<a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Filter/Comparison-js.html#OpenLayers.Filter.Comparison.type">supported comparison filter types</a> &#8211; and one or two values. It then
+evaluates whether the feature matches the comparison.</li>
+<li><a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Filter/FeatureId-js.html">FeatureId Filters</a>: Takes a list of Feature IDs, and evaluates to true
+if the feature&#8217;s ID is in the array.</li>
+<li><a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Filter/Logical-js.html">Logical Filters</a>: Logical filters combine other types of filters together,
+which allows building more complex rules by concatenating them using boolean
+operators (AND, OR, NOT). A Logical rule (except NOT) can have child rules.</li>
+</ul>
+<p>Every rule can also have a minScaleDenominator and a maxScaleDenominator
+property. This allows us to specify scale ranges for which the rule should
+apply. We might e.g. want to show small points at small scales, but image
+thumbnails at large scales. The result of such rules can be seen in the <a class="reference external" href="http://openlayers.org/dev/examples/sld.html">SLD
+example</a>: Zooming in one level will turn two lakes into blue. The styles and
+rules from this example do not come from JavaScript-created style and rule
+objects, but from a SLD document read in by <a class="reference external" href="http://dev.openlayers.org/docs/files/OpenLayers/Format/SLD-js.html">OpenLayers.Format.SLD</a>.</p>
+<p>With SLD, styles are grouped into named layers (NamedLayer), which again have a
+set of named user styles (UserStyle). This is the reason why the Style object
+also has layerName and name properties. For each named layer, there can be a
+default style. This is marked by setting the isDefault property of the Style
+object to true.</p>
+</div>
+</div>
+<div class="section" id="style-properties">
+<h2>Style Properties<a class="headerlink" href="#style-properties" title="Permalink to this headline">¶</a></h2>
+<p>The properties that you can use for styling are:</p>
+<ul>
+<li><dl class="first docutils">
+<dt>fillColor</dt>
+<dd><p class="first last">Default is <code class="docutils literal"><span class="pre">#ee9900</span></code>. This is the color used for filling in Polygons. It
+is also used in the center of marks for points: the interior color of
+circles or other shapes. It is not used if an externalGraphic is applied
+to a point.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>fillOpacity:</dt>
+<dd><p class="first last">Default is <code class="docutils literal"><span class="pre">0.4</span></code>.
+This is the opacity used for filling in Polygons. It
+is also used in the center of marks for points: the interior color of
+circles or other shapes. It is not used if an externalGraphic is applied
+to a point.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>strokeColor</dt>
+<dd><p class="first last">Default is <code class="docutils literal"><span class="pre">#ee9900</span></code>.
+This is color of the line on features. On polygons and point marks, it is
+used as an outline to the feature. On lines, this is the representation
+of the feature.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>strokeOpacity</dt>
+<dd><p class="first last">Default is <code class="docutils literal"><span class="pre">1</span></code>
+This is opacity of the line on features. On polygons and point marks, it is
+used as an outline to the feature. On lines, this is the representation
+of the feature.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>strokeWidth</dt>
+<dd><p class="first last">Default is <code class="docutils literal"><span class="pre">1</span></code>
+This is width of the line on features. On polygons and point marks, it is
+used as an outline to the feature. On lines, this is the representation
+of the feature.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>strokeLinecap</dt>
+<dd><p class="first last">Default is <code class="docutils literal"><span class="pre">round</span></code>. Options are <code class="docutils literal"><span class="pre">butt</span></code>, <code class="docutils literal"><span class="pre">round</span></code>, <code class="docutils literal"><span class="pre">square</span></code>.
+This property is similar to the <cite>SVG stroke-linecap</cite> property. It
+determines what the end of lines should look like. See the SVG link
+for image examples.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<ul>
+<li><dl class="first docutils">
+<dt>strokeDashstyle</dt>
+<dd><p class="first">Default is <code class="docutils literal"><span class="pre">solid</span></code>. Options are:</p>
+<ul class="last simple">
+<li><code class="docutils literal"><span class="pre">dot</span></code></li>
+<li><code class="docutils literal"><span class="pre">dash</span></code></li>
+<li><code class="docutils literal"><span class="pre">dashdot</span></code></li>
+<li><code class="docutils literal"><span class="pre">longdash</span></code></li>
+<li><code class="docutils literal"><span class="pre">longdashdot</span></code></li>
+<li><code class="docutils literal"><span class="pre">solid</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>pointRadius</dt>
+<dd><p class="first last">Default is <code class="docutils literal"><span class="pre">6</span></code>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>pointerEvents:</dt>
+<dd><p class="first last">Default is <code class="docutils literal"><span class="pre">visiblePainted</span></code>. Only used by the SVG Renderer. See <a class="reference external" href="http://www.w3.org/TR/SVG11/interact.html#PointerEventsProperty">SVG pointer-events</a> definition for more.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<ul>
+<li><dl class="first docutils">
+<dt>cursor</dt>
+<dd><p class="first last">Cursor used when mouse is over the feature. Default is an empty string,
+which inherits from parent elements.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>externalGraphic</dt>
+<dd><p class="first last">An external image to be used to represent a point.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>graphicWidth, graphicHeight</dt>
+<dd><p class="first last">These properties define the height and width of an externalGraphic. This
+is an alternative to the pointRadius symbolizer property to be used
+when your graphic has different sizes in the X and Y direction.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>graphicOpacity</dt>
+<dd><p class="first last">Opacity of an external graphic.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>graphicXOffset, graphicYOffset</dt>
+<dd><p class="first last">Where the &#8216;center&#8217; of an externalGraphic should be.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>rotation</dt>
+<dd><p class="first last">The rotation angle in degrees clockwise for a point symbolizer.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>graphicName</dt>
+<dd><p class="first last">Name of a type of symbol to be used for a point mark.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>display</dt>
+<dd><p class="first last">Can be set to &#8216;none&#8217; to hide features from rendering.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+    &copy; Copyright 2008, OpenLayers.
+    </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-2577926-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+  </body>
+</html>

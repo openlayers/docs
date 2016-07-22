@@ -1,0 +1,572 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Controls &mdash; OpenLayers</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="OpenLayers" href="../index.html" />
+    <link rel="up" title="OpenLayers Library Documentation" href="index.html" />
+    <link rel="next" title="OpenLayers.Control.Snapping" href="controls/snapping.html" />
+    <link rel="prev" title="Layers" href="layers.html" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/website.css" type="text/css" />
+  <meta name="verify-v1" content="p07VY29NG/hLEwVP1RyE0P1chgYyekPikjkMUEgrVAI=" />
+  <!--[if lt IE 7]>
+  <script defer="defer" type="text/javascript" src="http://openlayers.org/pngfix.js"></script>
+  <![endif]-->
+  <style type='text/css'>
+    body {
+     font-family: sans-serif;
+     font-size: .9em;
+    }
+  </style>
+
+  </head>
+  <body role="document">
+<div id="olbanner">
+<img class="openlayersbannerimg" src="http://openlayers.org/two/images/OpenLayers.trac.png" style="height: 44px; width: 49px;border:0px" alt="OpenLayers" />
+<a class="openlayersbanner" href="http://www.openlayers.org/two/" >
+OpenLayers 2</a>
+</div>
+<div id="navcontainer">
+<a class="navtabtraccurrent" href="http://www.openlayers.org">Home</a>
+<a class="navtab" href="http://trac.osgeo.org/openlayers">Support &amp; Development</a>
+</div>
+
+<div id="mainnav" class="nav"><ul><li class="first"><a href="http://www.openlayers.org/sponsorship/">Sponsorship</a></li><li><a href="http://trac.openlayers.org/wiki" accesskey="1">Wiki</a></li><li><a href="http://openlayers.org/blog/">Blog</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/FrequentlyAskedQuestions">FAQ</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/HowToDownload" accesskey="3">Download</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/MailingLists">Email Lists</a></li></ul></div>
+
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="controls/snapping.html" title="OpenLayers.Control.Snapping"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="layers.html" title="Layers"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">OpenLayers</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../contents.html" >Table of Contents</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">OpenLayers Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Controls</a><ul>
+<li><a class="reference internal" href="#default-controls">Default Controls</a></li>
+<li><a class="reference internal" href="#panels">Panels</a><ul>
+<li><a class="reference internal" href="#styling-panels">Styling Panels</a></li>
+<li><a class="reference internal" href="#controls-to-be-used-with-panels">Controls to be used with Panels</a></li>
+<li><a class="reference internal" href="#customizing-an-existing-panel">Customizing an Existing Panel</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#map-controls">Map Controls</a><ul>
+<li><a class="reference internal" href="#argparser">ArgParser</a></li>
+<li><a class="reference internal" href="#attribution">Attribution</a></li>
+<li><a class="reference internal" href="#dragfeature">DragFeature</a></li>
+<li><a class="reference internal" href="#dragpan">DragPan</a></li>
+<li><a class="reference internal" href="#drawfeature">DrawFeature</a></li>
+<li><a class="reference internal" href="#editingtoolbar">EditingToolbar</a></li>
+<li><a class="reference internal" href="#keyboarddefaults">KeyboardDefaults</a></li>
+<li><a class="reference internal" href="#layerswitcher">LayerSwitcher</a></li>
+<li><a class="reference internal" href="#measure">Measure</a></li>
+<li><a class="reference internal" href="#modifyfeature">ModifyFeature</a><ul>
+<li><a class="reference internal" href="#deprecation-warning">Deprecation Warning</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mouseposition">MousePosition</a></li>
+<li><a class="reference internal" href="#navtoolbar">NavToolbar</a></li>
+<li><a class="reference internal" href="#navigation">Navigation</a></li>
+<li><a class="reference internal" href="#navigationhistory">NavigationHistory</a></li>
+<li><a class="reference internal" href="#overviewmap">OverviewMap</a></li>
+<li><a class="reference internal" href="#panpanel">PanPanel</a></li>
+<li><a class="reference internal" href="#panzoom">PanZoom</a></li>
+<li><a class="reference internal" href="#panzoombar">PanZoomBar</a></li>
+<li><a class="reference internal" href="#permalink">Permalink</a></li>
+<li><a class="reference internal" href="#scale">Scale</a></li>
+<li><a class="reference internal" href="#scaleline">ScaleLine</a></li>
+<li><a class="reference internal" href="#selectfeature">SelectFeature</a></li>
+<li><a class="reference internal" href="#snapping">Snapping</a></li>
+<li><a class="reference internal" href="#split">Split</a></li>
+<li><a class="reference internal" href="#zoombox">ZoomBox</a></li>
+<li><a class="reference internal" href="#zoompanel">ZoomPanel</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#button-classes">Button Classes</a><ul>
+<li><a class="reference internal" href="#pan">Pan</a></li>
+<li><a class="reference internal" href="#zoomin">ZoomIn</a></li>
+<li><a class="reference internal" href="#zoomout">ZoomOut</a></li>
+<li><a class="reference internal" href="#zoomtomaxextent">ZoomToMaxExtent</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#generic-base-classes">Generic Base Classes</a><ul>
+<li><a class="reference internal" href="#button">Button</a></li>
+<li><a class="reference internal" href="#panel">Panel</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#deprecated-controls">Deprecated Controls</a><ul>
+<li><a class="reference internal" href="#mousedefaults">MouseDefaults</a></li>
+<li><a class="reference internal" href="#mousetoolbar">MouseToolbar</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#more-documentation">More documentation</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../contents.html">Table of Contents</a><ul>
+  <li><a href="index.html">OpenLayers Library Documentation</a><ul>
+      <li>Previous: <a href="layers.html" title="previous chapter">Layers</a></li>
+      <li>Next: <a href="controls/snapping.html" title="next chapter">OpenLayers.Control.Snapping</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/controls.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div><div class="body">
+<h3 style="background-color: yellow">You are viewing outdated docs</h3>
+<p>OpenLayers 2.x is not under active development any more. Go to <a href="http://openlayers.org/en/latest/doc/">http://openlayers.org/en/latest/doc/</a> to view the latest OpenLayers 3.x docs.</p>
+</div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="controls">
+<h1>Controls<a class="headerlink" href="#controls" title="Permalink to this headline">¶</a></h1>
+<p>Controls are OpenLayers classes which affect the state of the map, or display
+additional information to the user. Controls are the primary interface for
+map interactions.</p>
+<div class="section" id="default-controls">
+<h2>Default Controls<a class="headerlink" href="#default-controls" title="Permalink to this headline">¶</a></h2>
+<p>The following controls are default controls on the map:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#control-argparser"><span class="std std-ref">ArgParser</span></a></li>
+<li>Attribution</li>
+<li>Navigation</li>
+<li>PanZoom</li>
+</ul>
+</div>
+<div class="section" id="panels">
+<h2>Panels<a class="headerlink" href="#panels" title="Permalink to this headline">¶</a></h2>
+<p>Control panels allow collections of multiple controls together, as is common
+in many applications.</p>
+<div class="section" id="styling-panels">
+<span id="id1"></span><h3>Styling Panels<a class="headerlink" href="#styling-panels" title="Permalink to this headline">¶</a></h3>
+<p>Panels are styled by CSS. The &#8220;ItemActive&#8221; and &#8220;ItemInactive&#8221; are added to the
+control&#8217;s displayClass.</p>
+<p>All controls have an overridable &#8216;displayClass&#8217; property which maps to
+their base CSS class name. This name is calculated by changing the
+class name by removing all &#8216;.&#8217; characters, and changing &#8220;OpenLayers&#8221; to
+&#8220;ol&#8221;. So, OpenLayers.Control.ZoomBox changes to olControlZoomBox.</p>
+<p>Panel items are styled by combining the style of the Panel with the style
+of a control inside of it. Using the NavToolbar Panel as an example:</p>
+<div class="highlight-css"><div class="highlight"><pre><span></span><span class="nc">.olControlNavToolbar</span> <span class="nt">div</span> <span class="p">{</span>
+  <span class="nb">display</span><span class="o">:</span><span class="nb">block</span><span class="p">;</span>
+  <span class="nb">width</span><span class="o">:</span>  <span class="m">28px</span><span class="p">;</span>
+  <span class="nb">height</span><span class="o">:</span> <span class="m">28px</span><span class="p">;</span>
+  <span class="nb">top</span><span class="o">:</span> <span class="m">300px</span><span class="p">;</span>
+  <span class="nb">left</span><span class="o">:</span> <span class="m">6px</span><span class="p">;</span>
+  <span class="nb">position</span><span class="o">:</span> <span class="nb">relative</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.olControlNavToolbar</span> <span class="nc">.olControlNavigationItemActive</span> <span class="p">{</span>
+  <span class="nb">background-image</span><span class="o">:</span> <span class="sx">url(&quot;img/panning-hand-on.png&quot;)</span><span class="p">;</span>
+  <span class="nb">background-repeat</span><span class="o">:</span> <span class="nb">no-repeat</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.olControlNavToolbar</span> <span class="nc">.olControlNavigationItemInactive</span> <span class="p">{</span>
+  <span class="nb">background-image</span><span class="o">:</span> <span class="sx">url(&quot;img/panning-hand-off.png&quot;)</span><span class="p">;</span>
+  <span class="nb">background-repeat</span><span class="o">:</span> <span class="nb">no-repeat</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Here, we say:</p>
+<ul class="simple">
+<li>Div elements displayed inside the toolbar are 28px wide and 28px high.
+The top of the div should be at 300px, the left side should be at 6px.</li>
+<li>Then, for the control, we provide two background images: one for active
+and one for inactive.</li>
+</ul>
+<p>For toolbars to go left to right, you can also control them with CSS:</p>
+<div class="highlight-css"><div class="highlight"><pre><span></span><span class="nc">.olControlEditingToolbar</span> <span class="nt">div</span> <span class="p">{</span>
+    <span class="nb">float</span><span class="o">:</span><span class="nb">right</span><span class="p">;</span>
+    <span class="nb">right</span><span class="o">:</span> <span class="m">0px</span><span class="p">;</span>
+    <span class="nb">height</span><span class="o">:</span> <span class="m">30px</span><span class="p">;</span>
+    <span class="nb">width</span><span class="o">:</span> <span class="m">200px</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Simply set the &#8216;float: right&#8217; parameter, and give the parent element some</p>
+<p>In order to improve the user experience, existing panels like the
+<a class="reference internal" href="#control-editingtoolbar"><span class="std std-ref">EditingToolbar</span></a> use a single background image, and control the
+icon to display via &#8216;top&#8217; and &#8216;left&#8217; parameters, offsetting and clipping
+the background image. This is not required, but doing this makes it so that
+when you select a tool, you don&#8217;t have to wait for the &#8216;inactive&#8217; image
+to display before continuing.</p>
+</div>
+<div class="section" id="controls-to-be-used-with-panels">
+<h3>Controls to be used with Panels<a class="headerlink" href="#controls-to-be-used-with-panels" title="Permalink to this headline">¶</a></h3>
+<p>Panels can have controls of many &#8216;types&#8217; inside of them. Each tool in a panel
+should have a &#8216;type&#8217; attribute which is one of:</p>
+<ul class="simple">
+<li>OpenLayers.Control.TYPE_TOOL (the default)</li>
+<li>OpenLayers.Control.TYPE_BUTTON</li>
+<li>OpenLayers.Control.TYPE_TOGGLE</li>
+</ul>
+</div>
+<div class="section" id="customizing-an-existing-panel">
+<span id="customizing-panels"></span><h3>Customizing an Existing Panel<a class="headerlink" href="#customizing-an-existing-panel" title="Permalink to this headline">¶</a></h3>
+<p>Several existing panels &#8211; like the <a class="reference internal" href="#control-editingtoolbar"><span class="std std-ref">EditingToolbar</span></a> or
+<a class="reference internal" href="#control-panpanel"><span class="std std-ref">PanPanel</span></a> &#8211; have multiple controls combined, but it is not
+always desirable to use all those controls. However, it is relatively simple to
+createa control which mimics the behavior of these controls. For example, if
+you wish to create an editing toolbar control that only has the ability to draw
+lines, you could do so with the following code:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">layer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">Vector</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">panelControls</span> <span class="o">=</span> <span class="p">[</span>
+ <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Control</span><span class="p">.</span><span class="nx">Navigation</span><span class="p">(),</span>
+ <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Control</span><span class="p">.</span><span class="nx">DrawFeature</span><span class="p">(</span><span class="nx">layer</span><span class="p">,</span>
+     <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Handler</span><span class="p">.</span><span class="nx">Path</span><span class="p">,</span>
+     <span class="p">{</span><span class="s1">&#39;displayClass&#39;</span><span class="o">:</span> <span class="s1">&#39;olControlDrawFeaturePath&#39;</span><span class="p">})</span>
+<span class="p">];</span>
+<span class="kd">var</span> <span class="nx">toolbar</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Control</span><span class="p">.</span><span class="nx">Panel</span><span class="p">({</span>
+   <span class="nx">displayClass</span><span class="o">:</span> <span class="s1">&#39;olControlEditingToolbar&#39;</span><span class="p">,</span>
+   <span class="nx">defaultControl</span><span class="o">:</span> <span class="nx">panelControls</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="p">});</span>
+<span class="nx">toolbar</span><span class="p">.</span><span class="nx">addControls</span><span class="p">(</span><span class="nx">panelControls</span><span class="p">);</span>
+<span class="nx">map</span><span class="p">.</span><span class="nx">addControl</span><span class="p">(</span><span class="nx">toolbar</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>There are two things to note here:</p>
+<ul class="simple">
+<li>We are reusing the style of the EditingToolbar by taking its &#8216;displayClass&#8217;
+property. This means we will pick up the default icons and so on of the
+CSS for that toolbar. (For more details, see <a class="reference internal" href="#styling-panels"><span class="std std-ref">Styling Panels</span></a>.)</li>
+<li>We set the default control to be the Navigation control, but we could just
+as easily change that.</li>
+</ul>
+<p>In this way, you can use any control which works in a panel &#8211; including,
+for example, the SelectFeature control, the ZoomToMaxExtent control, and
+more, simply by changing the controls which are in the list.</p>
+</div>
+</div>
+<div class="section" id="map-controls">
+<h2>Map Controls<a class="headerlink" href="#map-controls" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="argparser">
+<span id="control-argparser"></span><h3>ArgParser<a class="headerlink" href="#argparser" title="Permalink to this headline">¶</a></h3>
+<p>Takes URL arguments, and updates the map.</p>
+<p>In order for the ArgParser control to work, you must check that &#8216;getCenter()&#8217;
+returns null before centering your map for the first time. Most applications
+use a setCenter or zoomToMaxExtent call: this call should be avoided if the
+center is already set.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Map</span><span class="p">(</span><span class="s1">&#39;map&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">layer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Layer</span><span class="p">();</span>
+<span class="nx">map</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">layer</span><span class="p">);</span>
+
+<span class="c1">// Ensure that center is not set</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">map</span><span class="p">.</span><span class="nx">getCenter</span><span class="p">())</span> <span class="p">{</span>
+    <span class="nx">map</span><span class="p">.</span><span class="nx">setCenter</span><span class="p">(</span><span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">LonLat</span><span class="p">(</span><span class="o">-</span><span class="mi">71</span><span class="p">,</span> <span class="mi">42</span><span class="p">),</span> <span class="mi">4</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The ArgParser control is enabled by default.</p>
+</div>
+<div class="section" id="attribution">
+<span id="control-attribution"></span><h3>Attribution<a class="headerlink" href="#attribution" title="Permalink to this headline">¶</a></h3>
+<p>The attribution control will display attribution properties set on any layers
+in the map in the lower right corner of the map, by default. The style and
+location of this control can be overridden by overriding the
+&#8216;olControlAttribution&#8217; CSS class.</p>
+<p>Use of the attribution control is demonstrated in the <a class="reference external" href="http://openlayers.org/dev/examples/attribution.html">Attribution example</a>.
+For API information, see the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Control/Attribution-js.html">Attribution API Docs</a>.</p>
+</div>
+<div class="section" id="dragfeature">
+<span id="control-dragfeature"></span><h3>DragFeature<a class="headerlink" href="#dragfeature" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="dragpan">
+<span id="control-dragpan"></span><h3>DragPan<a class="headerlink" href="#dragpan" title="Permalink to this headline">¶</a></h3>
+<p>The DragPan control implements map dragging interactions.</p>
+</div>
+<div class="section" id="drawfeature">
+<span id="control-drawfeature"></span><h3>DrawFeature<a class="headerlink" href="#drawfeature" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="editingtoolbar">
+<span id="control-editingtoolbar"></span><h3>EditingToolbar<a class="headerlink" href="#editingtoolbar" title="Permalink to this headline">¶</a></h3>
+<p>Display a <a class="reference internal" href="#control-navigation"><span class="std std-ref">Navigation</span></a> control, along with three editing tools:
+Point, Path, and Polygon. If this does not fit your needs, see
+<a class="reference internal" href="#customizing-panels"><span class="std std-ref">Customizing an Existing Panel</span></a> above.</p>
+</div>
+<div class="section" id="keyboarddefaults">
+<span id="control-keyboarddefaults"></span><h3>KeyboardDefaults<a class="headerlink" href="#keyboarddefaults" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="layerswitcher">
+<span id="control-layerswitcher"></span><h3>LayerSwitcher<a class="headerlink" href="#layerswitcher" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="measure">
+<span id="control-measure"></span><h3>Measure<a class="headerlink" href="#measure" title="Permalink to this headline">¶</a></h3>
+<p>A planar distance measuring tool.</p>
+</div>
+<div class="section" id="modifyfeature">
+<span id="control-modifyfeature"></span><h3>ModifyFeature<a class="headerlink" href="#modifyfeature" title="Permalink to this headline">¶</a></h3>
+<p>The ModifyFeature control can be used to edit an existing vector object.</p>
+<p>This control causes three different types of events to fire on the layer:
+* beforefeaturemodified - triggered when a user selects the feature to begin editing.
+* featuremodified - triggered when a user changes something about the feature.
+* afterfeaturemodified - triggered after the user unselects the feature.</p>
+<p>To register for one of these events, register on the layer:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">layer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">Vector</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">);</span>
+<span class="nx">layer</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">on</span><span class="p">({</span>
+  <span class="s1">&#39;beforefeaturemodified&#39;</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">evt</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Selected &quot;</span> <span class="o">+</span> <span class="nx">evt</span><span class="p">.</span><span class="nx">feature</span><span class="p">.</span><span class="nx">id</span>  <span class="o">+</span> <span class="s2">&quot; for modification&quot;</span><span class="p">);</span>
+  <span class="p">},</span>
+  <span class="s1">&#39;afterfeaturemodified&#39;</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">evt</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Finished with &quot;</span> <span class="o">+</span> <span class="nx">evt</span><span class="p">.</span><span class="nx">feature</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>There are several different modes that the ModifyFeature control can work in.
+These can be combined to work together.</p>
+<ul class="simple">
+<li>RESHAPE &#8211; The default. Allos changing the vertices of a feature by dragging existing vertices, creating new vertices by dragging &#8216;virtual vertices&#8217;, or deleting vertices by hovering over a vertice and pressing the delete key.</li>
+<li>RESIZE &#8211; Allows changing the size of a geometry.</li>
+<li>ROTATE &#8211; change the orientation of the geometry</li>
+<li>DRAG &#8211; change the position of the geometry.</li>
+</ul>
+<p>When creating the control, you can use a bitwise OR to combine these:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">modifyFeature</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Control</span><span class="p">.</span><span class="nx">ModifyFeature</span><span class="p">(</span><span class="nx">layer</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">mode</span><span class="o">:</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Control</span><span class="p">.</span><span class="nx">ModifyFeature</span><span class="p">.</span><span class="nx">RESIZE</span> <span class="o">|</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Control</span><span class="p">.</span><span class="nx">ModifyFeature</span><span class="p">.</span><span class="nx">DRAG</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>For an example of using the ModifyFeature control, see the <a class="reference external" href="http://openlayers.org/dev/examples/modify-feature.html">ModifyFeature
+example</a>. For API information, see the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Control/ModifyFeature-js.html">ModifyFeature API Documentation</a>.</p>
+<p>The ModifyFeature control can only be used with a single layer at any given
+time. To modify multiple layers, use multiple ModifyFeature controls.</p>
+<div class="section" id="deprecation-warning">
+<h4>Deprecation Warning<a class="headerlink" href="#deprecation-warning" title="Permalink to this headline">¶</a></h4>
+<p>As of OpenLayers 2.6, the onModificationStart, onModification and
+onModificationEnd functions on this control are no longer the recommended way
+to receive modification events. Instead, use the beforefeaturemodified,
+featuremodified, and afterfeaturemodified events to handle these cases.</p>
+</div>
+</div>
+<div class="section" id="mouseposition">
+<span id="control-mouseposition"></span><h3>MousePosition<a class="headerlink" href="#mouseposition" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="navtoolbar">
+<span id="control-navtoolbar"></span><h3>NavToolbar<a class="headerlink" href="#navtoolbar" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="navigation">
+<span id="control-navigation"></span><h3>Navigation<a class="headerlink" href="#navigation" title="Permalink to this headline">¶</a></h3>
+<p>The replacement control for the former <a class="reference internal" href="#control-mousedefaults"><span class="std std-ref">MouseDefaults</span></a> control.
+This control is a combination of:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#control-dragpan"><span class="std std-ref">DragPan</span></a></li>
+<li><a class="reference internal" href="#control-zoombox"><span class="std std-ref">ZoomBox</span></a></li>
+<li>Handler.Click, for double click zooming</li>
+<li>Handler.Wheel, for wheel zooming</li>
+</ul>
+<p>The most common request for the Navigation control is to disable wheel
+zooming when using the control. To do this, ensure that no other navigation
+controls are added to your map &#8211; for example, by an
+<a class="reference internal" href="#control-editingtoolbar"><span class="std std-ref">EditingToolbar</span></a> &#8211; and call disableWheelNavigation on the
+Navigation control.</p>
+</div>
+<div class="section" id="navigationhistory">
+<h3>NavigationHistory<a class="headerlink" href="#navigationhistory" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="overviewmap">
+<h3>OverviewMap<a class="headerlink" href="#overviewmap" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="panpanel">
+<span id="control-panpanel"></span><h3>PanPanel<a class="headerlink" href="#panpanel" title="Permalink to this headline">¶</a></h3>
+<p>A set of visual buttons for controlling the location of the map. A subclass
+of Control.Panel, this is easily controlled by styling via CSS. The
+<code class="docutils literal"><span class="pre">.olControlPanPanel</span></code> class, and its internal divs, control the styling of
+the PanPanel. If you wish to customize the look and feel of the controls
+in the upper left corner of the map, this control is the one for you.</p>
+<p>This control is designed to work with the <a class="reference internal" href="#control-zoompanel"><span class="std std-ref">ZoomPanel</span></a> control
+to replicate the functionality of the <a class="reference internal" href="#control-panzoom"><span class="std std-ref">PanZoom</span></a> control.</p>
+</div>
+<div class="section" id="panzoom">
+<span id="control-panzoom"></span><h3>PanZoom<a class="headerlink" href="#panzoom" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="panzoombar">
+<h3>PanZoomBar<a class="headerlink" href="#panzoombar" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="permalink">
+<h3>Permalink<a class="headerlink" href="#permalink" title="Permalink to this headline">¶</a></h3>
+<p>The Permalink control, together with the ArgParser control, are designed to
+make it easy to link to an existing map view. By adding the permalink control
+to your map, you will make available a piece of text in the map that acts as
+a link for your users.</p>
+<p>In order for the permalink to work, you must ensure that you check whether the
+center has already been set by the ArgParser control before you set the center
+of your map. To do this, simply check map.getCenter() first:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">map</span><span class="p">.</span><span class="nx">getCenter</span><span class="p">())</span> <span class="p">{</span>
+  <span class="nx">map</span><span class="p">.</span><span class="nx">setCenter</span><span class="p">(</span><span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">LonLat</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="scale">
+<h3>Scale<a class="headerlink" href="#scale" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="scaleline">
+<h3>ScaleLine<a class="headerlink" href="#scaleline" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="selectfeature">
+<h3>SelectFeature<a class="headerlink" href="#selectfeature" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="snapping">
+<span id="control-snapping"></span><h3>Snapping<a class="headerlink" href="#snapping" title="Permalink to this headline">¶</a></h3>
+<p>Provides an agent to control snapping vertices of features from one layer to nodes, vertices, and edges of features from any number of layers. The control operates as a toggle - acting as a snapping agent while active and not altering behavior of editing while not active. The control can be configured to allow node, vertex, and or edge snapping to any number of layers (given vector layers with features loaded client side). The tolerance, snapping type, and an optional filter can be configured for each target layer.</p>
+<p>Find more detail on the <a class="reference internal" href="controls/snapping.html#control-snapping-detail"><span class="std std-ref">OpenLayers.Control.Snapping</span></a> page.</p>
+</div>
+<div class="section" id="split">
+<span id="control-split"></span><h3>Split<a class="headerlink" href="#split" title="Permalink to this headline">¶</a></h3>
+<p>Provides an agent for splitting linear features on a vector layer given edits to linear features on any other vector layer or a temporary sketch layer.  The control operates in two modes.  By default, the control allows for temporary features to be drawn on a sketch layer (managed by the control) that will be used to split eligible features on the target layer.  In auto-split mode, the control listens for edits (new features or modifications to existing features) on an editable layer and splits eligible features on a target layer.</p>
+<p>The control can be added to a map as with other controls.  It has no distinct visual representation but can be connected to a button or other tool to toggle activation with a click.  In addition, no GUI elements are provided for control configuration.  Collecting user input to configure behavior of the control is an application specific task.</p>
+<p>Find more detail on the <a class="reference internal" href="controls/split.html#control-split-detail"><span class="std std-ref">OpenLayers.Control.Split</span></a> page.</p>
+</div>
+<div class="section" id="zoombox">
+<span id="control-zoombox"></span><h3>ZoomBox<a class="headerlink" href="#zoombox" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="zoompanel">
+<span id="control-zoompanel"></span><h3>ZoomPanel<a class="headerlink" href="#zoompanel" title="Permalink to this headline">¶</a></h3>
+<p>A set of visual buttons for controlling the zoom of the map. A subclass
+of Control.Panel, this is easily controlled by styling via CSS. The
+<code class="docutils literal"><span class="pre">.olControlZoomPanel</span></code> class, and its internal divs, control the styling of
+the PanPanel. If you wish to customize the look and feel of the controls
+in the upper left corner of the map, this control is the one for you.</p>
+<p>This control is designed to work with the <a class="reference internal" href="#control-panpanel"><span class="std std-ref">PanPanel</span></a> control
+to replicate the functionality of the <a class="reference internal" href="#control-panzoom"><span class="std std-ref">PanZoom</span></a> control.</p>
+</div>
+</div>
+<div class="section" id="button-classes">
+<h2>Button Classes<a class="headerlink" href="#button-classes" title="Permalink to this headline">¶</a></h2>
+<p>These classes have no UI on their own, and are primarily designed to be used
+inside of a control panel.</p>
+<div class="section" id="pan">
+<h3>Pan<a class="headerlink" href="#pan" title="Permalink to this headline">¶</a></h3>
+<p>Used inside the PanPanel; when triggered, causes the map to pan in a
+specific direction.</p>
+</div>
+<div class="section" id="zoomin">
+<h3>ZoomIn<a class="headerlink" href="#zoomin" title="Permalink to this headline">¶</a></h3>
+<p>Used inside the PanPanel; when triggered, causes the map to zoom in.</p>
+</div>
+<div class="section" id="zoomout">
+<h3>ZoomOut<a class="headerlink" href="#zoomout" title="Permalink to this headline">¶</a></h3>
+<p>Used inside the PanPanel; when triggered, causes the map to zoom out.</p>
+</div>
+<div class="section" id="zoomtomaxextent">
+<h3>ZoomToMaxExtent<a class="headerlink" href="#zoomtomaxextent" title="Permalink to this headline">¶</a></h3>
+<p>Used inside the PanPanel; when triggered, causes the map to zoomToMaxExtent.</p>
+</div>
+</div>
+<div class="section" id="generic-base-classes">
+<h2>Generic Base Classes<a class="headerlink" href="#generic-base-classes" title="Permalink to this headline">¶</a></h2>
+<p>The following classes are used primarily for subclassing, and are not meant
+to be used directly.</p>
+<div class="section" id="button">
+<h3>Button<a class="headerlink" href="#button" title="Permalink to this headline">¶</a></h3>
+<p>Used inside of Panel controls.</p>
+</div>
+<div class="section" id="panel">
+<h3>Panel<a class="headerlink" href="#panel" title="Permalink to this headline">¶</a></h3>
+<p>Used as a base for NavToolbar and EditingToolbar controls, as well as others.
+Gathers up buttons/tools to be used together.</p>
+</div>
+</div>
+<div class="section" id="deprecated-controls">
+<h2>Deprecated Controls<a class="headerlink" href="#deprecated-controls" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mousedefaults">
+<span id="control-mousedefaults"></span><h3>MouseDefaults<a class="headerlink" href="#mousedefaults" title="Permalink to this headline">¶</a></h3>
+<p>Replaced by the <a class="reference internal" href="#control-navigation"><span class="std std-ref">Navigation</span></a> control.</p>
+</div>
+<div class="section" id="mousetoolbar">
+<h3>MouseToolbar<a class="headerlink" href="#mousetoolbar" title="Permalink to this headline">¶</a></h3>
+<p>Replaced by the <a class="reference internal" href="#control-navtoolbar"><span class="std std-ref">NavToolbar</span></a> control.</p>
+</div>
+</div>
+<div class="section" id="more-documentation">
+<h2>More documentation<a class="headerlink" href="#more-documentation" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="controls/snapping.html">OpenLayers.Control.Snapping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controls/split.html">OpenLayers.Control.Split</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+    &copy; Copyright 2008, OpenLayers.
+    </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-2577926-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+  </body>
+</html>

@@ -10,7 +10,7 @@ thati s going on in a situation where the problem is reproducible.
 Oftentimes, the particular behavior is only existing in a certain type
 of situation, or in a limited case that is not exploited by the commonly
 used code. (In addition, some problems are the result of user error in
-some way.) 
+some way.)
 
 In order to help developers help you, the best thing to do is to
 minimize the error to the *smallest amount of code that can cause it to
@@ -42,28 +42,28 @@ particular aspect of code. Put it back, and keep minimizing.
 
 Additionally, many times in doing this, you find a particular construct
 in your code that can help you understand how to work around the
-problem. 
+problem.
 
 If not, then continue onto the next section.
 
-OpenLayers Library References
-=============================
+OpenLayers 2 Library References
+===============================
 
-There are multiple hosted versions of the OpenLayers library. 
+There are multiple hosted versions of the OpenLayers 2 library.
 
   http://openlayers.org/api/OpenLayers.js
 
 This will always represent the most recent released 'stable' version of
-the OpenLayers API.
+the OpenLayers 2 API.
 
  http://openlayers.org/dev/OpenLayers.js
 
-This is always a 10-minute delayed build of OpenLayers trunk.
+This is always a 10-minute delayed build of OpenLayers 2 trunk.
 
 To simplify allowing developers to set up the code on their own testing
 environments, it is often beneficial to point directly to one of these
 library URLs. In addition, this also ensures that the problem is not
-something specific to your build of OpenLayers. 
+something specific to your build of OpenLayers 2.
 
 Publishing your Problem
 -----------------------
@@ -91,7 +91,7 @@ The best way to communicate your problem is to send an email to the
 users list demonstrating the problem. Oftentimes other users will be
 able to point out a particular flaw in your code that is causing the
 error, or explain that the behavior is a known lack of functionality in
-OpenLayers.
+OpenLayers 2.
 
 *Be clear on steps for reproduction*. Users who don't know what they're
 supposed to do to cause the bug will not be able to see it, and if they
@@ -101,16 +101,16 @@ can't see it, they can't help you.
 something is not working, because the behavior you're seeing is expected or
 the problem is otherwise not obvious. Explain what you expect to see.
 
-If you have determined the particular change in the OpenLayers source
+If you have determined the particular change in the OpenLayers 2 source
 code which is required to change the behavior, then it is more likely
 that the Developers list is the best place to go. Any discussion which
-involves code from OpenLayers itself is probably better suited for the
-dev list. 
+involves code from OpenLayers 2 itself is probably better suited for the
+dev list.
 
 Finally,
 --------
 
-By following the steps: 
+By following the steps:
  * Simplify/Minimize
  * Publish
  * Communicate
@@ -127,4 +127,3 @@ and everyone else time in trying to debug.
 The end result is a more workable system for everyone. The easier it is
 to understand the problem you're having, the faster, and more easily,
 you will be able to get help.
-

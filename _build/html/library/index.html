@@ -1,0 +1,349 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>OpenLayers Library Documentation &mdash; OpenLayers</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="OpenLayers" href="../index.html" />
+    <link rel="up" title="Table of Contents" href="../contents.html" />
+    <link rel="next" title="Getting Started" href="introduction.html" />
+    <link rel="prev" title="Table of Contents" href="../contents.html" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/website.css" type="text/css" />
+  <meta name="verify-v1" content="p07VY29NG/hLEwVP1RyE0P1chgYyekPikjkMUEgrVAI=" />
+  <!--[if lt IE 7]>
+  <script defer="defer" type="text/javascript" src="http://openlayers.org/pngfix.js"></script>
+  <![endif]-->
+  <style type='text/css'>
+    body {
+     font-family: sans-serif;
+     font-size: .9em;
+    }
+  </style>
+
+  </head>
+  <body role="document">
+<div id="olbanner">
+<img class="openlayersbannerimg" src="http://openlayers.org/two/images/OpenLayers.trac.png" style="height: 44px; width: 49px;border:0px" alt="OpenLayers" />
+<a class="openlayersbanner" href="http://www.openlayers.org/two/" >
+OpenLayers 2</a>
+</div>
+<div id="navcontainer">
+<a class="navtabtraccurrent" href="http://www.openlayers.org">Home</a>
+<a class="navtab" href="http://trac.osgeo.org/openlayers">Support &amp; Development</a>
+</div>
+
+<div id="mainnav" class="nav"><ul><li class="first"><a href="http://www.openlayers.org/sponsorship/">Sponsorship</a></li><li><a href="http://trac.openlayers.org/wiki" accesskey="1">Wiki</a></li><li><a href="http://openlayers.org/blog/">Blog</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/FrequentlyAskedQuestions">FAQ</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/HowToDownload" accesskey="3">Download</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/MailingLists">Email Lists</a></li></ul></div>
+
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="introduction.html" title="Getting Started"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="../contents.html" title="Table of Contents"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">OpenLayers</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../contents.html" accesskey="U">Table of Contents</a> &raquo;</li> 
+      </ul>
+    </div>
+
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../contents.html">Table of Contents</a><ul>
+      <li>Previous: <a href="../contents.html" title="previous chapter">Table of Contents</a></li>
+      <li>Next: <a href="introduction.html" title="next chapter">Getting Started</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/index.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div><div class="body">
+<h3 style="background-color: yellow">You are viewing outdated docs</h3>
+<p>OpenLayers 2.x is not under active development any more. Go to <a href="http://openlayers.org/en/latest/doc/">http://openlayers.org/en/latest/doc/</a> to view the latest OpenLayers 3.x docs.</p>
+</div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="openlayers-library-documentation">
+<h1>OpenLayers Library Documentation<a class="headerlink" href="#openlayers-library-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#creating-your-first-map">Creating Your First Map</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#crafting-html">Crafting HTML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#creating-the-map-viewer">Creating the Map Viewer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html#putting-it-all-together">Putting it All Together</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#adding-an-overlay-wms">Adding an Overlay WMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#adding-a-vector-marker-to-the-map">Adding a Vector Marker to the Map</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="syntax.html">Understanding OpenLayers Syntax</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="syntax.html#openlayers-classes">OpenLayers &#8220;Classes&#8221;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="syntax.html#the-options-argument">The <code class="docutils literal"><span class="pre">options</span></code> Argument</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="layers.html">Layers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="layers.html#base-layers-and-non-base-layers">Base Layers and Non-Base Layers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#base-layers">Base Layers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#non-base-layers">Non Base Layers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="layers.html#raster-layers">Raster Layers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#google">Google</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#image">Image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#kamap">KaMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#kamapcache">KaMapCache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#mapguide">MapGuide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#mapserver">MapServer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#multimap">MultiMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#tms">TMS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#tilecache">TileCache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#virtualearth">VirtualEarth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#wms">WMS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#worldwind">WorldWind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#yahoo">Yahoo</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="layers.html#overlay-layers">Overlay Layers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#boxes">Boxes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#gml">GML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#georss">GeoRSS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#markers">Markers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#pointtrack">PointTrack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#text">Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#vector">Vector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="layers.html#wfs">WFS</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="layers.html#generic-subclasses">Generic Subclasses</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="controls.html">Controls</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="controls.html#default-controls">Default Controls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controls.html#panels">Panels</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#styling-panels">Styling Panels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#controls-to-be-used-with-panels">Controls to be used with Panels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#customizing-an-existing-panel">Customizing an Existing Panel</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="controls.html#map-controls">Map Controls</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#argparser">ArgParser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#attribution">Attribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#dragfeature">DragFeature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#dragpan">DragPan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#drawfeature">DrawFeature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#editingtoolbar">EditingToolbar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#keyboarddefaults">KeyboardDefaults</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#layerswitcher">LayerSwitcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#measure">Measure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#modifyfeature">ModifyFeature</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="controls.html#deprecation-warning">Deprecation Warning</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#mouseposition">MousePosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#navtoolbar">NavToolbar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#navigation">Navigation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#navigationhistory">NavigationHistory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#overviewmap">OverviewMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#panpanel">PanPanel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#panzoom">PanZoom</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#panzoombar">PanZoomBar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#permalink">Permalink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#scale">Scale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#scaleline">ScaleLine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#selectfeature">SelectFeature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#snapping">Snapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#split">Split</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#zoombox">ZoomBox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#zoompanel">ZoomPanel</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="controls.html#button-classes">Button Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#pan">Pan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#zoomin">ZoomIn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#zoomout">ZoomOut</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#zoomtomaxextent">ZoomToMaxExtent</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="controls.html#generic-base-classes">Generic Base Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#button">Button</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#panel">Panel</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="controls.html#deprecated-controls">Deprecated Controls</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#mousedefaults">MouseDefaults</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls.html#mousetoolbar">MouseToolbar</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="controls.html#more-documentation">More documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="controls/snapping.html">OpenLayers.Control.Snapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="controls/split.html">OpenLayers.Control.Split</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="formats.html">Formats</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="formats.html#built-in-formats">Built In Formats</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="formats.html#kml">KML</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="formats.html#creating-custom-formats">Creating Custom Formats</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="overlays.html">Overlays</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overlays.html#overlay-basics">Overlay Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overlays.html#vector-overlays">Vector Overlays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="overlays.html#interaction">Interaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overlays.html#layer-types">Layer Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="overlays.html#marker-overlays">Marker Overlays</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="overlays.html#id4">Interaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overlays.html#id5">Layer Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="overlays.html#transitioning-from-text-layer-or-georss-layer-to-vectors">Transitioning from Text Layer or GeoRSS Layer to Vectors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="overlays.html#loading-data">Loading Data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="overlays.html#loading-data-with-a-gml-layer">Loading data with a GML Layer</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="overlays.html#styling-data">Styling Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overlays.html#displaying-popups">Displaying Popups</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="feature_styling.html">Styling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="feature_styling.html#style-classes">Style Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="feature_styling.html#attribute-replacement-syntax">Attribute Replacement Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="feature_styling.html#stylemap">StyleMap</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="feature_styling.html#using-style-objects">Using Style Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feature_styling.html#rule-based-styling">Rule Based Styling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="feature_styling.html#adduniquevaluerules">addUniqueValueRules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="feature_styling.html#custom-rules">Custom Rules</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="feature_styling.html#style-properties">Style Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mobile.html">Mobile Browsing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mobile.html#map-dragging">Map Dragging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mobile.html#pinch-zoom">Pinch Zoom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mobile.html#tap-panning">Tap Panning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mobile.html#mobile-browser-support">Mobile Browser Support</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="deploying.html">Deploying (Shipping OpenLayers in your Application)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="deploying.html#single-file-build">Single File Build</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deploying.html#building-the-single-file-build">Building the Single File Build</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deploying.html#custom-build-profiles">Custom Build Profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deploying.html#deploying-files">Deploying Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deploying.html#minimizing-build-size">Minimizing Build Size</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="request.html">Requesting Remote Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="request.html#example-usage">Example usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spherical_mercator.html">Spherical Mercator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spherical_mercator.html#what-is-spherical-mercator">What is Spherical Mercator?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spherical_mercator.html#first-map">First Map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spherical_mercator.html#working-with-projected-coordinates">Working with Projected Coordinates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spherical_mercator.html#reprojecting-points-bounds">Reprojecting Points, Bounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spherical_mercator.html#reprojecting-geometries">Reprojecting Geometries</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spherical_mercator.html#reprojecting-vector-data">Reprojecting Vector Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spherical_mercator.html#serializing-projected-data">Serializing Projected Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spherical_mercator.html#display-projection-on-controls">Display Projection on Controls</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spherical_mercator.html#creating-spherical-mercator-raster-images">Creating Spherical Mercator Raster Images</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spherical_mercator.html#mapserver">MapServer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spherical_mercator.html#geoserver">GeoServer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spherical_mercator.html#custom-tiles">Custom Tiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spherical_mercator.html#sphericalmercator-and-epsg-aliases">SphericalMercator and EPSG aliases</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+    &copy; Copyright 2008, OpenLayers.
+    </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-2577926-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+  </body>
+</html>

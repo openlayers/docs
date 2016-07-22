@@ -3,30 +3,30 @@
 Overlays
 ========
 
-OpenLayers allows you to lay many different types of data on top of its various
+OpenLayers 2allows you to lay many different types of data on top of its various
 data sources. Currently, there are two main ways of displaying vector feature
-overlays in OpenLayers, each with benefits and drawbacks. This document seeks
+overlays in OpenLayers 2, each with benefits and drawbacks. This document seeks
 to describe the differences, and ways in which each can be used.
 
 Overlay Basics
 --------------
 
-There are two different types of feature rendering in OpenLayers.  One type is
-the OpenLayers :ref:`vector-overlays` support, which uses vector drawing
+There are two different types of feature rendering in OpenLayers 2.  One type is
+the OpenLayers 2 :ref:`vector-overlays` support, which uses vector drawing
 capabilities in the browser (SVG, VML, or Canvas) to display data. The other
-type is the OpenLayers :ref:`marker-overlays` support. This type of layer displays HTML
+type is the OpenLayers 2 :ref:`marker-overlays` support. This type of layer displays HTML
 image objects inside the DOM.
 
 In general, the Vector layer provides more capabilities, with the ability to
 draw lines, polygons, and more. The Vector-based Layers are better maintained,
-and are the place where most new OpenLayers development is taking place.
+and are the place where most new OpenLayers 2 development is taking place.
 There is more support for various styling options, and more configurability
 over layer behavior and interactions with remote servers.
 
 However, the Markers layer is maintained for backwards compatibility, because
 there are some things you can not do with vectors as they are currently
 implemented, and they provide a different type of interface for event
-registration. 
+registration.
 
 .. _vector-overlays:
 
@@ -36,7 +36,7 @@ Vector Overlays
 Vector Layers form the core of Vector overlays. Vector overlays are powered
 by adding sets of OpenLayers.Feature.Vectors to the map. These can be a number
 of types of geometry:
- 
+
   * Point / MultiPoint
   * Line / MultiLine
   * Polygon / MultiPolygon
@@ -48,25 +48,25 @@ They are styled using the OpenLayers.Style / OpenLayers.StyleMap properties.
 .. _`Rotation Example`: http://openlayers.org/dev/examples/styles-rotation.html
 .. _`Unique Value Style Example`: http://openlayers.org/dev/examples/styles-unique.html
 
-Examples: 
- 
- * `StyleMap Example`_: 
-     Use "Rules" to determine style attributes based on feature properties.
-     This is useful for rendering based on data attributes like population. 
+Examples:
 
- * `Context Example`_: 
+ * `StyleMap Example`_:
+     Use "Rules" to determine style attributes based on feature properties.
+     This is useful for rendering based on data attributes like population.
+
+ * `Context Example`_:
      Use a custom Javascript function to determine feature
      style properties. This example shows how to use which quadrant of the
      world a feature is in to determine its color. Similar rules can be
      used to do computations on a feature property to generate a style value
      (like size).
 
- * `Rotation Example`_: 
+ * `Rotation Example`_:
      Vector features support advanced styling, like feature rotation. This can
      be used, for example, to display vehicle direction, wind direction, or
      other direction-based attributes.
 
- * `Unique Value Style Example`_: 
+ * `Unique Value Style Example`_:
      A common use case is to pick a specific style value based on a key/value
      mapping of a feature. This example demonstrates how to do that.
 
@@ -75,7 +75,7 @@ Interaction
 
 Vector layer interaction is achieved through the SelectFeatureControl. This control
 allows selection of features, using DOM events to capture which feature is clicked
-on. 
+on.
 
 To handle feature events on a Vector Layer, you use the SelectFeature control,
 in combination with an event listener registered on the layer, on the
@@ -85,7 +85,7 @@ in combination with an event listener registered on the layer, on the
 
     function selected (evt) {
         alert(evt.feature.id + " selected on " + this.name);
-    }    
+    }
     var layer = new OpenLayes.Layer.Vector("VLayer");
     layer.events.register("featureselected", layer, selected);
 
@@ -105,10 +105,10 @@ a single vector layer at a time. The layer which is currently being used for
 selection is the last one on which the ``.activate()`` method of the attached
 select feature control was called.
 
-Layer Types 
+Layer Types
 ###########
 * :ref:`layer.vector` (Base Class)
-* :ref:`layer.gml` -- can load many different types of data. 
+* :ref:`layer.gml` -- can load many different types of data.
 * :ref:`layer.pointtrack`
 * :ref:`layer.wfs`
 
@@ -123,7 +123,7 @@ features. Their interaction method differs significantly from vector layers.
 
 In general, Markers are the 'older' way to interact with geographic data in
 the browser. Most new code should, where possible, use vector layers in place
-of marker layers. 
+of marker layers.
 
 Interaction
 ###########
@@ -135,7 +135,7 @@ individual marker event property:
 
     var marker = new OpenLayers.Marker(lonlat);
     marker.id = "1";
-    marker.events.register("mousedown", marker, function() { 
+    marker.events.register("mousedown", marker, function() {
         alert(this.id);
     });
 
@@ -178,7 +178,7 @@ To mimic the loading behavior of a :ref:`layer.text` Layer or a
 In either case, the way for controlling the behavior of the feature selection
 is the same.
 
-Loading data with a GML Layer 
+Loading data with a GML Layer
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 The :ref:`layer.gml` Layer is a simple "Load data from a URL once" data layer.
@@ -186,7 +186,7 @@ You provide it a URL, and a format to use, and it will load the data from the
 URL, and parse it according to the format.
 
 .. code-block:: javascript
-  
+
     var layer = new OpenLayers.Layer.GML("Layer Name",
        "http://example.com/url/of/data.txt",
        { format: OpenLayers.Format.Text });
@@ -200,8 +200,8 @@ Styling Data
 ############
 
 Some data formats do not include styling information, like GeoRSS. In order to
-match the default OpenLayers style to the default marker in OpenLayers, you 
-should create a StyleMap that matches the default OpenLayers style:
+match the default OpenLayers 2 style to the default marker in OpenLayers 2, you
+should create a StyleMap that matches the default OpenLayers 2 style:
 
 .. code-block:: javascript
 
@@ -211,31 +211,31 @@ should create a StyleMap that matches the default OpenLayers style:
        'graphicWidth': 21,
        'graphicXOffset': -10.5,
        'graphicYOffset': -12.5
-   });    
+   });
 
    var styleMap = new OpenLayers.StyleMap({'default':style});
 
    var layer = new OpenLayers.Layer.GML("Layer Name",
       "http://example.com/url/of/data.txt",
-      { 
+      {
         format: OpenLayers.Format.GeoRSS,
-        styleMap: styleMap 
+        styleMap: styleMap
       }
    );
 
-Using a style map like this will result in no visible difference when your 
-feature is selected. To create a different style for selection -- for 
+Using a style map like this will result in no visible difference when your
+feature is selected. To create a different style for selection -- for
 example, with a different marker color -- you could craft a second style
-object, and instead create your styleMap like:  
+object, and instead create your styleMap like:
 
-.. code-block:: javascript    
-    
+.. code-block:: javascript
+
     var styleMap = new OpenLayers.StyleMap({
         'default': style,
         'select': selectStyle
     });
 
-For more information on styling your features, see the :ref:`styling` or :ref:`stylemap` documentation. 
+For more information on styling your features, see the :ref:`styling` or :ref:`stylemap` documentation.
 
 Displaying Popups
 #################
@@ -244,7 +244,7 @@ The :ref:`layer.text` Layer and the :ref:`layer.georss` Layer open popups
 containing title and description text for the feature when clicked. Replicating
 this behavior in your application is easy.
 
-First, define a set of functions for managing your popup. 
+First, define a set of functions for managing your popup.
 
 .. code-block:: javascript
 
@@ -254,10 +254,10 @@ First, define a set of functions for managing your popup.
     }
     function onFeatureSelect(evt) {
         feature = evt.feature;
-        popup = new OpenLayers.Popup.FramedCloud("featurePopup", 
+        popup = new OpenLayers.Popup.FramedCloud("featurePopup",
                                  feature.geometry.getBounds().getCenterLonLat(),
                                  new OpenLayers.Size(100,100),
-                                 "<h2>"+feature.attributes.title + "</h2>" + 
+                                 "<h2>"+feature.attributes.title + "</h2>" +
                                  feature.attributes.description,
                                  null, true, onPopupClose);
         feature.popup = popup;
@@ -299,7 +299,7 @@ Layer, but you can do the same with a KML layer by changing the 'title' to
 in addition, to create a link to the feature.
 
 It is worth noting that this content -- passed to the FramedPopup constructor
--- is set using innerHTML, and as such, is subject to XSS attacks if the 
+-- is set using innerHTML, and as such, is subject to XSS attacks if the
 content in question is untrusted. If you can not trust the content in your
 source files, you should employ some type of stripping to remove possibly
 malicious content before setting the popup content to protect your site
@@ -307,6 +307,6 @@ from XSS attacks.
 
 Once you've done this, you can customize the behavior of your layer to your
 heart's content. Change the layout of your popup HTML, change the type of
-popup, or change the click behavior to instead open a new window -- it's 
+popup, or change the click behavior to instead open a new window -- it's
 all possible, and simple, with the functionality provided by the vector
-layers and SelectFeatureControl.  
+layers and SelectFeatureControl.

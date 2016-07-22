@@ -2,13 +2,13 @@
 Formats
 =======
 
-Formats are classes that parse different sources of data into OpenLayers 
+Formats are classes that parse different sources of data into OpenLayers 2
 internal objects. Most (but not all) formats are centered around reading data
 from an XML DOM or a string and converting them to OpenLayers.Feature.Vector
 objects.
 
-Formats are a way of transforming data from a server to objects that 
-OpenLayers can interact with.
+Formats are a way of transforming data from a server to objects that
+OpenLayers 2 can interact with.
 
 
 Built In Formats
@@ -20,24 +20,24 @@ KML
 ---
 
 The KML format reads KML data and returns an array of OpenLayers.Feature.Vector
-objects. 
+objects.
 
-The KML parser supports parsing local and remote styles. 
+The KML parser supports parsing local and remote styles.
 
 The KML parser supports fetching network links.
 
 For fetching remoteData, the maxDepth option must be greater than 0. This
-option tells the KML parser how far the traverse before giving up. 
+option tells the KML parser how far the traverse before giving up.
 
 .. #1796, #1877
 
 *Note*: Prior to OpenLayers 2.8, the maxDepth option was broken. No setting in
-the KML format would cause it to fetch network links or remote styles. 
+the KML format would cause it to fetch network links or remote styles.
 
 Creating Custom Formats
 +++++++++++++++++++++++
 
-Creating custom formats, particularly for use with OpenLayers Protocols, is
+Creating custom formats, particularly for use with OpenLayers 2 Protocols, is
 relatively easy: simply create a subclass of Format that has a 'read' method
 which takes in a string, and returns an array of features.
 
@@ -59,7 +59,7 @@ which takes in a string, and returns an array of features.
           }
           return features;
       }
-  });    
+  });
 
 This will read an XML document that has a series of 'line' XML elements with
 WKT embedded in each of them. It can be used with a "'format: MyFormatClass'

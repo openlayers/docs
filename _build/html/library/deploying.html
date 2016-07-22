@@ -1,0 +1,380 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Deploying (Shipping OpenLayers in your Application) &mdash; OpenLayers</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="OpenLayers" href="../index.html" />
+    <link rel="up" title="OpenLayers Library Documentation" href="index.html" />
+    <link rel="next" title="Requesting Remote Data" href="request.html" />
+    <link rel="prev" title="Mobile Browsing" href="mobile.html" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/website.css" type="text/css" />
+  <meta name="verify-v1" content="p07VY29NG/hLEwVP1RyE0P1chgYyekPikjkMUEgrVAI=" />
+  <!--[if lt IE 7]>
+  <script defer="defer" type="text/javascript" src="http://openlayers.org/pngfix.js"></script>
+  <![endif]-->
+  <style type='text/css'>
+    body {
+     font-family: sans-serif;
+     font-size: .9em;
+    }
+  </style>
+
+  </head>
+  <body role="document">
+<div id="olbanner">
+<img class="openlayersbannerimg" src="http://openlayers.org/two/images/OpenLayers.trac.png" style="height: 44px; width: 49px;border:0px" alt="OpenLayers" />
+<a class="openlayersbanner" href="http://www.openlayers.org/two/" >
+OpenLayers 2</a>
+</div>
+<div id="navcontainer">
+<a class="navtabtraccurrent" href="http://www.openlayers.org">Home</a>
+<a class="navtab" href="http://trac.osgeo.org/openlayers">Support &amp; Development</a>
+</div>
+
+<div id="mainnav" class="nav"><ul><li class="first"><a href="http://www.openlayers.org/sponsorship/">Sponsorship</a></li><li><a href="http://trac.openlayers.org/wiki" accesskey="1">Wiki</a></li><li><a href="http://openlayers.org/blog/">Blog</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/FrequentlyAskedQuestions">FAQ</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/HowToDownload" accesskey="3">Download</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/MailingLists">Email Lists</a></li></ul></div>
+
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="request.html" title="Requesting Remote Data"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="mobile.html" title="Mobile Browsing"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">OpenLayers</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../contents.html" >Table of Contents</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">OpenLayers Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Deploying (Shipping OpenLayers in your Application)</a><ul>
+<li><a class="reference internal" href="#single-file-build">Single File Build</a><ul>
+<li><a class="reference internal" href="#building-the-single-file-build">Building the Single File Build</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#custom-build-profiles">Custom Build Profiles</a></li>
+<li><a class="reference internal" href="#deploying-files">Deploying Files</a></li>
+<li><a class="reference internal" href="#minimizing-build-size">Minimizing Build Size</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../contents.html">Table of Contents</a><ul>
+  <li><a href="index.html">OpenLayers Library Documentation</a><ul>
+      <li>Previous: <a href="mobile.html" title="previous chapter">Mobile Browsing</a></li>
+      <li>Next: <a href="request.html" title="next chapter">Requesting Remote Data</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/deploying.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div><div class="body">
+<h3 style="background-color: yellow">You are viewing outdated docs</h3>
+<p>OpenLayers 2.x is not under active development any more. Go to <a href="http://openlayers.org/en/latest/doc/">http://openlayers.org/en/latest/doc/</a> to view the latest OpenLayers 3.x docs.</p>
+</div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="deploying-shipping-openlayers-in-your-application">
+<h1>Deploying (Shipping OpenLayers in your Application)<a class="headerlink" href="#deploying-shipping-openlayers-in-your-application" title="Permalink to this headline">¶</a></h1>
+<p>OpenLayers comes with pre-configured examples out of the box: simply download
+a release of OpenLayers, and you get a full set of easy to use examples.
+However, these examples are designed to be used for development. When you&#8217;re
+ready to deploy your application, you want a highly optimized OpenLayers
+distribution, to limit bandwidth and loading time.</p>
+<div class="section" id="single-file-build">
+<h2>Single File Build<a class="headerlink" href="#single-file-build" title="Permalink to this headline">¶</a></h2>
+<p>OpenLayers has two different types of usage: Single File, where all Javascript
+code is compiled into a single file, OpenLayers.js, and the development
+version, where Javascript files are all loaded at application start time.  The
+single file build takes a set of OpenLayers Javascript files, orders them
+according to dependencies described in the files, and optionally compresses the resulting
+file, using a compression library.</p>
+<p>Building a single file version of the OpenLayers library changes the behavior
+of the library slightly: by default, the development version of OpenLayers
+expects to live in a directory called &#8220;lib&#8221;, and expects that images and
+CSS live in the directory above the OpenLayers.js file:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">img</span><span class="o">/</span><span class="n">panning</span><span class="o">-</span><span class="n">hand</span><span class="o">-</span><span class="n">off</span><span class="o">.</span><span class="n">png</span>
+<span class="n">theme</span><span class="o">/</span><span class="n">default</span><span class="o">/</span><span class="n">style</span><span class="o">.</span><span class="n">css</span>
+<span class="n">lib</span><span class="o">/</span><span class="n">OpenLayers</span><span class="o">.</span><span class="n">js</span>
+<span class="n">lib</span><span class="o">/</span><span class="n">OpenLayers</span><span class="o">/</span><span class="n">Map</span><span class="o">.</span><span class="n">js</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>However, when deploying a single file build of OpenLayers, it is expected that
+the library will instead be at the same level as the theme and img
+directories:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">OpenLayers</span><span class="o">.</span><span class="n">js</span>
+<span class="n">theme</span><span class="o">/</span><span class="n">default</span><span class="o">/</span><span class="n">style</span><span class="o">.</span><span class="n">css</span>
+<span class="n">img</span><span class="o">/</span><span class="n">panning</span><span class="o">-</span><span class="n">hand</span><span class="o">-</span><span class="n">off</span><span class="o">.</span><span class="n">png</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<div class="section" id="building-the-single-file-build">
+<h3>Building the Single File Build<a class="headerlink" href="#building-the-single-file-build" title="Permalink to this headline">¶</a></h3>
+<p>The single file build tools are deployed with an OpenLayers release in the
+&#8216;build&#8217; directory. The tools require Python in order to build.</p>
+<p>On Linux and other similar operating systems, given that OpenLayers is stored
+in the &#8216;openlayers&#8217; directory, a single file build could be created by
+issuing the following commands:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">openlayers</span><span class="o">/</span><span class="n">build</span>
+<span class="o">./</span><span class="n">build</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>This would create a file in the build directory called &#8220;OpenLayers.js&#8221;, which
+contains all the library code for your single file build of OpenLayers.</p>
+<p>In Windows, from the Start Menu, select Run. Copy the path to build.py from the address bar of the Explorer Window into the text box and then add the name of the configuration file (or blank for the default):</p>
+<blockquote>
+<div>C:\Downloads\OpenLayers-2.6\build\build.py lite</div></blockquote>
+</div>
+</div>
+<div class="section" id="custom-build-profiles">
+<h2>Custom Build Profiles<a class="headerlink" href="#custom-build-profiles" title="Permalink to this headline">¶</a></h2>
+<p>In order to optimize the end-user&#8217;s experience, the OpenLayers distribution
+includes tools which allow you to build your own single file version of the
+code. This code uses a configuration file to choose which files should be
+included in the build: In this way, for production use, you can remove classes
+from your OpenLayers JavaScript library file which are not used in your
+application.</p>
+<p>OpenLayers ships with two standard configurations to create a single file
+version:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>full:</dt>
+<dd>This is the full build with all files.</dd>
+<dt>lite:</dt>
+<dd>This file includes a small subset of OpenLayers code, designed to be
+integrated into another application. It includes only the Layer types
+neccesary to create tiled or untiled WMS, and does not include any
+Controls. This is the result of what was at the time called &#8220;Webmap.js&#8221;
+at the FOSS4G 2006 Web Mapping BOF.</dd>
+</dl>
+</div></blockquote>
+<p>Profiles are simple to create. You can start by copying lite.cfg
+to something else, e.g. myversion.cfg in the build directory.</p>
+<p>To build a profile, you should add files needed for your application to the
+&#8216;[include]&#8217; section of the file. The files listed here should be the list of
+files containing any class you use in your application. You can typically find
+these classes by looking through your code for any cases where &#8216;new
+OpenLayers.ClassName()&#8217; is used. The build program will then go through these
+classes and add whatever classes are required by the classes in the &#8216;[include]&#8217; section
+(defined by <a class="reference external" href="mailto:'&#37;&#52;&#48;requires">'<span>&#64;</span>requires</a>&#8216; at the top of each class file).</p>
+<p>Taking the &#8216;lite.html&#8217; example, we see that there are two &#8216;new&#8217; statements in
+the file: one for the OpenLayers.Map class, and one for the
+OpenLayers.Layer.WMS class. We then add the corresponding files to our include
+section:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">include</span><span class="p">]</span>
+<span class="n">OpenLayers</span><span class="o">/</span><span class="n">Map</span><span class="o">.</span><span class="n">js</span>
+<span class="n">OpenLayers</span><span class="o">/</span><span class="n">Layer</span><span class="o">/</span><span class="n">WMS</span><span class="o">.</span><span class="n">js</span>
+</pre></div>
+</div>
+<p>Once we have done that, we can build our profile by adding the profile name
+to the end of our earlier build command:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">build</span><span class="o">.</span><span class="n">py</span> <span class="n">myversion</span>
+</pre></div>
+</div>
+<p>This will create a much smaller OpenLayers version, suitable for limited
+applications.</p>
+<p>Note that there is one major exception to the process above of looking for &#8216;new
+OpenLayers.ClassName()&#8217;. If you are using a vector layer, you need to specify
+which renderers you wish to cater for. When you load a vector layer, OpenLayers
+checks to see which renderer the browser supports, and currently has renderer
+classes to support SVG (the most widely used in browsers), Canvas, and VML
+(used by Internet Explorer). You can see an example of how to include these in &#8216;mobile.cfg&#8217;,
+which includes SVG and Canvas, but not VML, which is not used in browsers in mobile devices.</p>
+<p>All applications can benefit from a custom build profile. OpenLayers
+supports many different layer types, but most applications will only use one
+or two, and many applications do not need the full support of many of the
+features in OpenLayers. In order to limit your download time and library
+size, building a custom profile is highly recommended before deploying an
+OpenLayers application: it can help shrink the size of your library by a
+factor of five over using the full library.</p>
+</div>
+<div class="section" id="deploying-files">
+<h2>Deploying Files<a class="headerlink" href="#deploying-files" title="Permalink to this headline">¶</a></h2>
+<p>In order to deploy OpenLayers, there are several different pieces that must
+be deployed.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>OpenLayers.js</dt>
+<dd>The library. This provides the JavaScript code for your application to
+use.</dd>
+<dt>theme directory</dt>
+<dd>The theme directory contains CSS and image files for newer controls,
+whose styling and positioning is controlled entirely by CSS.</dd>
+<dt>img directory</dt>
+<dd>This directory provides images to be used for some controls, like the
+PanZoom control, which do not use CSS for styling.</dd>
+</dl>
+</div></blockquote>
+<p>As described above, by default when deploying these files with a single-file OpenLayers
+build, they should all live in the same directory. You can however override this:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>theme (css file)</dt>
+<dd>simply include the css file in a &lt;link&gt; tag on your page(s), and specify <code class="docutils literal"><span class="pre">theme:</span> <span class="pre">null</span></code> as an option to your map instance (see example below)</dd>
+<dt>img</dt>
+<dd><p class="first">set <code class="docutils literal"><span class="pre">OpenLayers.ImgPath</span></code> at the beginning of your script, for example</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="n">OpenLayers</span><span class="o">.</span><span class="n">ImgPath</span> <span class="o">=</span> <span class="s2">&quot;/css/img/&quot;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+<p>Note that you should also do this if you name your build something other than OpenLayers.js.</p>
+</div>
+<div class="section" id="minimizing-build-size">
+<h2>Minimizing Build Size<a class="headerlink" href="#minimizing-build-size" title="Permalink to this headline">¶</a></h2>
+<p>In order to minimize the size of the files delivered to the client, there are
+two important factors: minimizing the size of all downloads (via whitespace
+removal, for example) and delivering compressed data to clients which
+support it.</p>
+<p>There are three types of data that OpenLayers uses, and each has a different
+means of compression.</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Control Images</p>
+<p>Control images are generally PNG images. These images should be compressed
+with png compression tools like pngcrush to create the minimal png images.
+The images provided with OpenLayers (both for CSS-styled and non-CSS
+styled controls) have had this applied to them, so these images are
+already minimized.</p>
+</li>
+<li><p class="first">CSS</p>
+<p><a class="reference external" href="http://csstidy.sourceforge.net/">csstidy</a> is a library which removes whitespace from CSS stylesheets.
+By using csstidy, you can reduce the size of OpenLayers stylesheets
+by approximately 30%.</p>
+<p>Releases of OpenLayers beyond 2.10 include CSS tidy stylesheets in
+the theme directory with .tidy. in the name. To take advantage of
+these stylesheets, you should create your map with a null theme,
+and include the stylesheet directly in the page.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">link</span> <span class="n">rel</span><span class="o">=</span><span class="s2">&quot;stylesheet&quot;</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;../theme/default/style.tidy.css&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text/css&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>
+    <span class="n">new</span> <span class="n">OpenLayers</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="s2">&quot;map&quot;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="n">theme</span><span class="p">:</span> <span class="n">null</span>
+    <span class="p">});</span>
+<span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Javascript</p>
+<p>The singlefile build tools have support for a number of tools which can
+remove whitespace from Javascript, including jsmin (from Douglas Crockford)
+and the Closure Compiler (from Google).</p>
+<p>When running the build tool, you can specify using the closure compiler
+by using the &#8216;-c closure&#8217; option to the build.py tool. Closure&#8217;s compiler
+with the default optimizations gives approximately a 20% savings over
+jsmin&#8217;s compression.</p>
+<p>The options available for compression are:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">closure</p>
+<p>This requires you to have a closure-compiler.jar in your
+tools directory. You can do this by fetching the compiler
+from:</p>
+<blockquote>
+<div><p><a class="reference external" href="http://closure-compiler.googlecode.com/files/compiler-latest.zip">http://closure-compiler.googlecode.com/files/compiler-latest.zip</a></p>
+</div></blockquote>
+<p>Then unzipping that file, and placing compiler.jar into tools
+and renaming it closure-compiler.jar.</p>
+</li>
+<li><p class="first">closure_ws</p>
+<p>This uses the closure compiler webservice. This will only work
+for files source Javascript files which are under 1MB. (Note that
+the default OpenLayers full build is not under 1MB.)</p>
+</li>
+<li><p class="first">jsmin</p>
+<p>jsmin is the default compiler, and uses the Python-based
+jsmin script to compress the Javascript.</p>
+</li>
+<li><p class="first">minimize</p>
+<p>This is a simple whitespace removing Python script, designed
+to fill in when other tools are unavailable.</p>
+</li>
+<li><p class="first">none</p>
+<p>None will leave the Javascript uncompressed.</p>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+    &copy; Copyright 2008, OpenLayers.
+    </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-2577926-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+  </body>
+</html>

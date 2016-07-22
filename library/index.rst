@@ -1,8 +1,8 @@
-OpenLayers Library Documentation
+OpenLayers 2 Library Documentation
 ================================
 
 .. toctree::
-   
+
    introduction
    syntax
    layers

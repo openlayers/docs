@@ -1,0 +1,335 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Getting Started &mdash; OpenLayers</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="OpenLayers" href="../index.html" />
+    <link rel="up" title="OpenLayers Library Documentation" href="index.html" />
+    <link rel="next" title="Understanding OpenLayers Syntax" href="syntax.html" />
+    <link rel="prev" title="OpenLayers Library Documentation" href="index.html" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="http://openlayers.org/two/css/website.css" type="text/css" />
+  <meta name="verify-v1" content="p07VY29NG/hLEwVP1RyE0P1chgYyekPikjkMUEgrVAI=" />
+  <!--[if lt IE 7]>
+  <script defer="defer" type="text/javascript" src="http://openlayers.org/pngfix.js"></script>
+  <![endif]-->
+  <style type='text/css'>
+    body {
+     font-family: sans-serif;
+     font-size: .9em;
+    }
+  </style>
+
+  </head>
+  <body role="document">
+<div id="olbanner">
+<img class="openlayersbannerimg" src="http://openlayers.org/two/images/OpenLayers.trac.png" style="height: 44px; width: 49px;border:0px" alt="OpenLayers" />
+<a class="openlayersbanner" href="http://www.openlayers.org/two/" >
+OpenLayers 2</a>
+</div>
+<div id="navcontainer">
+<a class="navtabtraccurrent" href="http://www.openlayers.org">Home</a>
+<a class="navtab" href="http://trac.osgeo.org/openlayers">Support &amp; Development</a>
+</div>
+
+<div id="mainnav" class="nav"><ul><li class="first"><a href="http://www.openlayers.org/sponsorship/">Sponsorship</a></li><li><a href="http://trac.openlayers.org/wiki" accesskey="1">Wiki</a></li><li><a href="http://openlayers.org/blog/">Blog</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/FrequentlyAskedQuestions">FAQ</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/HowToDownload" accesskey="3">Download</a></li><li><a href="http://trac.osgeo.org/openlayers/wiki/MailingLists">Email Lists</a></li></ul></div>
+
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="syntax.html" title="Understanding OpenLayers Syntax"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="index.html" title="OpenLayers Library Documentation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">OpenLayers</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../contents.html" >Table of Contents</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">OpenLayers Library Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Getting Started</a><ul>
+<li><a class="reference internal" href="#creating-your-first-map">Creating Your First Map</a><ul>
+<li><a class="reference internal" href="#crafting-html">Crafting HTML</a></li>
+<li><a class="reference internal" href="#creating-the-map-viewer">Creating the Map Viewer</a></li>
+<li><a class="reference internal" href="#putting-it-all-together">Putting it All Together</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#adding-an-overlay-wms">Adding an Overlay WMS</a></li>
+<li><a class="reference internal" href="#adding-a-vector-marker-to-the-map">Adding a Vector Marker to the Map</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../contents.html">Table of Contents</a><ul>
+  <li><a href="index.html">OpenLayers Library Documentation</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">OpenLayers Library Documentation</a></li>
+      <li>Next: <a href="syntax.html" title="next chapter">Understanding OpenLayers Syntax</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/introduction.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div><div class="body">
+<h3 style="background-color: yellow">You are viewing outdated docs</h3>
+<p>OpenLayers 2.x is not under active development any more. Go to <a href="http://openlayers.org/en/latest/doc/">http://openlayers.org/en/latest/doc/</a> to view the latest OpenLayers 3.x docs.</p>
+</div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="creating-your-first-map">
+<h2>Creating Your First Map<a class="headerlink" href="#creating-your-first-map" title="Permalink to this headline">¶</a></h2>
+<p>The OpenLayers API has two concepts which are important to understand in
+order to build your first map: &#8216;Map&#8217;, and &#8216;Layer&#8217;. An OpenLayers Map
+stores information about the default projection, extents, units, and so
+on of the map. Inside the map, data is displayed via &#8216;Layer&#8217;s. A Layer
+is a data source &#8211; information about how OpenLayers should request data
+and display it.</p>
+<div class="section" id="crafting-html">
+<h3>Crafting HTML<a class="headerlink" href="#crafting-html" title="Permalink to this headline">¶</a></h3>
+<p>Building an OpenLayers viewer requires crafting HTML in which your
+viewer will be seen. OpenLayers supports putting a map inside of any
+block level element &#8211; this means that it can be used to put a map in
+almost any HTML element on your page.</p>
+<p>In addition to a single block level element, it is also required to
+include a script tag which includes the OpenLayers library to the
+page.</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>OpenLayers Example<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;http://openlayers.org/api/OpenLayers.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:100%; height:100%&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;map&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p><strong>Ex. 1</strong>: Creating your first HTML Page</p>
+</div>
+<div class="section" id="creating-the-map-viewer">
+<h3>Creating the Map Viewer<a class="headerlink" href="#creating-the-map-viewer" title="Permalink to this headline">¶</a></h3>
+<p>In order to create the viewer, you must first create a map. The
+OpenLayers.Map constructor requires one argument: This argument must
+either be an HTML Element, or the ID of an HTML element. This is the
+element in which the map will be placed.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Map</span><span class="p">(</span><span class="s1">&#39;map&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><strong>Ex. 2:</strong> Map Constructor</p>
+<p>The next step to creating a viewer is to add a layer to the Map.
+OpenLayers supports many different data sources, from WMS to Yahoo! Maps
+to WorldWind. In this example, the WMS layer is used. The WMS layer is
+an example provided by MetaCarta.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">wms</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">WMS</span><span class="p">(</span>
+  <span class="s2">&quot;OpenLayers WMS&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;http://vmap0.tiles.osgeo.org/wms/vmap0&quot;</span><span class="p">,</span>
+  <span class="p">{</span><span class="s1">&#39;layers&#39;</span><span class="o">:</span><span class="s1">&#39;basic&#39;</span><span class="p">}</span> <span class="p">);</span>
+<span class="nx">map</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">wms</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><strong>Ex. 3:</strong> Layer Constructor</p>
+<p>The first parameter in this constructor is the name of the layer,
+which is used for some display purposes. The second
+argument is the URL of the WMS server.
+The third argument is an object containing the parameterss to be
+appended to the WMS request.</p>
+<p>Finally, in order to display the map, you must set a center and zoom
+level. In order to zoom to fit the map into the window, you can use the
+zoomToMaxExtent function, which will zoom as close as possible while
+still fitting the full extents within the window.</p>
+</div>
+<div class="section" id="putting-it-all-together">
+<h3>Putting it All Together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this headline">¶</a></h3>
+<p>The following code block puts all the pieces together to create an
+OpenLayers viewer.</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>OpenLayers Example<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;http://openlayers.org/api/OpenLayers.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:100%; height:100%&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;map&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">script</span> <span class="na">defer</span><span class="o">=</span><span class="s">&quot;defer&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
+        <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Map</span><span class="p">(</span><span class="s1">&#39;map&#39;</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">wms</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">WMS</span><span class="p">(</span> <span class="s2">&quot;OpenLayers WMS&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;http://vmap0.tiles.osgeo.org/wms/vmap0&quot;</span><span class="p">,</span> <span class="p">{</span><span class="nx">layers</span><span class="o">:</span> <span class="s1">&#39;basic&#39;</span><span class="p">}</span> <span class="p">);</span>
+        <span class="nx">map</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">wms</span><span class="p">);</span>
+        <span class="nx">map</span><span class="p">.</span><span class="nx">zoomToMaxExtent</span><span class="p">();</span>
+      <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p><strong>Ex. 4:</strong> Full HTML and Javascript for simple WMS browser</p>
+</div>
+</div>
+<div class="section" id="adding-an-overlay-wms">
+<h2>Adding an Overlay WMS<a class="headerlink" href="#adding-an-overlay-wms" title="Permalink to this headline">¶</a></h2>
+<p>WMS layers have the capability to be overlaid on top of other WMS layers in
+the same projection. There are several ways to mark a layer as an overlay,
+rather than a base layer. With WMS, the best way to do this is by setting the
+&#8216;transparent&#8217; parameter to &#8216;true&#8217;. The example here uses a political borders
+WMS to demonstrate overlaying a transparent WMS.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">dm_wms</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">WMS</span><span class="p">(</span>
+    <span class="s2">&quot;Canadian Data&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;http://www2.dmsolutions.ca/cgi-bin/mswms_gmap&quot;</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="nx">layers</span><span class="o">:</span> <span class="s2">&quot;bathymetry,land_fn,park,drain_fn,drainage,&quot;</span> <span class="o">+</span>
+                <span class="s2">&quot;prov_bound,fedlimit,rail,road,popplace&quot;</span><span class="p">,</span>
+        <span class="nx">transparent</span><span class="o">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+        <span class="nx">format</span><span class="o">:</span> <span class="s2">&quot;image/png&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span><span class="nx">isBaseLayer</span><span class="o">:</span> <span class="kc">false</span><span class="p">}</span>
+<span class="p">);</span>
+<span class="nx">map</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">dm_wms</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><strong>Ex. 5:</strong> How to add a transparent WMS overlay to your map.</p>
+<p>Using the transparent: &#8216;true&#8217; parameter sets two flags automatically:</p>
+<blockquote>
+<div><ul class="simple">
+<li>format parameter. The format option of the WMS layer is set to image/png if
+the browser supports transparent PNG images. (This is all browsers except
+for Internet Explorer 6.) In Internet Explorer 6, this will instead be set
+to image/gif.</li>
+<li>isBaseLayer option. The isBaseLayer option controls whether the layer
+can be displayed at the same time as other layers. This option defaults
+to false for the WMS layer, but setting transparent to true changes
+it to true by default.</li>
+</ul>
+</div></blockquote>
+<p>Putting this code together with our earlier example, we get the following:</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>OpenLayers Example<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;http://openlayers.org/api/OpenLayers.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:100%; height:100%&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;map&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">script</span> <span class="na">defer</span><span class="o">=</span><span class="s">&quot;defer&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
+        <span class="kd">var</span> <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Map</span><span class="p">(</span><span class="s1">&#39;map&#39;</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">wms</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">WMS</span><span class="p">(</span> <span class="s2">&quot;OpenLayers WMS&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;http://vmap0.tiles.osgeo.org/wms/vmap0&quot;</span><span class="p">,</span> <span class="p">{</span><span class="nx">layers</span><span class="o">:</span> <span class="s1">&#39;basic&#39;</span><span class="p">}</span> <span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">dm_wms</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OpenLayers</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">WMS</span><span class="p">(</span>
+            <span class="s2">&quot;Canadian Data&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;http://www2.dmsolutions.ca/cgi-bin/mswms_gmap&quot;</span><span class="p">,</span>
+            <span class="p">{</span>
+                <span class="nx">layers</span><span class="o">:</span> <span class="s2">&quot;bathymetry,land_fn,park,drain_fn,drainage,&quot;</span> <span class="o">+</span>
+                        <span class="s2">&quot;prov_bound,fedlimit,rail,road,popplace&quot;</span><span class="p">,</span>
+                <span class="nx">transparent</span><span class="o">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+                <span class="nx">format</span><span class="o">:</span> <span class="s2">&quot;image/png&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span><span class="nx">isBaseLayer</span><span class="o">:</span> <span class="kc">false</span><span class="p">}</span>
+        <span class="p">);</span>
+        <span class="nx">map</span><span class="p">.</span><span class="nx">addLayers</span><span class="p">([</span><span class="nx">wms</span><span class="p">,</span> <span class="nx">dm_wms</span><span class="p">]);</span>
+        <span class="nx">map</span><span class="p">.</span><span class="nx">zoomToMaxExtent</span><span class="p">();</span>
+      <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p><strong>Ex. 6:</strong> How to add a transparent WMS overlay to your map.</p>
+<p>One thing to note here is that we have used addLayers on the map object
+to add both layers at the same time. This allows us to save a line of
+code in this case, and may be useful in other cases when you need to
+add multiple layers to the map at the same time.</p>
+</div>
+<div class="section" id="adding-a-vector-marker-to-the-map">
+<h2>Adding a Vector Marker to the Map<a class="headerlink" href="#adding-a-vector-marker-to-the-map" title="Permalink to this headline">¶</a></h2>
+<p>To add a single marker at a latitude and longitude to the map, you can use
+a Vector Layer to add an overlay.</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span>var vectorLayer = new OpenLayers.Layer.Vector(&quot;Overlay&quot;);
+var feature = new OpenLayers.Feature.Vector(
+ new OpenLayers.Geometry.Point(-71, 42),
+ {some:&#39;data&#39;},
+ {externalGraphic: &#39;img/marker.png&#39;, graphicHeight: 21, graphicWidth: 16});
+vectorLayer.addFeatures(feature);
+map.addLayer(vectorLayer);
+</pre></div>
+</div>
+<p>This is a simple demonstration &#8211; more information is available on overlays,
+how to interact with them, and how to control and style them via the
+<a class="reference internal" href="feature_styling.html#styling"><span class="std std-ref">Styling</span></a> and <a class="reference internal" href="overlays.html#overlays"><span class="std std-ref">Overlays</span></a> documentation.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+    &copy; Copyright 2008, OpenLayers.
+    </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-2577926-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+  </body>
+</html>
